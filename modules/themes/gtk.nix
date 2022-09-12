@@ -5,7 +5,7 @@
     enable = true;
     theme = {
       name = "WhiteSur-dark";
-      package = pkgs.whitesur-gtk-theme; 
+      package = pkgs.whitesur-gtk-theme;
     };
     cursorTheme = {
       name = "Capitaine Cursors";

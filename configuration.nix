@@ -14,6 +14,8 @@
     ./modules/fonts
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   # For minecraft over lan to work
   networking.firewall.enable = false;
 
@@ -37,8 +39,6 @@
       options = "--delete-older-than 1d";
     };
   };
-
-  nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "America/Chicago";
 

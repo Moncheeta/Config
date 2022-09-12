@@ -10,6 +10,7 @@
 
   home.packages = with pkgs; [
     ## Applications
+    dmenu
     spotify
     discord
     betterdiscordctl

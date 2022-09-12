@@ -125,7 +125,9 @@
     <names>
       <name>dev</name>
       <name>web</name>
+      <name>chat</name>
       <name>music</name>
+      <name>other</name>
     </names>
     <popupTime>875</popupTime>
     <!-- The number of milliseconds to show the popup for when switching

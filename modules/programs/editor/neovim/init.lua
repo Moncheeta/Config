@@ -202,10 +202,12 @@ require("gitsigns").setup()
 require("nvim-tree").setup() -- file explorer
 
 require("nvim-treesitter.configs").setup {
-    ensure_installed = "all",
-    auto_install = true,
     highlight = { enable = true },
+    parser_install_dir = "$HOME/Extra/parsers"
 }
+
+require('orgmode').setup_ts_grammar()
+require('orgmode').setup()
 
 require("telescope").setup {
   extensions = {

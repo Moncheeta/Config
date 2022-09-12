@@ -39,8 +39,6 @@
 
     };
     shellInit = ''
-      export $NIXOS_CONFIG_DIR=~/Configs
-
       PF_INFO='ascii title os kernel memory pkgs' pfetch
     '';
   };

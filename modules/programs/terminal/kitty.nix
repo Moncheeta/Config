@@ -8,6 +8,14 @@
       size = 10;
     };
     settings = {
+      cursor_shape = "block";
+
+      scrollback_lines = 10000;
+
+      enable_audio_bell = "no";
+
+      hide_window_decorations = "yes";
+
       background = "#191919";
       foreground = "#c4c4b5";
 

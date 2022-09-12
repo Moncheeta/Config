@@ -14,6 +14,7 @@
     spotify
     discord
     betterdiscordctl
+    cool-retro-term
 
     ## Games
     # Minecraft
@@ -24,6 +25,7 @@
     steam
 
     ## Command Line Programs
+    tldr
     lfs # for checking disks
     bat # better file viewer
     trash-cli

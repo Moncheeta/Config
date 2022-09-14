@@ -175,20 +175,21 @@ a.nvim_set_keymap("n", "<C-m>", ":noh<CR>", { silent = true })
 
 a.nvim_set_keymap("n", "-", "<Plug>(choosewin)", { silent = true })
 a.nvim_set_keymap("n", "<SPACE>", "<Plug>(wildfire-fuel)", { silent = true })
---nmap <F1> vim.lsp.buf.hover()<CR>
---nmap <F2> vim.lsp.buf.definition()<CR>
---nmap <F3> vim.lsp.buf.rename()<CR>
---nmap <F4> :Telescope fzf<CR>
 
---nmap <silent> <F5> :NvimTreeToggle<CR>
---nmap <silent> <F6> :Telescope fd<CR>
---nmap <silent> <F7> :TMToggle<CR>
---nmap <silent> <F8> :ToggleTerm<CR>
+a.nvim_set_keymap("n", "<F1>", "vim.lsp.buf.hover()<CR>", { silent = true })
+a.nvim_set_keymap("n", "<F2>", "vim.lsp.buf.definition()<CR>", { silent = true })
+a.nvim_set_keymap("n", "<F3>", "vim.lsp.buf.rename()<CR>", { silent = true })
+a.nvim_set_keymap("n", "<F4>", ":Telescope fzf<CR>", { silent = true })
 
---nmap <F9> :GV<CR>
---nmap <F10> :Gissues<CR>
---nmap <F11> :Git add .<CR>
---nmap <F12> :Git commit<CR>
+a.nvim_set_keymap("n", "<F5>", ":NvimTreeToggle<CR>", { silent = true })
+a.nvim_set_keymap("n", "<F6>", ":Telescope fd<CR>", { silent = true })
+-- a.nvim_set_keymap("n", "<F7>", "")
+a.nvim_set_keymap("n", "<F8>", ":GV<CR>", { silent = true })
+
+a.nvim_set_keymap("n", "<F9>", ":Gissues<CR>", { silent = true })
+a.nvim_set_keymap("n", "<F10>", ":Git add .<CR>", { silent = false })
+a.nvim_set_keymap("n", "<F11>", ":Git commit<CR>", { silent = true })
+a.nvim_set_keymap("n", "<F12>", ":Git push<CR>", { silent = false})
 
 require("mini.starter").setup() -- a menu screen
 require("mini.comment").setup() -- use gcc to toggle comment

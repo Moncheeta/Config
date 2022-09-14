@@ -34,6 +34,7 @@
       sonokai
       nvim-colorizer-lua
       todo-comments-nvim
+      goyo-vim
 
       # Other
       orgmode

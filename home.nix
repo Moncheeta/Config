@@ -14,12 +14,10 @@
     spotify
     discord
     betterdiscordctl
-    cool-retro-term
 
     ## Games
     # Minecraft
     lunar-client
-    minecraft
 
     # Steam
     steam
@@ -47,9 +45,6 @@
     ## Libs
     libsecret
     xorg.libxcb
-
-    #Drivers
-    canon-cups-ufr2
 
     ## Window Managers
     # openbox

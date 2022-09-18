@@ -81,6 +81,7 @@
 
     systemPackages = with pkgs; [
       nix-index # for nix-locate and other useful programs
+      efibootmgr
       killall
       wget
       pass

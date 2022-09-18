@@ -48,6 +48,9 @@
     libsecret
     xorg.libxcb
 
+    #Drivers
+    canon-cups-ufr2
+
     ## Window Managers
     # openbox
     obconf

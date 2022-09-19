@@ -17,17 +17,30 @@
       lib = nixpkgs.lib;
     in {
       nixosConfigurations = {
-	      moncheeta = lib.nixosSystem {
+	    desktop = lib.nixosSystem {
 	      inherit system;
 	      modules = [
-	        ./configuration.nix
+            ./configuration.nix
+            ./modules/boot/desktop
 	        home-manager.nixosModules.home-manager {
 	          home-manager.useGlobalPkgs = true;
 	          home-manager.useUserPackages = true;
 	          home-manager.users.moncheeta = import ./home.nix;
 	        }
 	      ];
-	      };
+	    };
+	    laptop = lib.nixosSystem {
+	      inherit system;
+	      modules = [
+	        ./configuration.nix
+            ./modules/boot/laptop
+	        home-manager.nixosModules.home-manager {
+	          home-manager.useGlobalPkgs = true;
+	          home-manager.useUserPackages = true;
+	          home-manager.users.moncheeta = import ./home.nix;
+	        }
+	      ];
+	    };
       };
     };
 }

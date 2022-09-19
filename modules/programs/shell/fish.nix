@@ -6,6 +6,7 @@
     shellAliases = {
       ls = "ls -A --color=always";
       ll = "ls -lA --color=always";
+      cp = "cp -v";
       rm = "trash";
       top = "btop";
       bat = "bat -n";

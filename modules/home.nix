@@ -4,6 +4,6 @@
   imports = [
     ./programs
     ./services
-    ./desktop/hyprland
+    ./desktop/hyprland.nix
   ];
 }

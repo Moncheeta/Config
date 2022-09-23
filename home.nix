@@ -14,6 +14,7 @@
     spotify
     discord
     betterdiscordctl
+    pavucontrol
 
     ## Games
     # Minecraft

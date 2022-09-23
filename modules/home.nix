@@ -4,7 +4,6 @@
   imports = [
     ./programs
     ./services
-    ./services
-    ./themes
+    ./desktop/hyprland
   ];
 }

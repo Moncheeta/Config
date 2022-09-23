@@ -3,8 +3,6 @@
 {
   imports = [
     ./displayManager.nix
-    ./kde
-    ./openbox
   ];
 
   # For Wayland

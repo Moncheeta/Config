@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ./gtk.nix
+    ./waybar
   ];
 }

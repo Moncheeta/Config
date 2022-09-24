@@ -50,13 +50,13 @@
       tldr
       lfs # for checking disks
       bat # better file viewer
+      fzf
       trash-cli
       unzip
       fd # find
       ripgrep
       links2 # html web browser
       gh
-      hub # git wrapper
       xclip # clipboard
       btop # top
       glow # markdown in the terminal

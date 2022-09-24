@@ -22,22 +22,22 @@
       restart = "reboot";
       shut = "shutdown now";
 
-      clone = "hub clone --recursive";
-      commit = "hub commit";
-      push = "hub push";
-      merge = "hub merge";
-      new = "hub create";
-      add = "hub add";
-      stat = "hub status";
-      pullreq = "hub pull-request -e";
-      pulllist = "hub pr list --color=always -o popularity";
-      issue = "hub issue --color=always -e";
-
-      cfetch = "tokei";
+      clone = "gh repo clone --recursive";
+      commit = "git commit";
+      push = "git push";
+      merge = "git merge";
+      rebase = "git rebase";
+      create = "gh repo create";
+      delete = "gh repo delete";
+      add = "git add";
+      stat = "gh status";
+      fork = "gh repo fork";
+      pr = "gh pr";
+      issue = "gh issue";
+      release = "gh release";
 
       mail = "himalaya";
       mark = "glow";
-
     };
     shellInit = ''
       PF_INFO='ascii title os kernel memory pkgs' pfetch

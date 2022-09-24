@@ -3,7 +3,7 @@
 {
   programs.neovim = {
     enable = true;
-    extraConfig = "luafile \${NIXOS_CONFIG_DIR}/modules/programs/editor/neovim/init.lua";
+    extraConfig = "luafile \$NIXOS_CONFIG_DIR/modules/programs/editor/neovim/init.lua";
     plugins = with pkgs.vimPlugins; [
       # Language support
       mini-nvim # a bunch of nice plugins

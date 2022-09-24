@@ -3,6 +3,7 @@
 {
   imports = [
     hyprland.homeManagerModules.default
+    ./waybar.nix
   ];
 
   wayland.windowManager.hyprland = {

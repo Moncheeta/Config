@@ -11,7 +11,7 @@
       top = "btop";
       bat = "bat -n";
       cat = "bat -n";
-      fm = "lf";
+      fm = "xplr";
       cls = "clear";
       find = "fd";
       spot = "spotify";
@@ -27,8 +27,7 @@
       push = "git push";
       merge = "git merge";
       rebase = "git rebase";
-      create = "gh repo create";
-      delete = "gh repo delete";
+      repo = "gh repo";
       add = "git add";
       stat = "gh status";
       fork = "gh repo fork";

@@ -13,6 +13,7 @@
       input {
         kb_variant = colemak
         follow_mouse = 0
+        sensitivity = -1
         force_no_accel = true
         touchpad {
           natural_scroll = yes
@@ -28,10 +29,13 @@
 
       decoration {
         rounding = 10
+        active_opacity = 0.8
+        inactive_opacity = 0.8
         blur = 1
         blur_size = 3
         blur_passes = 1
         blur_new_optimizations = 1
+        drop_shadow = false
       }
 
       dwindle {
@@ -40,6 +44,12 @@
 
       gestures {
         workspace_swipe = yes
+      }
+
+      misc {
+        disable_hyprland_logo = true
+        disable_splash_rendering = true
+
       }
       
       bindm = SUPER,mouse:272,movewindow
@@ -76,6 +86,10 @@
 
       bind = SUPER,T,exec,kitty
       bind = SUPER,W,exec,qutebrowser
+
+      windowrulev2=opacity 1,class:^(qutebrowser)$,title:^(qutebrowser)$
+
+      exec-once = swaybg -i $NIXOS_CONFIG_DIR/modules/wallpapers/e30/clean_e30.JPG
     '';
   };
 }

@@ -48,6 +48,7 @@
 
       ## Command Line Programs
       tldr
+      xplr
       lfs # for checking disks
       bat # better file viewer
       fzf
@@ -55,6 +56,7 @@
       unzip
       fd # find
       ripgrep
+      swaybg
       links2 # html web browser
       gh
       xclip # clipboard
@@ -65,6 +67,7 @@
       tokei # code stats
       peaclock # better tty-clock
       cargo
+      hyprpaper # Wallpapers
 
       ## Libs
       libsecret

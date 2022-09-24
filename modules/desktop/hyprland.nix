@@ -10,7 +10,7 @@
     systemdIntegration = true;
     extraConfig = ''
       input {
-        kb_variant = "colemak"
+        kb_variant = colemak
         follow_mouse = 0
         force_no_accel = true
         touchpad {
@@ -21,7 +21,7 @@
       general {
         gaps_in = 5
         gaps_out = 10
-        border_size = 3  
+        border_size = 2 
         damage_tracking = full
       }
 

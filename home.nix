@@ -23,20 +23,17 @@
       "GBM_BACKEND" = "nvidia-drm";
       "__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
       "WLR_NO_HARDWARE_CURSORS" = "1";
-      "NIXOS_CONFIG_DIR" = "\${HOME}/Configs";
-      "XDG_CACHE_HOME"   = "\${HOME}/.cache";
-      "XDG_CONFIG_HOME"  = "\${HOME}/.config";
-      "XDG_BIN_HOME"     = "\${HOME}/.local/bin";
-      "XDG_DATA_HOME"   = "\${HOME}/.local/share";
-      "STEAM_EXTRA_COMPAT_TOOLS_PATHS" = "\${HOME}/.steam/root/compatibilitytools.d";
-      "PATH" = [
-       "\${XDG_BIN_HOME}"
-      ];
+      "NIXOS_CONFIG_DIR" = "$HOME/Configs";
+      "XDG_CACHE_HOME"   = "$HOME/.cache";
+      "XDG_CONFIG_HOME"  = "$HOME/.config";
+      "XDG_BIN_HOME"     = "$HOME/.local/bin";
+      "XDG_DATA_HOME"   = "$HOME/.local/share";
+      "STEAM_EXTRA_COMPAT_TOOLS_PATHS" = "$HOME/.steam/root/compatibilitytools.d";
+      "PATH" = "$XDG_BIN_HOME:$PATH";
     };
 
     packages = with pkgs; [
       ## Applications
-      dmenu
       spotify
       discord
       betterdiscordctl

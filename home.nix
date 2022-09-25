@@ -17,6 +17,7 @@
       TERMINAL = "kitty";
       LIBSEAT_BACKEND = "logind";
       _JAVA_AWT_WM_NONREPARENTING = "1";
+      XDG_CURRENT_DESKTOP = "Unity";
       XCURSOR_SIZE = "24";
       LIBVA_DRIVER_NAME = "nvidia";
       XDG_SESSION_TYPE = "wayland";
@@ -35,8 +36,10 @@
     packages = with pkgs; [
       ## Programs
       # Audio
-      pamixer # for audio
+      pamixer 
       pavucontrol
+      playerctl
+      spotify
 
       # Command Line
       tldr
@@ -52,7 +55,14 @@
       glow # markdown in the terminal
       pfetch # stats
       peaclock # better tty-clock
+
+      ## Programming Languages
+      # Rust
       cargo
+
+      # Python
+      python3
+      python310Packages.pip
 
       # Games
       steam
@@ -60,9 +70,6 @@
 
       # GUI
       nwg-bar # For Shutdown Menu
-
-      # Music
-      spotify
 
       # Libs
       libsecret

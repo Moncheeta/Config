@@ -1,18 +1,15 @@
 { pkgs, ... }:
 
-let
+let 
   patched_waybar = pkgs.waybar.overrideAttrs (oldAttrs: {
-    patches = [
-      ./waybar_patch
-    ];
-    #mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
   });
 in {
   programs.waybar = {
     enable = true;
     package = patched_waybar;
     systemd = {
-      enable = true;
+      enable = false;
       target = "hyprland-session.target";
     };
     settings = {
@@ -22,33 +19,28 @@ in {
         height = 20;
         spacing = 8;
 
-        modules-left = [ "wlr/workspaces" "mpd" ];
+        modules-left = [ "wlr/workspaces" "custom/spotify" ];
         modules-center = [ "hyprland/window" ];
         modules-right = [ "tray" "pulseaudio" "cpu" "memory" "disk" "network" "battery" "clock" ];
-
-        ipc = false;
 
         "wlr/workspaces" = {
           format = "{icon}";
           on-click = "activate";
-          format-icons = [ 
-            ""
-            ""
-            ""
-            ""
-          ];
+          all-outputs = true;
+          format-icons = {
+            "1" = " ";
+            "2" = " ";
+            "3" = " ";
+            "4" =" ";
+          };
         };
 
-        "mpd" = {
-          format = "{stateIcon} {album} - {title}";
-          format-stopped = "Stopped ";
-          format-disconnected = "";
-          state-icons = { 
-            paused = "";
-            playing = "";
-          };
-          tooltip-format = "MPD (connected)";
-          tooltip-format-disconnected = "MPD (disconnected)";
+        "custom/spotify" = {
+            format = " {}";
+            max-length = 40;
+            interval = 0;
+            exec = "$NIXOS_CONFIG_DIR/modules/scripts/mediaplayer.sh";
+            exec-if = "pgrep spotify";
         };
 
         "tray" = {
@@ -58,15 +50,15 @@ in {
 
         "pulseaudio" = {
           format = "{icon} {volume}%";
-          format-bluetooth = "{icon} {volume}%";
-          format-muted = "";
+          format-bluetooth = " {icon} {volume}%";
+          format-muted = " ";
           format-icons = {
-            headphone = "";
-            headset = "";
-            phone = "";
-            portable = "";
-            car = "";
-            default = ["" ""];
+            headphone = " ";
+            headset = " ";
+            phone = " ";
+            portable = " ";
+            car = " ";
+            default = [" " " "];
           };
           scroll-step = 1;
           on-click = "pavucontrol";
@@ -86,8 +78,8 @@ in {
         };
 
         "network" = {
-            format-wifi = "{essid} ";
-            format-ethernet = "{ifname}: {ipaddr}/{cidr} ";
+            format-wifi = "{essid}  ";
+            format-ethernet = "{ifname}: {ipaddr}/{cidr}  ";
             format-disconnected = "Disconnected ⚠";
             interval = 7;
         };
@@ -98,7 +90,7 @@ in {
             critical = 15;
           };
           format = "{icon} {capacity}%";
-          format-icons = ["" "" "" "" ""];
+          format-icons = [" " " " " " " " " "];
         };
 
         "clock" = {
@@ -107,85 +99,86 @@ in {
         };
       };
     };
-    style = ''
-      * {
-        
-      }
-
-      tooltip {
-
-      }
-
-      tooltip label {
-
-      }
-
-      #workspaces {
-        
-      }
-
-      #workspaces button.focused {
-
-      }
-
-      #mpd {
-
-      }
-
-      window#waybar {
-
-      }
-      
-      #tray {
-
-      }
-
-      #pulseaudio {
-
-      }
-
-      #pulseaudio.bluetooth {
-
-      }
-
-      #cpu {
-
-      }
-
-      #memory {
-
-      }
-
-      #disk {
-
-      }
-
-      #network {
-
-      }
-
-      #battery {
-
-      }
-
-      #battery.warning:not(.charging) {
-
-      }
-
-      #battery.critical:not(.charging) {
-
-      }
-
-      #clock {
-
-      }
-
-      @keyframes blink {
-        to {
-          background-color: #ffffff;
-          color: black;
-        }
-      }
-    '';
+    # TODO
+    # style = ''
+    #   * {
+    #
+    #   }
+    #
+    #   tooltip {
+    #
+    #   }
+    #
+    #   tooltip label {
+    #
+    #   }
+    #
+    #   #workspaces {
+    #
+    #   }
+    #
+    #   #workspaces button.focused {
+    #
+    #   }
+    #
+    #   #mpd {
+    #
+    #   }
+    #
+    #   window#waybar {
+    #
+    #   }
+    #
+    #   #tray {
+    #
+    #   }
+    #
+    #   #pulseaudio {
+    #
+    #   }
+    #
+    #   #pulseaudio.bluetooth {
+    #
+    #   }
+    #
+    #   #cpu {
+    #
+    #   }
+    #
+    #   #memory {
+    #
+    #   }
+    #
+    #   #disk {
+    #
+    #   }
+    #
+    #   #network {
+    #
+    #   }
+    #
+    #   #battery {
+    #
+    #   }
+    #
+    #   #battery.warning:not(.charging) {
+    #
+    #   }
+    #
+    #   #battery.critical:not(.charging) {
+    #
+    #   }
+    #
+    #   #clock {
+    #
+    #   }
+    #
+    #   @keyframes blink {
+    #     to {
+    #       background-color: #ffffff;
+    #       color: black;
+    #     }
+    #   }
+    # '';
   };
 }

@@ -11,12 +11,12 @@
       mainbar = {
         layer = "top";
         position = "bottom";
-        height = 30;
-        spacing = 3;
+        height = 20;
+        spacing = 8;
 
         modules-left = [ "wlr/workspaces" "mpd" ];
         modules-center = [ "hyprland/window" ];
-        modules-right = [ "pulseaudio" "cpu" "memory" "disk" "clock" ];
+        modules-right = [ "tray" "pulseaudio" "cpu" "memory" "disk" "network" "battery" "clock" ];
 
         ipc = true;
 
@@ -24,40 +24,51 @@
           format = "{icon}";
           on-click = "activate";
           format-icons = [ 
-            " "
-            " "
-            " "
-            " "
+            ""
+            ""
+            ""
+            ""
           ];
         };
 
         "mpd" = {
           format = "{stateIcon} {album} - {title}";
           format-stopped = "";
-          state-icons = [
-            " " " "
-          ];
+          state-icons = { 
+            paused = "";
+            playing = "";
+          };
           tooltip-format = "MPD (connected)";
           tooltip-format-disconnected = "MPD (disconnected)";
         };
 
+        "tray" = {
+          icon-size = 21;
+          spacing = 10;
+        };
+
         "pulseaudio" = {
-          format = "{icon}{volume}%";
+          format = "{icon} {volume}%";
           format-bluetooth = "{icon} {volume}%";
           format-muted = "";
-          format-icons = [
-            "" "" "" "" "" ["" ""]
-          ];
+          format-icons = {
+            headphone = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car = "";
+            default = ["" ""];
+          };
           scroll-step = 1;
           on-click = "pavucontrol";
         };
 
         "cpu" = {
-          format = " {load}";
+          format = " {usage}%";
         };
 
         "memory" = {
-          format = " {used}/{total}";
+          format = " {used:0.1f}/{total:0.1f}GB";
         };
 
         "disk" = {
@@ -65,10 +76,30 @@
           format = " {used} used of {total}";
         };
 
+        "network" = {
+            format-wifi = "{essid} ";
+            format-ethernet = "{ifname}: {ipaddr}/{cidr} ";
+            format-disconnected = "Disconnected ⚠";
+            interval = 7;
+        };
+
+        "battery" = {
+          states = {
+            good = 95;
+            warning = 30;
+            critical = 15;
+          };
+          format = "{icon} {capacity}%";
+          format-icons = ["" "" "" "" ""];
+        };
+
         "clock" = {
-          format = " {:%A, :%B :%d}  {:%H:%M}";
+          format = "{:%H:%M}";
+          timezone = "America/Chicago";
         };
       };
     };
+    style = ''
+    '';
   };
 }

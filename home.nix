@@ -15,7 +15,7 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
       TERMINAL = "kitty";
-      KITTY_ENABLE_WAYLAND = "1";
+      LIBSEAT_BACKEND = "logind";
       _JAVA_AWT_WM_NONREPARENTING = "1";
       XCURSOR_SIZE = "24";
       LIBVA_DRIVER_NAME = "nvidia";
@@ -33,20 +33,12 @@
     };
 
     packages = with pkgs; [
-      ## Applications
-      spotify
-      discord
-      betterdiscordctl
+      ## Programs
+      # Audio
+      pamixer # for audio
       pavucontrol
 
-      ## Games
-      # Minecraft
-      lunar-client
-
-      # Steam
-      steam
-
-      ## Command Line Programs
+      # Command Line
       tldr
       xplr
       lfs # for checking disks
@@ -56,28 +48,30 @@
       unzip
       fd # find
       ripgrep
-      swaybg
-      links2 # html web browser
-      gh
-      xclip # clipboard
       btop # top
       glow # markdown in the terminal
       pfetch # stats
-      pamixer # for audio
-      tokei # code stats
       peaclock # better tty-clock
       cargo
-      hyprpaper # Wallpapers
 
-      ## Libs
+      # Games
+      steam
+      lunar-client
+
+      # GUI
+      nwg-bar # For Shutdown Menu
+
+      # Music
+      spotify
+
+      # Libs
       libsecret
       xorg.libxcb
 
       ## Window Managers
-      # openbox
-      obconf
-      lxappearance
-      tint2
+      # Hyprland 
+      swaybg
+      swaylock
     ];
   };
 

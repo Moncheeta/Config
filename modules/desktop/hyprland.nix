@@ -73,19 +73,21 @@
       bind = SUPER,9,workspace,9
       bind = SUPER,0,workspace,0
 
-      bind = SUPER,1,movetoworkspace,1
-      bind = SUPER,2,movetoworkspace,2
-      bind = SUPER,3,movetoworkspace,3
-      bind = SUPER,4,movetoworkspace,4
-      bind = SUPER,5,movetoworkspace,5
-      bind = SUPER,6,movetoworkspace,6
-      bind = SUPER,7,movetoworkspace,7
-      bind = SUPER,8,movetoworkspace,8
-      bind = SUPER,9,movetoworkspace,9
-      bind = SUPER,0,movetoworkspace,0
+      bind = ALT,1,movetoworkspace,1
+      bind = ALT,2,movetoworkspace,2
+      bind = ALT,3,movetoworkspace,3
+      bind = ALT,4,movetoworkspace,4
+      bind = ALT,5,movetoworkspace,5
+      bind = ALT,6,movetoworkspace,6
+      bind = ALT,7,movetoworkspace,7
+      bind = ALT,8,movetoworkspace,8
+      bind = ALT,9,movetoworkspace,9
+      bind = ALT,0,movetoworkspace,0
 
       bind = SUPER,T,exec,kitty
       bind = SUPER,W,exec,qutebrowser
+
+      bind = SUPER,Q,exec,nwg-bar
 
       windowrulev2=opacity 1,class:^(qutebrowser)$,title:^(qutebrowser)$
 

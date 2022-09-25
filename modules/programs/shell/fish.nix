@@ -22,7 +22,7 @@
       restart = "reboot";
       shut = "shutdown now";
 
-      clone = "gh repo clone --recursive";
+      clone = "gh repo clone";
       commit = "git commit";
       push = "git push";
       merge = "git merge";

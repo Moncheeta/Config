@@ -4,7 +4,7 @@
   programs.git = {
     enable = true;
     difftastic = {
-      enable = true;
+      enable = false;
       color = "always";
     };
     lfs.enable = true;

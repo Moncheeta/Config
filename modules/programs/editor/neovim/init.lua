@@ -43,7 +43,6 @@ o.relativenumber = true
 o.cursorline = true
 a.nvim_set_hl(0, "ColorLineNr", { ctermfg=White })
 
-g.sonokai_style = "atlantis"
 cmd("colorscheme sonokai")
 
 local lualine = require("lualine")

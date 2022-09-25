@@ -1,8 +1,16 @@
-{ ... }:
+{ pkgs, ... }:
 
-{
+let
+  patched_waybar = pkgs.waybar.overrideAttrs (oldAttrs: {
+    patches = [
+      ./waybar_patch
+    ];
+    #mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+  });
+in {
   programs.waybar = {
     enable = true;
+    package = patched_waybar;
     systemd = {
       enable = true;
       target = "hyprland-session.target";
@@ -18,13 +26,13 @@
         modules-center = [ "hyprland/window" ];
         modules-right = [ "tray" "pulseaudio" "cpu" "memory" "disk" "network" "battery" "clock" ];
 
-        ipc = true;
+        ipc = false;
 
         "wlr/workspaces" = {
           format = "{icon}";
           on-click = "activate";
           format-icons = [ 
-            ""
+            ""
             ""
             ""
             ""
@@ -33,7 +41,8 @@
 
         "mpd" = {
           format = "{stateIcon} {album} - {title}";
-          format-stopped = "";
+          format-stopped = "Stopped ";
+          format-disconnected = "";
           state-icons = { 
             paused = "";
             playing = "";
@@ -85,7 +94,6 @@
 
         "battery" = {
           states = {
-            good = 95;
             warning = 30;
             critical = 15;
           };
@@ -100,6 +108,84 @@
       };
     };
     style = ''
+      * {
+        
+      }
+
+      tooltip {
+
+      }
+
+      tooltip label {
+
+      }
+
+      #workspaces {
+        
+      }
+
+      #workspaces button.focused {
+
+      }
+
+      #mpd {
+
+      }
+
+      window#waybar {
+
+      }
+      
+      #tray {
+
+      }
+
+      #pulseaudio {
+
+      }
+
+      #pulseaudio.bluetooth {
+
+      }
+
+      #cpu {
+
+      }
+
+      #memory {
+
+      }
+
+      #disk {
+
+      }
+
+      #network {
+
+      }
+
+      #battery {
+
+      }
+
+      #battery.warning:not(.charging) {
+
+      }
+
+      #battery.critical:not(.charging) {
+
+      }
+
+      #clock {
+
+      }
+
+      @keyframes blink {
+        to {
+          background-color: #ffffff;
+          color: black;
+        }
+      }
     '';
   };
 }

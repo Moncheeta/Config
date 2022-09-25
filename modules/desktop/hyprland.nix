@@ -29,8 +29,8 @@
 
       decoration {
         rounding = 10
-        active_opacity = 0.8
-        inactive_opacity = 0.8
+        active_opacity = 1
+        inactive_opacity = 1 
         blur = 1
         blur_size = 3
         blur_passes = 1

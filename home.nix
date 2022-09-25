@@ -67,6 +67,7 @@
       # Libs
       libsecret
       xorg.libxcb
+      libappindicator
 
       ## Window Managers
       # Hyprland 

@@ -9,7 +9,7 @@ in {
     enable = true;
     package = patched_waybar;
     systemd = {
-      enable = false;
+      enable = true;
       target = "hyprland-session.target";
     };
     settings = {
@@ -61,7 +61,7 @@ in {
           all-outputs = true;
           format-icons = {
             "1" = " ";
-            "2" = " ";
+            "2" = " ";
             "3" = " ";
             "4" = " ";
           };
@@ -113,7 +113,7 @@ in {
             format-wifi = "{essid}  ";
             format-ethernet = "{ifname}: {ipaddr}/{cidr}  ";
             format-disconnected = "Disconnected ⚠";
-            interval = ;
+            interval = 5;
         };
 
         "battery" = {
@@ -142,6 +142,7 @@ in {
 
       #custom-dtname {
         /*color: #76cce0;*/
+        padding-left: 10px;
         color: #b39df3;
       }
 
@@ -199,6 +200,10 @@ in {
         animation-timing-function: linear;
         animation-iteration-count: infinite;
         animation-direction: alternate;
+      }
+
+      #clock {
+        padding-right: 10px;
       }
     '';
   };

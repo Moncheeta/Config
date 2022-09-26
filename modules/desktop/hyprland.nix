@@ -91,7 +91,7 @@
 
       windowrulev2=opacity 1,class:^(qutebrowser)$,title:^(qutebrowser)$
 
-      exec-once = swaybg -i $NIXOS_CONFIG_DIR/modules/wallpapers/e30/clean_e30.JPG
+      exec-once = swaybg -i $NIXOS_CONFIG_DIR/modules/theming/wallpapers/wangan.jpg
     '';
   };
 }

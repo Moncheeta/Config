@@ -9,7 +9,7 @@ in {
     enable = true;
     package = patched_waybar;
     systemd = {
-      enable = false;
+      enable = true;
       target = "hyprland-session.target";
     };
     settings = {

@@ -14,10 +14,6 @@
     extraConfig = ''
       c.content.blocking.method = "both"
 
-      c.content.pdfjs = True
-
-      c.auto_save.session = False
-
       c.fonts.default_family = "JetBrainsMono Nerd Font"
       c.fonts.default_size = "10pt"
       c.fonts.web.family.standard = "JetBrainsMono Nerd Font"

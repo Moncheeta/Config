@@ -34,27 +34,38 @@
     };
 
     packages = with pkgs; [
-      ## Programs
-      # Audio
+      ### Programs
+      ## Audio
       pamixer 
       pavucontrol
       playerctl
       spotify
 
-      # Command Line
-      tldr
-      xplr
-      lfs # for checking disks
-      bat # better file viewer
-      fzf
-      trash-cli
+      ## Command Line
+      # Formats
+      glow
       unzip
-      fd # find
+
+      # Help
+      tldr
+
+      # Mail
+      isync
+
+      # Navigation
+      xplr
+      bat
       ripgrep
-      btop # top
-      glow # markdown in the terminal
-      pfetch # stats
-      peaclock # better tty-clock
+      fzf
+
+      # System
+      btop 
+      trash-cli
+      lfs
+
+      # Other
+      pfetch
+      peaclock 
 
       ## Programming Languages
       # Rust
@@ -64,22 +75,23 @@
       python3
       python310Packages.pip
 
-      # Games
+      ## Games
       steam
       lunar-client
 
-      # GUI
+      ## GUI
       nwg-bar # For Shutdown Menu
 
-      # Libs
+      ### Libs
+      libnotify
       libsecret
       xorg.libxcb
       libappindicator
 
-      ## Window Managers
-      # Hyprland 
+      ### Window Managers
+      ## Hyprland 
       swaybg
-      swaylock
+      swaylock-effects
     ];
   };
 

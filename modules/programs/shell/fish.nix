@@ -40,6 +40,7 @@
       mark = "glow";
     };
     shellInit = ''
+      source $NIXOS_CONFIG_DIR/modules/scripts/himalaya.fish
       sleep 0.1
       PF_INFO='ascii title os kernel memory pkgs' pfetch
     '';

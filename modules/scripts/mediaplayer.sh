@@ -5,7 +5,7 @@ waybar() {
 }
 
 while true; do
-    player_status=$(playerctl status 2> /dev/null)
+    player_status=$(playerctl -a status 2> /dev/null | tail -n1)
     if [ "$player_status" = "Playing" ]; then
         player_artist=$(playerctl metadata artist)
         player_song=$(playerctl metadata title)

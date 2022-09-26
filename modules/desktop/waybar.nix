@@ -9,7 +9,7 @@ in {
     enable = true;
     package = patched_waybar;
     systemd = {
-      enable = false;
+      enable = true;
       target = "hyprland-session.target";
     };
     settings = {
@@ -17,18 +17,18 @@ in {
         layer = "top";
         position = "bottom";
         height = 22;
-        spacing = 8;
+        spacing = 10;
 
         modules-left = [ 
           "custom/dtname"
           "custom/sep" 
           "wlr/workspaces" 
-          "custom/spotify"
         ];
         modules-center = [ "hyprland/window" ];
         modules-right = [ 
           "tray"
           "custom/sep"
+          "custom/spotify"
           "pulseaudio" 
           "custom/sep"
           "cpu" 
@@ -50,28 +50,19 @@ in {
         };
 
         "custom/dtname" = {
-            #format = " ";
-            format = "";
+            format = " ";
+            # format = "";
             tooltip = false;
         };
 
-        "wlr/workspaces" = {
-          format = "{icon}";
-          on-click = "activate";
-          format-icons = {
-            "1" = "";
-            "2" = "";
-            "3" = "";
-            "4" = "";
-          };
+        "hyprland/window" = {
+          format = "{}";
         };
 
-        "custom/spotify" = {
-            format = "| {}";
-            max-length = 40;
-            interval = 0;
-            exec = "$NIXOS_CONFIG_DIR/modules/scripts/mediaplayer.sh";
-            exec-if = "pgrep spotify";
+        "wlr/taskbar" = {
+            format = "{title}";
+            on-click = "activate";
+            on-click-middle = "close";
         };
 
         "tray" = {
@@ -80,38 +71,46 @@ in {
           show-passive-items = true;
         };
 
+        "custom/spotify" = {
+          format = " {}";
+          max-length = 40;
+          interval = 0;
+          exec = "$NIXOS_CONFIG_DIR/modules/scripts/mediaplayer.sh";
+          exec-if = "pgrep spotify";
+        };
+
         "pulseaudio" = {
           format = "{icon} {volume}%";
           format-bluetooth = " {icon} {volume}%";
-          format-muted = "";
+          format-muted = " ";
           format-icons = {
-            headphone = "";
-            headset = "";
-            phone = "";
-            portable = "";
-            car = "";
-            default = ["" ""];
+            headphone = " ";
+            headset = " ";
+            phone = " ";
+            portable = " ";
+            car = " ";
+            default = [" " " "];
           };
           scroll-step = 1;
           on-click = "pavucontrol";
         };
 
         "cpu" = {
-          format = "{usage}%";
+          format = " {usage}%";
         };
 
         "memory" = {
-          format = "{used:0.1f}/{total:0.1f}GB";
+          format = " {used:0.1f}/{total:0.1f}GB";
         };
 
         "disk" = {
           path = "/";
-          format = "{used} used of {total}";
+          format = " {used} used of {total}";
         };
 
         "network" = {
-            format-wifi = "{essid} ";
-            format-ethernet = "{ifname}: {ipaddr}/{cidr} ";
+            format-wifi = "{essid}  ";
+            format-ethernet = "{ifname}: {ipaddr}/{cidr}  ";
             format-disconnected = "Disconnected ⚠";
             interval = 5;
         };
@@ -122,7 +121,7 @@ in {
             critical = 15;
           };
           format = "{icon} {capacity}% |";
-          format-icons = ["" "" "" "" ""];
+          format-icons = [" " " " " " " " " "];
         };
 
         "clock" = {
@@ -148,16 +147,12 @@ in {
         color: #b39df3;
       }
 
-      #workspace button.active {
-        background: #7f8490;
+      #tray {
+        color: #e7c664;
       }
 
       #custom-spotify {
         color: #9ed072;
-      }
-
-      #tray {
-        color: #e7c664;
       }
 
       #pulseaudio {

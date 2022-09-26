@@ -10,4 +10,6 @@
   boot.cleanTmpDir = true;
 
   services.power-profiles-daemon.enable = false;
+
+  hardware.bluetooth.enable = true;
 }

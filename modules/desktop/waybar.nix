@@ -78,6 +78,7 @@ in {
         "tray" = {
           icon-size = 12;
           spacing = 10;
+          show-passive-items = true;
         };
 
         "pulseaudio" = {

@@ -43,4 +43,5 @@ in
       passwordCommand = "pass show gmail";
     };
   };
+  services.imapnotify.enable = true;
 }

@@ -15,15 +15,18 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
       TERMINAL = "kitty";
+
+      ## Below is for stuff to work
+      # window manager (wayland)
       LIBSEAT_BACKEND = "logind";
       _JAVA_AWT_WM_NONREPARENTING = "1";
-      XDG_CURRENT_DESKTOP = "Unity";
       XCURSOR_SIZE = "24";
       LIBVA_DRIVER_NAME = "nvidia";
       XDG_SESSION_TYPE = "wayland";
       GBM_BACKEND = "nvidia-drm";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       WLR_NO_HARDWARE_CURSORS = "1";
+      # steam
       NIXOS_CONFIG_DIR = "$HOME/Config";
       XDG_CACHE_HOME   = "$HOME/.cache";
       XDG_CONFIG_HOME  = "$HOME/.config";

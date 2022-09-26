@@ -9,19 +9,51 @@ in {
     enable = true;
     package = patched_waybar;
     systemd = {
-      enable = true;
+      enable = false;
       target = "hyprland-session.target";
     };
     settings = {
       mainbar = {
         layer = "top";
         position = "bottom";
-        height = 20;
+        height = 12;
         spacing = 8;
 
-        modules-left = [ "wlr/workspaces" "custom/spotify" ];
+        modules-left = [ 
+          "custom/dtname"
+          "custom/sep" 
+          "wlr/workspaces" 
+          "custom/spotify"
+        ];
         modules-center = [ "hyprland/window" ];
-        modules-right = [ "tray" "pulseaudio" "cpu" "memory" "disk" "network" "battery" "clock" ];
+        modules-right = [ 
+          "tray"
+          "custom/sep"
+          "pulseaudio" 
+          "custom/sep"
+          "cpu" 
+          "custom/sep" 
+          "memory" 
+          "custom/sep" 
+          "disk" 
+          "custom/sep" 
+          "network" 
+          "custom/sep" 
+          "battery" 
+          "clock" 
+        ];
+
+        "custom/sep" = {
+          format = "|";
+          interval = "once";
+          tooltip = false;
+        };
+
+        "custom/dtname" = {
+            #format = " ";
+            format = " ";
+            tooltip = false;
+        };
 
         "wlr/workspaces" = {
           format = "{icon}";
@@ -31,12 +63,12 @@ in {
             "1" = " ";
             "2" = " ";
             "3" = " ";
-            "4" =" ";
+            "4" = " ";
           };
         };
 
         "custom/spotify" = {
-            format = " {}";
+            format = "|  {}";
             max-length = 40;
             interval = 0;
             exec = "$NIXOS_CONFIG_DIR/modules/scripts/mediaplayer.sh";
@@ -44,7 +76,7 @@ in {
         };
 
         "tray" = {
-          icon-size = 21;
+          icon-size = 12;
           spacing = 10;
         };
 
@@ -81,7 +113,7 @@ in {
             format-wifi = "{essid}  ";
             format-ethernet = "{ifname}: {ipaddr}/{cidr}  ";
             format-disconnected = "Disconnected ⚠";
-            interval = 7;
+            interval = ;
         };
 
         "battery" = {
@@ -89,7 +121,7 @@ in {
             warning = 30;
             critical = 15;
           };
-          format = "{icon} {capacity}%";
+          format = "{icon} {capacity}% |";
           format-icons = [" " " " " " " " " "];
         };
 
@@ -99,86 +131,75 @@ in {
         };
       };
     };
-    # TODO
-    # style = ''
-    #   * {
-    #
-    #   }
-    #
-    #   tooltip {
-    #
-    #   }
-    #
-    #   tooltip label {
-    #
-    #   }
-    #
-    #   #workspaces {
-    #
-    #   }
-    #
-    #   #workspaces button.focused {
-    #
-    #   }
-    #
-    #   #mpd {
-    #
-    #   }
-    #
-    #   window#waybar {
-    #
-    #   }
-    #
-    #   #tray {
-    #
-    #   }
-    #
-    #   #pulseaudio {
-    #
-    #   }
-    #
-    #   #pulseaudio.bluetooth {
-    #
-    #   }
-    #
-    #   #cpu {
-    #
-    #   }
-    #
-    #   #memory {
-    #
-    #   }
-    #
-    #   #disk {
-    #
-    #   }
-    #
-    #   #network {
-    #
-    #   }
-    #
-    #   #battery {
-    #
-    #   }
-    #
-    #   #battery.warning:not(.charging) {
-    #
-    #   }
-    #
-    #   #battery.critical:not(.charging) {
-    #
-    #   }
-    #
-    #   #clock {
-    #
-    #   }
-    #
-    #   @keyframes blink {
-    #     to {
-    #       background-color: #ffffff;
-    #       color: black;
-    #     }
-    #   }
-    # '';
+    style = ''
+      * {
+        color: #e2e2e3;
+        background: #2c2e34;
+        border: none;
+        font-family: JetBrainsMono Nerd Font;
+        font-weight: bold;
+      }
+
+      #custom-dtname {
+        /*color: #76cce0;*/
+        color: #b39df3;
+      }
+
+      #workspace button.active {
+        background: #7f8490;
+      }
+
+      #custom-spotify {
+        color: #9ed072;
+      }
+
+      #tray {
+        color: #e7c664;
+      }
+
+      #pulseaudio {
+        color: #76cce0;
+      }
+
+      #cpu {
+        color: #b39df3;
+      }
+
+      #memory {
+        color: #9ed072;
+      }
+
+      #disk {
+        color: #f39660;
+      }
+
+      #network {
+        color: #76cce0;
+      }
+
+      #battery {
+        color: #9ed072;
+      }
+
+      #battery.warning:not(.charging) {
+        color: #e7c664;
+      }
+
+      @keyframes blink {
+        to {
+          background-color: #2c2e34;
+          color: #e2e2e3;
+        }
+      }
+
+      #battery.critical:not(.charging) {
+        color: #fc5d7c;
+        animation-name: blink;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+    '';
   };
 }

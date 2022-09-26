@@ -65,6 +65,7 @@
       btop 
       trash-cli
       lfs
+      wl-clipboard
 
       # Other
       pfetch

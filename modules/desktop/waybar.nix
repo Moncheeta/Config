@@ -9,14 +9,14 @@ in {
     enable = true;
     package = patched_waybar;
     systemd = {
-      enable = true;
+      enable = false;
       target = "hyprland-session.target";
     };
     settings = {
       mainbar = {
         layer = "top";
         position = "bottom";
-        height = 12;
+        height = 22;
         spacing = 8;
 
         modules-left = [ 
@@ -51,24 +51,23 @@ in {
 
         "custom/dtname" = {
             #format = " ";
-            format = " ";
+            format = "";
             tooltip = false;
         };
 
         "wlr/workspaces" = {
           format = "{icon}";
           on-click = "activate";
-          all-outputs = true;
           format-icons = {
-            "1" = " ";
-            "2" = " ";
-            "3" = " ";
-            "4" = " ";
+            "1" = "";
+            "2" = "";
+            "3" = "";
+            "4" = "";
           };
         };
 
         "custom/spotify" = {
-            format = "|  {}";
+            format = "| {}";
             max-length = 40;
             interval = 0;
             exec = "$NIXOS_CONFIG_DIR/modules/scripts/mediaplayer.sh";
@@ -84,35 +83,35 @@ in {
         "pulseaudio" = {
           format = "{icon} {volume}%";
           format-bluetooth = " {icon} {volume}%";
-          format-muted = " ";
+          format-muted = "";
           format-icons = {
-            headphone = " ";
-            headset = " ";
-            phone = " ";
-            portable = " ";
-            car = " ";
-            default = [" " " "];
+            headphone = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car = "";
+            default = ["" ""];
           };
           scroll-step = 1;
           on-click = "pavucontrol";
         };
 
         "cpu" = {
-          format = " {usage}%";
+          format = "{usage}%";
         };
 
         "memory" = {
-          format = " {used:0.1f}/{total:0.1f}GB";
+          format = "{used:0.1f}/{total:0.1f}GB";
         };
 
         "disk" = {
           path = "/";
-          format = " {used} used of {total}";
+          format = "{used} used of {total}";
         };
 
         "network" = {
-            format-wifi = "{essid}  ";
-            format-ethernet = "{ifname}: {ipaddr}/{cidr}  ";
+            format-wifi = "{essid} ";
+            format-ethernet = "{ifname}: {ipaddr}/{cidr} ";
             format-disconnected = "Disconnected ⚠";
             interval = 5;
         };
@@ -123,7 +122,7 @@ in {
             critical = 15;
           };
           format = "{icon} {capacity}% |";
-          format-icons = [" " " " " " " " " "];
+          format-icons = ["" "" "" "" ""];
         };
 
         "clock" = {
@@ -139,6 +138,8 @@ in {
         border: none;
         font-family: JetBrainsMono Nerd Font;
         font-weight: bold;
+        font-size: 10px;
+        min-height: 0;
       }
 
       #custom-dtname {

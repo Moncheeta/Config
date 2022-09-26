@@ -39,7 +39,7 @@
       }
 
       dwindle {
-        pseudotile = 1
+        pseudotile = 0
       }
 
       gestures {

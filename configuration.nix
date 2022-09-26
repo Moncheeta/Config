@@ -5,13 +5,13 @@
     # configuration.nix takes care of basics
     ./modules/boot
     ./modules/programs/shell/shell.nix
-    ./modules/audio
+    ./modules/services/audio.nix
     ./modules/peripherals
-    ./modules/network
+    ./modules/services/networking.nix
 
     # Also some specific to configuration.nix
     ./modules/desktop
-    ./modules/fonts
+    ./modules/theming/fonts.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -22,6 +22,10 @@
   # to fix home-manager
   programs.dconf.enable = true;
 
+  # fixes blueman
+  services.gnome.at-spi2-core.enable = true;
+
+  # fixes swaylock
   security.pam.services.swaylock = {
     text = "auth include login";
   };

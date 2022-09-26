@@ -19,6 +19,7 @@
       pause = "read -n1 -r -p 'Press any key to continue...'";
       fetch = "PF_INFO='ascii title os kernel memory pkgs' pfetch";
       clock = "peaclock";
+      syn = "cava"; # visual music
       lock = "swaylock --fade-in 1 --screenshots --effect-blur 5x3 -u";
       restart = "reboot";
       shut = "shutdown now";

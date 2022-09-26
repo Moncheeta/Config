@@ -43,6 +43,7 @@
       pavucontrol
       playerctl
       spotify
+      cava
 
       ## Command Line
       # Formats

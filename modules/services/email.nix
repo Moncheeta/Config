@@ -19,22 +19,9 @@ in
 {
   programs.himalaya = {
     enable = true;
-    settings.name = "Damian Myrda";
-    settings.notify-query = "not seen";
-  };
-
-  systemd.user.services = { 
-    mail-notify = {
-      Unit = {
-        Description = "Himalaya Notification Service";
-        After = "network.target";
-      };
-      Service = {
-        ExecStart = "himalaya notify";
-        Restart = "always";
-        RestartSec = 10;
-      };
-      Install.WantedBy = [ "default.target" ];
+    settings = {
+      name = "Damian Myrda";
+      notify-query = "not seen";
     };
   };
 
@@ -44,6 +31,12 @@ in
       primary = true;
       himalaya = {
         enable = true;
+        settings = {
+          mailboxes = {
+            sent = "[Gmail]/Sent Mail";
+            draft = "[Gmail]/Drafts";
+          };
+        };
       };
       address = "monkey.damianek@gmail.com";
       userName = "monkey.damianek@gmail.com";

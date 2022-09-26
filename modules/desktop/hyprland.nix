@@ -92,6 +92,7 @@
       windowrulev2=opacity 1,class:^(qutebrowser)$,title:^(qutebrowser)$
 
       exec-once = swaybg -i $NIXOS_CONFIG_DIR/modules/theming/wallpapers/wangan.jpg
+      exec-once = himalaya notify &
     '';
   };
 }

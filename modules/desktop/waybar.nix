@@ -24,7 +24,6 @@ in {
           "custom/sep" 
           "wlr/workspaces" 
         ];
-        modules-center = [ "hyprland/window" ];
         modules-right = [ 
           "tray"
           "custom/sep"
@@ -55,14 +54,14 @@ in {
             tooltip = false;
         };
 
-        "hyprland/window" = {
-          format = "{}";
-        };
-
-        "wlr/taskbar" = {
-            format = "{title}";
-            on-click = "activate";
-            on-click-middle = "close";
+        "wlr/workspaces" = {
+          format = "{icon}";
+          format-icons = {
+            "1" = " ";
+            "2" = " ";
+            "3" = " ";
+            "4" = " ";
+          };
         };
 
         "tray" = {
@@ -97,10 +96,13 @@ in {
 
         "cpu" = {
           format = " {usage}%";
+          interval = 1;
         };
 
         "memory" = {
           format = " {used:0.1f}/{total:0.1f}GB";
+          interval = 1;
+          tooltip = false;
         };
 
         "disk" = {
@@ -112,6 +114,7 @@ in {
             format-wifi = "{essid}  ";
             format-ethernet = "{ifname}: {ipaddr}/{cidr}  ";
             format-disconnected = "Disconnected ⚠";
+            tooltip = false;
             interval = 5;
         };
 
@@ -125,8 +128,9 @@ in {
         };
 
         "clock" = {
-          format = "{:%H:%M}";
+          format = "{:%H:%M:%S}";
           timezone = "America/Chicago";
+          interval = 1;
         };
       };
     };

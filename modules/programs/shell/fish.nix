@@ -21,8 +21,8 @@
       clock = "peaclock";
       syn = "cava"; # visual music
       lock = "swaylock --fade-in 1 --screenshots --effect-blur 5x3 -u";
-      restart = "reboot";
-      shut = "shutdown now";
+      reboot = "systemctl reboot";
+      shut = "systemctl -i poweroff";
 
       clone = "gh repo clone";
       commit = "git commit";

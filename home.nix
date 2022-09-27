@@ -84,9 +84,6 @@
       steam
       lunar-client
 
-      ## GUI
-      nwg-bar # For Shutdown Menu
-
       ### Libs
       libnotify
       libsecret

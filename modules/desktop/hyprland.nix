@@ -93,8 +93,6 @@
       bind=SUPER,T,exec,kitty
       bind=SUPER,W,exec,qutebrowser
 
-      bind=SUPER,Q,exec,nwg-bar
-
       bind=,XF86AudioRaiseVolume,exec,pamixer -i 5
       bind=,XF86AudioLowerVolume,exec,pamixer -d 5
       bind=,XF86AudioMute,exec,pamixer -t

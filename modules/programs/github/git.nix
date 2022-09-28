@@ -3,10 +3,7 @@
 {
   programs.git = {
     enable = true;
-    difftastic = {
-      enable = false;
-      color = "always";
-    };
+    delta.enable = true;
     lfs.enable = true;
     userEmail = "monkey.damianek@gmail.com";
     userName = "Moncheeta";

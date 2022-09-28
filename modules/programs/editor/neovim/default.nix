@@ -18,6 +18,7 @@
       telescope-file-browser-nvim
       telescope-media-files-nvim
       telescope-ui-select-nvim
+      telescope-zoxide
       nvim-tree-lua
       wildfire-vim
       vim-choosewin

@@ -141,7 +141,7 @@ in {
         border: none;
         font-family: JetBrainsMono Nerd Font;
         font-weight: bold;
-        font-size: 10px;
+        font-size: 12px;
         min-height: 0;
       }
 

@@ -1,0 +1,41 @@
+prSections:
+  - title: My Pull Requests
+    filters: is:open author:@me
+  - title: Needs My Review
+    filters: is:open review-requested:@me
+  - title: Subscribed
+    filters: is:open -author:@me repo:cli/cli repo:dlvhdr/gh-dash
+    limit: 50 # optional limit per section
+issuesSections:
+  - title: Created
+    filters: is:open author:@me
+  - title: Assigned
+    filters: is:open assignee:@me
+  - title: Subscribed
+    filters: is:open -author:@me repo:microsoft/vscode repo:dlvhdr/gh-dash
+defaults:
+  prsLimit: 20 # global limit
+  issuesLimit: 20 # global limit
+  preview:
+    open: true
+    width: 60
+repoPaths:
+  dlvhdr/*: ~/code/*
+keybindings: # optional
+pager:
+  diff: delta 
+theme:
+  colors:
+    text:
+      primary: "#e2e2e3"
+      secondary: "#b39df3"
+      inverted: "#181819"
+      faint: "#7f8490"
+      warning: "#fc5d7c"
+      success: "#9ed072"
+    background:
+      selected: "#2c2e34"
+    border:
+      primary: "#e2e2e3"
+      secondary: "#b39df3"
+      faint: "#7f8490"

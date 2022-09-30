@@ -1,9 +1,4 @@
-require("batch_rename").setup()
-require("clipboard").setup()
-require("fzf").setup()
-require("preview").setup()
-require("trash_cli").setup()
-require("zoxide").setup()
+local xplr = xplr
 
 xlpr.config.general.show_hidden = true
 xplr.config.general.initial_sorting = { { sorter = "ByIsDir", reverse = false } }

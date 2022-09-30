@@ -46,20 +46,20 @@ a.nvim_set_hl(0, "ColorLineNr", { ctermfg=White })
 
 cmd("colorscheme sonokai")
 
--- local lualine = require("lualine")
+local lualine = require("lualine")
 
 local colors = {
-  bg       = "#202328",
-  fg       = "#bbc2cf",
-  yellow   = "#ECBE7B",
-  cyan     = "#008080",
-  darkblue = "#081633",
-  green    = "#98be65",
-  orange   = "#FF8800",
-  violet   = "#a9a1e1",
-  magenta  = "#c678dd",
-  blue     = "#51afef",
-  red      = "#ec5f67",
+  bg       = "#181819",
+  fg       = "#e2e2e3",
+  yellow   = "#e7c664",
+  cyan     = "#f39660",
+  darkblue = "#7f8490",
+  green    = "#9ed072",
+  orange   = "#f39660",
+  violet   = "#b39df3",
+  magenta  = "#b39df3",
+  blue     = "#76cce0",
+  red      = "#fc5d7c",
 }
 
 local conditions = {
@@ -114,14 +114,32 @@ local function ins_right(component)
 end
 
 ins_left {
-	"mode",
-	color = { fg = colors.blue, gui = "bold" },
-}
-
-ins_left {
-  "filesize",
-  cond = conditions.buffer_not_empty,
-	color = { fg = colors.green, gui = "bold" },
+  "mode",
+  color = function()
+    local mode_color = {
+      n = colors.green,
+      i = colors.blue,
+      v = colors.red,
+      [''] = colors.red,
+      V = colors.red,
+      c = colors.magenta,
+      no = colors.red,
+      s = colors.orange,
+      S = colors.orange,
+      [''] = colors.orange,
+      ic = colors.yellow,
+      R = colors.violet,
+      Rv = colors.violet,
+      cv = colors.red,
+      ce = colors.red,
+      r = colors.cyan,
+      rm = colors.cyan,
+      ['r?'] = colors.cyan,
+      ['!'] = colors.red,
+      t = colors.red,
+    }
+    return { fg = colors.bg, gui = "bold", bg = mode_color[vim.fn.mode()] }
+  end,
 }
 
 ins_left {
@@ -130,12 +148,10 @@ ins_left {
   color = { fg = colors.red, gui = "bold" },
 }
 
-ins_right { "location" }
-
 ins_left {
-  function()
-    return "%="
-  end,
+  "filesize",
+  cond = conditions.buffer_not_empty,
+  color = { fg = colors.green, gui = "bold" },
 }
 
 ins_left {
@@ -157,7 +173,7 @@ ins_right {
 
 ins_right {
   "diff",
-  symbols = { added = " ", modified = "柳 ", removed = " " },
+  symbols = { added = "+", modified = "~", removed = "-" },
   diff_color = {
     added = { fg = colors.green },
     modified = { fg = colors.orange },
@@ -166,7 +182,11 @@ ins_right {
   cond = conditions.hide_in_width,
 }
 
--- lualine.setup(config)
+ins_right {
+  "location"
+}
+
+lualine.setup(config)
 
 -- keybindings
 g.mapleader = " "
@@ -195,7 +215,7 @@ require("mini.starter").setup() -- a menu screen
 require("mini.comment").setup() -- use gcc to toggle comment
 require('mini.jump2d').setup() -- use enter to jump
 require("mini.indentscope").setup() -- shows a line at the current indent
-require("mini.statusline").setup()
+-- require("mini.statusline").setup()
 require("mini.surround").setup() -- used to highlight certain objects
 require("mini.cursorword").setup() -- underlines current word
 require('mini.trailspace').setup() -- gets rid of whitespace

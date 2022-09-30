@@ -14,6 +14,7 @@
       cat = "bat -n";
       fm = "xplr";
       cls = "clear";
+      ping = "pingu";
       find = "fd";
       disk = "lfs";
       pause = "read -n1 -r -p 'Press any key to continue...'";
@@ -24,6 +25,7 @@
       reboot = "systemctl reboot";
       shut = "systemctl -i poweroff";
       mut = "zellij";
+      mat = "cmatrix";
 
       clone = "gh repo clone";
       commit = "git commit";
@@ -41,6 +43,7 @@
       mail = "himalaya";
       mark = "glow";
       spot = "spotify";
+      wttr = "curl wttr.in";
     };
     shellInit = ''
       source $NIXOS_CONFIG_DIR/modules/scripts/himalaya.fish

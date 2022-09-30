@@ -39,7 +39,7 @@
     packages = with pkgs; [
       ### Programs
       ## Audio
-      pamixer 
+      pamixer
       pavucontrol
       playerctl
       spotify
@@ -63,14 +63,16 @@
       fzf
 
       # System
-      btop 
+      btop
       trash-cli
       lfs
       wl-clipboard
 
       # Other
       pfetch
-      peaclock 
+      peaclock
+      cmatrix
+      pingu
 
       ## Programming Languages
       # Rust
@@ -91,7 +93,7 @@
       libappindicator
 
       ### Window Managers
-      ## Hyprland 
+      ## Hyprland
       swaybg
       swaylock-effects
     ];

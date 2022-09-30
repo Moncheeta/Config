@@ -16,13 +16,12 @@
       telescope-nvim
       telescope-fzf-native-nvim
       telescope-file-browser-nvim
-      telescope-media-files-nvim
       telescope-ui-select-nvim
-      telescope-zoxide
-      nvim-tree-lua
       wildfire-vim
       vim-choosewin
       nvim-treesitter-context
+      vim-surround
+      vim-automkdir
 
       # Github
       vim-fugitive

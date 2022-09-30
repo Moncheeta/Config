@@ -15,7 +15,6 @@ o.wrap = false
 g.strip_whitespace_on_save = 1
 
 o.encoding = "utf-8"
-
 o.swapfile = false
 o.backup = false
 o.undodir = os.getenv("HOME") .. "/undodir"
@@ -31,6 +30,8 @@ o.guicursor="n-v-c:block"
 
 o.guifont = "JetBrainsMono Nerd Font:h12"
 
+vim.cmd("set scrolloff=999")
+
 o.hidden = true
 o.showmode = false
 
@@ -45,7 +46,7 @@ a.nvim_set_hl(0, "ColorLineNr", { ctermfg=White })
 
 cmd("colorscheme sonokai")
 
-local lualine = require("lualine")
+-- local lualine = require("lualine")
 
 local colors = {
   bg       = "#202328",
@@ -165,47 +166,60 @@ ins_right {
   cond = conditions.hide_in_width,
 }
 
-lualine.setup(config)
+-- lualine.setup(config)
 
--- Keybindings
+-- keybindings
 g.mapleader = " "
 
-a.nvim_set_keymap("n", "<C-m>", ":noh<CR>", { silent = true })
+a.nvim_set_keymap("n", "<c-m>", ":noh<cr>", { silent = true })
 
-a.nvim_set_keymap("n", "-", "<Plug>(choosewin)", { silent = true })
-a.nvim_set_keymap("n", "<SPACE>", "<Plug>(wildfire-fuel)", { silent = true })
+a.nvim_set_keymap("n", "-", "<plug>(choosewin)", { silent = true })
+a.nvim_set_keymap("n", "<space>", "<plug>(wildfire-fuel)", { silent = true })
 
-a.nvim_set_keymap("n", "<F1>", "vim.lsp.buf.hover()<CR>", { silent = true })
-a.nvim_set_keymap("n", "<F2>", "vim.lsp.buf.definition()<CR>", { silent = true })
-a.nvim_set_keymap("n", "<F3>", "vim.lsp.buf.rename()<CR>", { silent = true })
-a.nvim_set_keymap("n", "<F4>", ":Telescope fzf<CR>", { silent = true })
+a.nvim_set_keymap("n", "<f1>", "vim.lsp.buf.hover()<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f2>", "vim.lsp.buf.definition()<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f3>", "vim.lsp.buf.rename()<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f4>", ":Telescope fzf<cr>", { silent = true })
 
-a.nvim_set_keymap("n", "<F5>", ":NvimTreeToggle<CR>", { silent = true })
-a.nvim_set_keymap("n", "<F6>", ":Telescope fd<CR>", { silent = true })
--- a.nvim_set_keymap("n", "<F7>", "")
-a.nvim_set_keymap("n", "<F8>", ":GV<CR>", { silent = true })
+-- a.nvim_set_keymap("n", "<f5>", ":nvimtreetoggle<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f6>", ":Telescope fd<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f7>", ":Goyo", { silent = true })
+a.nvim_set_keymap("n", "<f8>", ":GV<cr>", { silent = true })
 
-a.nvim_set_keymap("n", "<F9>", ":Gissues<CR>", { silent = true })
-a.nvim_set_keymap("n", "<F10>", ":Git add .<CR>", { silent = false })
-a.nvim_set_keymap("n", "<F11>", ":Git commit<CR>", { silent = true })
-a.nvim_set_keymap("n", "<F12>", ":Git push<CR>", { silent = false})
+a.nvim_set_keymap("n", "<f9>", ":gissues<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f10>", ":git add .<cr>", { silent = false })
+a.nvim_set_keymap("n", "<f11>", ":git commit<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f12>", ":git push<cr>", { silent = false})
 
 require("mini.starter").setup() -- a menu screen
 require("mini.comment").setup() -- use gcc to toggle comment
-require("mini.tabline").setup() -- shows all open buffers
+require('mini.jump2d').setup() -- use enter to jump
 require("mini.indentscope").setup() -- shows a line at the current indent
+require("mini.statusline").setup()
+require("mini.surround").setup() -- used to highlight certain objects
+require("mini.cursorword").setup() -- underlines current word
+require('mini.trailspace').setup() -- gets rid of whitespace
 require("mini.pairs").setup() -- auto pairs
 
 require("colorizer").setup() -- for hex and rgb values to be colored
 require("todo-comments").setup()
-require("gitsigns").setup()
-require("nvim-tree").setup() -- file explorer
+require("gitsigns").setup({
+  signs = {
+    add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+    change       = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+    delete       = {hl = 'GitSignsDelete', text = '-', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+    topdelete    = {hl = 'GitSignsDelete', text = '-', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+    changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+  },
+})
 
 require("nvim-treesitter.configs").setup {
     highlight = { enable = true },
     parser_install_dir = "$HOME/Extra/parsers"
 }
+require("treesitter-context").setup { enable = true, }
 
+-- TODO: finish settinging up orgmode
 require('orgmode').setup_ts_grammar()
 require('orgmode').setup()
 
@@ -215,18 +229,27 @@ require("telescope").setup {
       fuzzy = true,                    -- false will only do exact matching
       override_generic_sorter = true,  -- override the generic sorter
       override_file_sorter = true,     -- override the file sorter
-      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"                              -- the default case_mode is "smart_case"
+      case_mode = "smart_case",
     },
     file_browser = {
       hijack_netrw = true,
+    },
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown()
     }
   }
 }
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("file_browser")
-require("telescope").load_extension("media_files")
-require("telescope").load_extension('zoxide')
 require("telescope").load_extension("ui-select")
+
+g.automkdir_silent = 1
+
+a.nvim_create_augroup("files", { clear = true })
+a.nvim_create_autocmd("bufwritepre", {
+	group = "files",
+	command = "lua MiniTrailspace.trim()",
+})
 
 -- Lang Server Conf
 local servers = { "clangd", "rust_analyzer", "tsserver", "pyright", "sumneko_lua", "golangci_lint_ls", "kotlin_language_server", "bashls" }

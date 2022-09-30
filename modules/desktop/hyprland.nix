@@ -23,17 +23,19 @@
       general {
         gaps_in=5
         gaps_out=10
-        border_size=2 
+        border_size=2
+        col.active_border = 0xffb39df3
+        col.inactive_border = 0xff27f8490
         damage_tracking=full
       }
 
       decoration {
         rounding=10
-        active_opacity=1
-        inactive_opacity=0.92 
-        blur=1
-        blur_size=3
-        blur_passes=1
+        active_opacity=0.95
+        inactive_opacity=0.85
+        blur=12
+        blur_size=2
+        blur_passes=5
         blur_new_optimizations=1
         drop_shadow=false
       }
@@ -51,7 +53,7 @@
         disable_splash_rendering=true
 
       }
-      
+
       bindm=SUPER,mouse:272,movewindow
       bindm=SUPER,mouse:273,resizewindow
       bind=SUPER,V,togglefloating,
@@ -65,8 +67,6 @@
 
       bind=SUPERCTRL,left,workspace,e-1
       bind=SUPERCTRL,right,workspace,e+1
-
-      bind=ALT,TAB,workspace,previous
 
       bind=SUPER,1,workspace,1
       bind=SUPER,2,workspace,2
@@ -90,8 +90,16 @@
       bind=ALT,9,movetoworkspace,9
       bind=ALT,0,movetoworkspace,0
 
-      bind=SUPER,T,exec,kitty
-      bind=SUPER,W,exec,qutebrowser
+      bind=SUPERSHIFT,left,movewindow,l
+      bind=SUPERSHIFT,right,movewindow,r
+      bind=SUPERSHIFT,up,movewindow,u
+      bind=SUPERSHIFT,down,movewindow,d
+
+      bind=SUPER,minus,splitratio,-0.25
+      bind=SUPER,equal,splitratio,0.25
+
+      bind=SUPER,Return,exec,kitty
+      bind=SUPERSHIFT,Return,exec,qutebrowser
 
       bind=,XF86AudioRaiseVolume,exec,pamixer -i 5
       bind=,XF86AudioLowerVolume,exec,pamixer -d 5

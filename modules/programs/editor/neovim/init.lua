@@ -184,12 +184,12 @@ a.nvim_set_keymap("n", "<f4>", ":Telescope fzf<cr>", { silent = true })
 -- a.nvim_set_keymap("n", "<f5>", ":nvimtreetoggle<cr>", { silent = true })
 a.nvim_set_keymap("n", "<f6>", ":Telescope fd<cr>", { silent = true })
 a.nvim_set_keymap("n", "<f7>", ":Goyo", { silent = true })
-a.nvim_set_keymap("n", "<f8>", ":GV<cr>", { silent = true })
+-- a.nvim_set_keymap("n", "<f8>", ":GV<cr>", { silent = true })
 
-a.nvim_set_keymap("n", "<f9>", ":gissues<cr>", { silent = true })
-a.nvim_set_keymap("n", "<f10>", ":git add .<cr>", { silent = false })
-a.nvim_set_keymap("n", "<f11>", ":git commit<cr>", { silent = true })
-a.nvim_set_keymap("n", "<f12>", ":git push<cr>", { silent = false})
+a.nvim_set_keymap("n", "<f9>", ":GV<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f10>", ":Git add .<cr>", { silent = false })
+a.nvim_set_keymap("n", "<f11>", ":Git commit<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f12>", ":Git push<cr>", { silent = false})
 
 require("mini.starter").setup() -- a menu screen
 require("mini.comment").setup() -- use gcc to toggle comment

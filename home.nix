@@ -61,6 +61,7 @@
       bat
       ripgrep
       fzf
+      fd
 
       # System
       btop

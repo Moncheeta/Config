@@ -13,6 +13,7 @@
       bat = "bat -n";
       cat = "bat -n";
       fm = "xplr";
+      f = "fzf";
       cls = "clear";
       ping = "pingu";
       find = "fd";

@@ -31,8 +31,8 @@
 
       decoration {
         rounding=10
-        active_opacity=0.95
-        inactive_opacity=0.85
+        active_opacity=0.9
+        inactive_opacity=0.8
         blur=12
         blur_size=2
         blur_passes=5
@@ -106,7 +106,7 @@
       bind=,XF86AudioMute,exec,pamixer -t
       bind=,XF86AudioPlay,exec,playerctl play-pause
 
-      exec-once=swaybg -i $NIXOS_CONFIG_DIR/modules/theming/wallpapers/wangan.jpg
+      exec-once=swaybg -i $NIXOS_CONFIG_DIR/modules/theming/wallpapers/cars/RX7/IMG_0086.JPG
       exec-once=himalaya notify &
     '';
   };

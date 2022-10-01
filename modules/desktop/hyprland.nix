@@ -56,9 +56,9 @@
 
       bindm=SUPER,mouse:272,movewindow
       bindm=SUPER,mouse:273,resizewindow
-      bind=SUPER,V,togglefloating,
-      bind=SUPER,F,fullscreen,0
-      bind=SUPER,C,killactive,
+      bind=SUPERSHIFT,V,togglefloating,
+      bind=SUPERSHIFT,F,fullscreen,0
+      bind=SUPERSHIFT,C,killactive,
 
       bind=SUPER,left,movefocus,l
       bind=SUPER,right,movefocus,r
@@ -98,8 +98,8 @@
       bind=SUPER,minus,splitratio,-0.25
       bind=SUPER,equal,splitratio,0.25
 
-      bind=SUPER,Return,exec,kitty
-      bind=SUPERSHIFT,Return,exec,qutebrowser
+      bind=SUPER,T,exec,kitty
+      bind=SUPER,W,exec,qutebrowser
 
       bind=,XF86AudioRaiseVolume,exec,pamixer -i 5
       bind=,XF86AudioLowerVolume,exec,pamixer -d 5

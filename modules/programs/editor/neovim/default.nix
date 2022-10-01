@@ -14,7 +14,6 @@
 
       # Navigation
       telescope-nvim
-      telescope-fzf-native-nvim
       telescope-file-browser-nvim
       telescope-ui-select-nvim
       wildfire-vim

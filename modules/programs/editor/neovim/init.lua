@@ -199,12 +199,12 @@ a.nvim_set_keymap("n", "<space>", "<plug>(wildfire-fuel)", { silent = true })
 a.nvim_set_keymap("n", "<f1>", "vim.lsp.buf.hover()<cr>", { silent = true })
 a.nvim_set_keymap("n", "<f2>", "vim.lsp.buf.definition()<cr>", { silent = true })
 a.nvim_set_keymap("n", "<f3>", "vim.lsp.buf.rename()<cr>", { silent = true })
-a.nvim_set_keymap("n", "<f4>", ":Telescope fzf<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f4>", ":Telescope live_grep<cr>", { silent = true })
 
--- a.nvim_set_keymap("n", "<f5>", ":nvimtreetoggle<cr>", { silent = true })
-a.nvim_set_keymap("n", "<f6>", ":Telescope fd<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f5>", ":Telescope git_status<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f6>", ":Telescope git_commits<cr>", { silent = true })
 a.nvim_set_keymap("n", "<f7>", ":Goyo", { silent = true })
--- a.nvim_set_keymap("n", "<f8>", ":GV<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f8>", ":Telescope fd<cr>", { silent = true })
 
 a.nvim_set_keymap("n", "<f9>", ":GV<cr>", { silent = true })
 a.nvim_set_keymap("n", "<f10>", ":Git add .<cr>", { silent = false })
@@ -245,12 +245,6 @@ require('orgmode').setup()
 
 require("telescope").setup {
   extensions = {
-    fzf = {
-      fuzzy = true,                    -- false will only do exact matching
-      override_generic_sorter = true,  -- override the generic sorter
-      override_file_sorter = true,     -- override the file sorter
-      case_mode = "smart_case",
-    },
     file_browser = {
       hijack_netrw = true,
     },
@@ -259,7 +253,6 @@ require("telescope").setup {
     }
   }
 }
-require("telescope").load_extension("fzf")
 require("telescope").load_extension("file_browser")
 require("telescope").load_extension("ui-select")
 

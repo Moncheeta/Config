@@ -48,7 +48,7 @@
       ## Command Line
       # Formats
       glow
-      unzip
+      ouch # for decompressing files
 
       # Help
       tldr
@@ -97,6 +97,7 @@
       ## Hyprland
       swaybg
       swaylock-effects
+      sway-launcher-desktop
     ];
   };
 

@@ -9,6 +9,7 @@
       character = {
         success_symbol = "[➜](bold green)";
         error_symbol = "[➜](bold red)";
+        vicmd_symbol = "[<](bold green)";
       };
 
       directory.style = "blue";
@@ -22,8 +23,8 @@
         format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)";
         style = "cyan";
         conflicted = "~";
-        untracked = "*";
-        modified = "⇣";
+        untracked = "⇣";
+        modified = "​";
         staged = "​";
         renamed = "​";
         deleted = "​";

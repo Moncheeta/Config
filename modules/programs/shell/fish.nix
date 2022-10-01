@@ -24,7 +24,7 @@
       syn = "cava"; # visual music
       lock = "swaylock --fade-in 1 --screenshots --effect-blur 5x3 -u";
       reboot = "systemctl reboot";
-      shut = "systemctl -i poweroff";
+      shut = "poweroff";
       mut = "zellij";
       mat = "cmatrix";
 
@@ -35,7 +35,8 @@
       rebase = "git rebase";
       repo = "gh repo";
       add = "git add";
-      stat = "gh status";
+      stat = "git status";
+      gstatus = "gh status";
       fork = "gh repo fork";
       pr = "gh pr";
       issue = "gh issue";

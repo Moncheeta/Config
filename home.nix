@@ -53,8 +53,8 @@
       # Help
       tldr
 
-      # Mail
-      isync
+      # Communication
+      element-desktop-wayland
 
       # Navigation
       xplr

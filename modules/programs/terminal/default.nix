@@ -2,8 +2,9 @@
 
 {
   imports = [
+    ./alacritty.nix
     ./kitty.nix
-    ./multiplexer.nix
+    ./zellij.nix
     ./zoxide.nix
   ];
 }

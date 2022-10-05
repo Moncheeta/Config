@@ -14,7 +14,7 @@
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
-      TERMINAL = "kitty";
+      TERMINAL = "alacritty";
 
       ## Below is for stuff to work
       # window manager (wayland)
@@ -27,7 +27,7 @@
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       WLR_NO_HARDWARE_CURSORS = "1";
       # steam
-      NIXOS_CONFIG_DIR = "$HOME/config";
+      NIXOS_CONFIG_DIR = "$HOME/Config";
       XDG_CACHE_HOME   = "$HOME/.cache";
       XDG_CONFIG_HOME  = "$HOME/.config";
       XDG_BIN_HOME     = "$HOME/.local/bin";

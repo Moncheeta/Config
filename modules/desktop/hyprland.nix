@@ -98,7 +98,7 @@
       bind=SUPER,minus,splitratio,-0.25
       bind=SUPER,equal,splitratio,0.25
 
-      bind=SUPER,T,exec,kitty
+      bind=SUPER,T,exec,alacritty
       bind=SUPER,W,exec,qutebrowser
 
       bind=,XF86AudioRaiseVolume,exec,pamixer -i 5

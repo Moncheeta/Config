@@ -8,7 +8,6 @@
       ll = "ls -lA --color=always";
       cp = "cp -v";
       rm = "trash";
-      cd = "z";
       top = "btop";
       bat = "bat -n";
       cat = "bat -n";

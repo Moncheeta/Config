@@ -108,6 +108,8 @@
 
       exec-once=swaybg -i $NIXOS_CONFIG_DIR/modules/theming/wallpapers/cars/RX7/IMG_0086.JPG
       exec-once=himalaya notify &
+      exec-once=element-desktop --hidden &
+      exec-once=steam -silent &
     '';
   };
 }

@@ -23,10 +23,7 @@
       vim-automkdir
 
       # Github
-      vim-fugitive
-      plenary-nvim
       gitsigns-nvim
-      gv-vim
 
       # UI
       lualine-nvim

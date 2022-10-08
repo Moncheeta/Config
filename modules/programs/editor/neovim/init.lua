@@ -196,20 +196,20 @@ a.nvim_set_keymap("n", "<c-m>", ":noh<cr>", { silent = true })
 a.nvim_set_keymap("n", "-", "<plug>(choosewin)", { silent = true })
 a.nvim_set_keymap("n", "<space>", "<plug>(wildfire-fuel)", { silent = true })
 
-a.nvim_set_keymap("n", "<f1>", "vim.lsp.buf.hover()<cr>", { silent = true })
-a.nvim_set_keymap("n", "<f2>", "vim.lsp.buf.definition()<cr>", { silent = true })
-a.nvim_set_keymap("n", "<f3>", "vim.lsp.buf.rename()<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f1>", ":lua vim.lsp.buf.hover()<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f2>", ":lua vim.lsp.buf.definition()<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f3>", ":lua vim.lsp.buf.rename()<cr>", { silent = true })
 a.nvim_set_keymap("n", "<f4>", ":Telescope live_grep<cr>", { silent = true })
 
 a.nvim_set_keymap("n", "<f5>", ":Telescope git_status<cr>", { silent = true })
 a.nvim_set_keymap("n", "<f6>", ":Telescope git_commits<cr>", { silent = true })
-a.nvim_set_keymap("n", "<f7>", ":Goyo", { silent = true })
+a.nvim_set_keymap("n", "<f7>", ":Goyo<cr>", { silent = true })
 a.nvim_set_keymap("n", "<f8>", ":Telescope fd<cr>", { silent = true })
 
-a.nvim_set_keymap("n", "<f9>", ":GV<cr>", { silent = true })
-a.nvim_set_keymap("n", "<f10>", ":Git add .<cr>", { silent = false })
-a.nvim_set_keymap("n", "<f11>", ":Git commit<cr>", { silent = true })
-a.nvim_set_keymap("n", "<f12>", ":Git push<cr>", { silent = false})
+-- a.nvim_set_keymap("n", "<f9>", ":GV<cr>", { silent = true })
+-- a.nvim_set_keymap("n", "<f10>", ":Git add .<cr>", { silent = false })
+-- a.nvim_set_keymap("n", "<f11>", ":Git commit<cr>", { silent = true })
+-- a.nvim_set_keymap("n", "<f12>", ":Git push<cr>", { silent = false})
 
 require("mini.starter").setup() -- a menu screen
 require("mini.comment").setup() -- use gcc to toggle comment
@@ -265,7 +265,7 @@ a.nvim_create_autocmd("bufwritepre", {
 })
 
 -- Lang Server Conf
-local servers = { "clangd", "rust_analyzer", "tsserver", "pyright", "sumneko_lua", "golangci_lint_ls", "kotlin_language_server", "bashls" }
+local servers = { "clangd", "rust_analyzer", "sumneko_lua", "gopls", "kotlin_language_server", "bashls" }
 for _, lsp in pairs(servers) do
     require("lspconfig")[lsp].setup({
       on_attach = on_attach,
@@ -387,14 +387,6 @@ require("formatter").setup({
             "format"
           },
           stdin = true
-        }
-      end
-    },
-    kotlin = {
-      function()
-        return {
-          exe = "java -jar /home/moncheeta/Documents/Config/Language_Servers/kotlin/ktfmt/core/target/ktfmt-0.34-jar-with-dependencies.jar",
-          stdin = false
         }
       end
     },

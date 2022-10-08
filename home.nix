@@ -74,14 +74,42 @@
       peaclock
       cmatrix
       pingu
+      tokei
 
       ## Programming Languages
+      # Shell
+      shfmt
+      nodePackages.bash-language-server
+
       # Rust
       cargo
+      rustfmt
+      rust-analyzer
+
+      # Lua
+      sumneko-lua-language-server
+      stylua
+
+      # Kotlin
+      kotlin-language-server
+
+      # C, C++
+      clang
+      clang-tools
+
+      # Go
+      go
+      gopls
 
       # Python
       python3
-      python310Packages.pip
+      black
+
+      # json, yaml, html
+      nodePackages.prettier
+
+      # Other
+      dart
 
       ## Games
       steam

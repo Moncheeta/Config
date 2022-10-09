@@ -19,8 +19,10 @@ o.swapfile = false
 o.backup = false
 o.undodir = os.getenv("HOME") .. "/undodir"
 o.undofile = true
+o.spell = true
 
 o.updatetime = 50
+o.ttyfast = true
 
 o.clipboard = "unnamedplus"
 
@@ -30,7 +32,7 @@ o.guicursor="n-v-c:block"
 
 o.guifont = "JetBrainsMono Nerd Font:h12"
 
-vim.cmd("set scrolloff=999")
+cmd("set scrolloff=999")
 
 o.hidden = true
 o.showmode = false
@@ -43,6 +45,8 @@ o.relativenumber = true
 
 o.cursorline = true
 a.nvim_set_hl(0, "ColorLineNr", { ctermfg=White })
+
+cmd("let g:deoplete#enable_at_startup = 1")
 
 cmd("colorscheme sonokai")
 
@@ -206,7 +210,7 @@ a.nvim_set_keymap("n", "<f6>", ":Telescope git_commits<cr>", { silent = true })
 a.nvim_set_keymap("n", "<f7>", ":Goyo<cr>", { silent = true })
 a.nvim_set_keymap("n", "<f8>", ":Telescope fd<cr>", { silent = true })
 
--- a.nvim_set_keymap("n", "<f9>", ":GV<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f9>", ":GrammarousCheck<cr>", { silent = true })
 -- a.nvim_set_keymap("n", "<f10>", ":Git add .<cr>", { silent = false })
 -- a.nvim_set_keymap("n", "<f11>", ":Git commit<cr>", { silent = true })
 -- a.nvim_set_keymap("n", "<f12>", ":Git push<cr>", { silent = false})
@@ -233,15 +237,23 @@ require("gitsigns").setup({
   },
 })
 
+require ("nvim-treesitter.install").compilers = { "gcc" }
+require("orgmode").setup_ts_grammar()
 require("nvim-treesitter.configs").setup {
-    highlight = { enable = true },
-    parser_install_dir = "$HOME/Extra/parsers"
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = { "org" },
+  },
+  -- ensure_installed = "all",
+  ensure_installed = { "org" },
+  parser_install_dir = "~/nvim",
 }
-require("treesitter-context").setup { enable = true, }
+require("treesitter-context").setup { enable = true }
 
--- TODO: finish settinging up orgmode
-require('orgmode').setup_ts_grammar()
-require('orgmode').setup()
+require("orgmode").setup({
+  org_agenda_files = { "~/Documents/Notes/*" },
+  default_agenda_file = { "~/Documents/agenda.org" },
+})
 
 require("telescope").setup {
   extensions = {
@@ -260,12 +272,12 @@ g.automkdir_silent = 1
 
 a.nvim_create_augroup("files", { clear = true })
 a.nvim_create_autocmd("bufwritepre", {
-	group = "files",
-	command = "lua MiniTrailspace.trim()",
+  group = "files",
+  command = "lua MiniTrailspace.trim()",
 })
 
 -- Lang Server Conf
-local servers = { "clangd", "rust_analyzer", "sumneko_lua", "gopls", "kotlin_language_server", "bashls" }
+local servers = { "clangd", "rust_analyzer", "sumneko_lua", "gopls", "kotlin_language_server", "bashls", "jedi_language_server" }
 for _, lsp in pairs(servers) do
     require("lspconfig")[lsp].setup({
       on_attach = on_attach,

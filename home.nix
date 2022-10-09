@@ -77,6 +77,7 @@
       tokei
 
       ## Programming Languages
+      tree-sitter
       # Shell
       shfmt
       nodePackages.bash-language-server
@@ -105,17 +106,23 @@
       python3
       black
 
+      # Python-Libs
+      python310Packages.pynvim
+      python310Packages.jedi-language-server
+
       # json, yaml, html
       nodePackages.prettier
 
       # Other
       dart
+      nodejs
 
       ## Games
       steam
       lunar-client
 
       ### Libs
+      libcxx
       libnotify
       libsecret
       xorg.libxcb

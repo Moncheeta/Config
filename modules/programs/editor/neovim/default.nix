@@ -10,6 +10,10 @@
       vim-polyglot # language support
       nvim-treesitter
       nvim-lspconfig
+      nvim-yarp
+      deoplete-nvim
+      deoplete-lsp
+      vim-grammarous
       formatter-nvim
 
       # Navigation

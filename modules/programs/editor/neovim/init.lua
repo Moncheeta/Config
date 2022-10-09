@@ -237,17 +237,17 @@ require("gitsigns").setup({
   },
 })
 
-require ("nvim-treesitter.install").compilers = { "gcc" }
+-- require ("nvim-treesitter.install").compilers = { "gcc" }
 require("orgmode").setup_ts_grammar()
-require("nvim-treesitter.configs").setup {
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = { "org" },
-  },
-  -- ensure_installed = "all",
-  ensure_installed = { "org" },
-  parser_install_dir = "~/nvim",
-}
+-- require("nvim-treesitter.configs").setup {
+--   highlight = {
+--     enable = true,
+--     additional_vim_regex_highlighting = { "org" },
+--   },
+--   -- ensure_installed = "all",
+--   ensure_installed = { "org" },
+--   parser_install_dir = "~/nvim",
+-- }
 require("treesitter-context").setup { enable = true }
 
 require("orgmode").setup({

@@ -42,8 +42,12 @@
       pamixer
       pavucontrol
       playerctl
-      spotify
       cava
+      cmus
+      spotdl
+      spotify
+      yt-dlp
+      ffmpeg
 
       ## Command Line
       # Formats
@@ -107,6 +111,7 @@
       black
 
       # Python-Libs
+      python310Packages.pip
       python310Packages.pynvim
       python310Packages.jedi-language-server
 

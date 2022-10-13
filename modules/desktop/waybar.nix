@@ -1,6 +1,6 @@
 { pkgs, ... }:
 
-let 
+let
   patched_waybar = pkgs.waybar.overrideAttrs (oldAttrs: {
     mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
   });
@@ -19,27 +19,27 @@ in {
         height = 22;
         spacing = 10;
 
-        modules-left = [ 
+        modules-left = [
           "custom/dtname"
-          "custom/sep" 
-          "wlr/workspaces" 
+          "custom/sep"
+          "wlr/workspaces"
         ];
-        modules-right = [ 
+        modules-right = [
           "tray"
           "custom/sep"
-          "custom/spotify"
-          "pulseaudio" 
+          "pulseaudio"
+          "custom/minicava"
           "custom/sep"
-          "cpu" 
-          "custom/sep" 
-          "memory" 
-          "custom/sep" 
-          "disk" 
-          "custom/sep" 
-          "network" 
-          "custom/sep" 
-          "battery" 
-          "clock" 
+          "cpu"
+          "custom/sep"
+          "memory"
+          "custom/sep"
+          "disk"
+          "custom/sep"
+          "network"
+          "custom/sep"
+          "battery"
+          "clock"
         ];
 
         "custom/sep" = {
@@ -64,18 +64,16 @@ in {
           };
         };
 
+        "custom/minicava" = {
+          format = "{}";
+          max-length = 10;
+          exec = "$NIXOS_CONFIG_DIR/modules/scripts/minicava.sh";
+        };
+
         "tray" = {
           icon-size = 12;
           spacing = 10;
           show-passive-items = true;
-        };
-
-        "custom/spotify" = {
-          format = " {}";
-          max-length = 40;
-          interval = 0;
-          exec = "$NIXOS_CONFIG_DIR/modules/scripts/mediaplayer.sh";
-          exec-if = "pgrep spotify";
         };
 
         "pulseaudio" = {
@@ -155,7 +153,7 @@ in {
         color: #e7c664;
       }
 
-      #custom-spotify {
+      #custom-minicava {
         color: #9ed072;
       }
 

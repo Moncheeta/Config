@@ -16,7 +16,7 @@ in {
       mainbar = {
         layer = "top";
         position = "bottom";
-        height = 22;
+        height = 25;
         spacing = 10;
 
         modules-left = [

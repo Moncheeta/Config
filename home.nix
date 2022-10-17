@@ -88,6 +88,7 @@
 
       # Rust
       cargo
+      rustc
       rustfmt
       rust-analyzer
 

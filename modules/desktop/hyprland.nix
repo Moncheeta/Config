@@ -42,6 +42,7 @@
 
       dwindle {
         pseudotile=0
+        preserve_split=1
       }
 
       gestures {

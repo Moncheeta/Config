@@ -126,6 +126,7 @@
       ## Games
       steam
       lunar-client
+      retroarchFull
 
       ### Libs
       libcxx

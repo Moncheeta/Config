@@ -14,8 +14,7 @@
       devices = [ "nodev" ];
       configurationLimit = 3;
 
-      # Since there is no other OS
-      useOSProber = false;
+      useOSProber = true;
     };
   };
 }

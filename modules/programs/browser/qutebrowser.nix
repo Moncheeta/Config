@@ -23,6 +23,8 @@
 
       c.window.hide_decoration = True
 
+      c.qt.force_software_rendering = "chromium"
+
       ##########
       # COLORS #
       ##########

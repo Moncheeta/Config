@@ -35,17 +35,6 @@
     extraOptions = ''
     experimental-features = nix-command flakes
     '';
-
-    settings = {
-      auto-optimise-store = true;
-      trusted-users = [ "moncheeta" ];
-    };
-
-    gc = {
-      automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 7d";
-    };
   };
 
   time.timeZone = "America/Chicago";

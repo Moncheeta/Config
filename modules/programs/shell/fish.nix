@@ -18,7 +18,7 @@
       find = "fd";
       disk = "lfs";
       pause = "read -n1 -r -p 'Press any key to continue...'";
-      fetch = "PF_INFO='ascii title os kernel memory pkgs' pfetch";
+      fetch = "PF_INFO='ascii title os kernel memory' pfetch";
       clock = "peaclock";
       syn = "cava"; # visual music
       lock = "swaylock --fade-in 1 --screenshots --effect-blur 5x3 -u";
@@ -50,7 +50,7 @@
       source $NIXOS_CONFIG_DIR/modules/scripts/himalaya.fish
       zoxide init fish | source
       sleep 0.1
-      PF_INFO='ascii title os kernel memory pkgs' pfetch
+      PF_INFO='ascii title os kernel memory' pfetch
     '';
   };
 }

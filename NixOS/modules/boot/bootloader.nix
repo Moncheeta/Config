@@ -2,7 +2,7 @@
 
 {
   boot.loader = {
-    timeout = 0;
+    timeout = 5;
 
     efi = {
       efiSysMountPoint = "/boot";
@@ -15,8 +15,6 @@
       configurationLimit = 3;
 
       useOSProber = true;
-
-      theme = null;
     };
   };
 }

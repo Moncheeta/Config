@@ -15,6 +15,8 @@
       configurationLimit = 3;
 
       useOSProber = true;
+
+      theme = null;
     };
   };
 }

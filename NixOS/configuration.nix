@@ -11,7 +11,6 @@
 
     # Also some specific to configuration.nix
     ./modules/desktop
-    ./modules/theming/fonts.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

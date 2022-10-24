@@ -1,6 +1,9 @@
 { ... }:
 
 {
+  imports = [
+    ./fonts.nix
+  ];
   xdg.portal.wlr.enable = true;
 
   services.xserver.displayManager.lightdm.enable = false;

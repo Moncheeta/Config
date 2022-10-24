@@ -107,7 +107,7 @@
       bind=,XF86AudioMute,exec,pamixer -t
       bind=,XF86AudioPlay,exec,playerctl play-pause
 
-      exec-once=swaybg -i $NIXOS_CONFIG_DIR/modules/theming/wallpapers/cars/RX7/IMG_0086.JPG
+      exec-once=swaybg -i $CONFIG_DIR/Wallpapers/cars/RX7/IMG_0086.JPG
       exec-once=himalaya notify &
     '';
   };

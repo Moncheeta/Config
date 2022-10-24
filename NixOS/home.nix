@@ -15,6 +15,7 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
       TERMINAL = "alacritty";
+      CONFIG_DIR = "$HOME/Config";
       NIXOS_CONFIG_DIR = "$HOME/Config/NixOS";
 
       ## Below is for stuff to work

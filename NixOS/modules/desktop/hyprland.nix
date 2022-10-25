@@ -40,6 +40,10 @@
         drop_shadow=false
       }
 
+      animations {
+        enabled=false
+      }
+
       dwindle {
         pseudotile=0
         preserve_split=1

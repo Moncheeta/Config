@@ -3,7 +3,6 @@
 {
   imports=[
     hyprland.homeManagerModules.default
-    ./waybar.nix
   ];
 
   wayland.windowManager.hyprland={
@@ -38,10 +37,6 @@
         blur_passes=5
         blur_new_optimizations=1
         drop_shadow=false
-      }
-
-      animations {
-        enabled=false
       }
 
       dwindle {

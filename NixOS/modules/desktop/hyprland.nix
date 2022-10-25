@@ -107,6 +107,7 @@
       bind=,XF86AudioPlay,exec,playerctl play-pause
 
       exec-once=swaybg -i $CONFIG_DIR/Wallpapers/cars/RX7/IMG_0086.JPG
+      exec-once=waybar &
       exec-once=himalaya notify &
     '';
   };

@@ -1,17 +1,8 @@
 { pkgs, ... }:
 
-let
-  patched_waybar = pkgs.waybar.overrideAttrs (oldAttrs: {
-    mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-  });
-in {
+{
   programs.waybar = {
     enable = true;
-    package = patched_waybar;
-    systemd = {
-      enable = true;
-      target = "hyprland-session.target";
-    };
     settings = {
       mainbar = {
         layer = "top";
@@ -21,14 +12,12 @@ in {
 
         modules-left = [
           "custom/dtname"
-          "custom/sep"
-          "wlr/workspaces"
         ];
         modules-right = [
           "tray"
           "custom/sep"
           "pulseaudio"
-          "custom/minicava"
+          # "custom/minicava"
           "custom/sep"
           "cpu"
           "custom/sep"
@@ -54,16 +43,6 @@ in {
             tooltip = false;
         };
 
-        "wlr/workspaces" = {
-          format = "{icon}";
-          format-icons = {
-            "1" = " ";
-            "2" = " ";
-            "3" = " ";
-            "4" = " ";
-          };
-        };
-
         "custom/minicava" = {
           format = "{}";
           max-length = 10;
@@ -85,7 +64,6 @@ in {
             headset = " ";
             phone = " ";
             portable = " ";
-            car = " ";
             default = [" " " "];
           };
           scroll-step = 1;
@@ -98,14 +76,14 @@ in {
         };
 
         "memory" = {
-          format = " {used:0.1f}/{total:0.1f}GB";
+          format = " {used:0.1f}/{total:0.1f}";
           interval = 1;
           tooltip = false;
         };
 
         "disk" = {
           path = "/";
-          format = " {used} used of {total}";
+          format = " {used}/{total}";
         };
 
         "network" = {

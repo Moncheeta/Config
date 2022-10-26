@@ -19,23 +19,11 @@
         style = "bright-black";
       };
 
-      git_status = {
-        format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)";
-        style = "cyan";
-        conflicted = "~";
-        untracked = "⇣";
-        modified = "​";
-        staged = "​";
-        renamed = "​";
-        deleted = "​";
-        stashed = "≡";
-      };
-
       git_metrics = {
         format = "[+$added](green)/[-$deleted](red) ";
       };
 
-      format = "$username\$hostname\$directory\$git_branch\$git_status\$git_metrics\$line_break\$character";
+      format = "$username\$hostname\$directory\$git_branch\$git_metrics\$line_break\$character";
     };
   };
 }

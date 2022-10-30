@@ -69,6 +69,7 @@
       fd
 
       # System
+      pass
       btop
       trash-cli
       lfs

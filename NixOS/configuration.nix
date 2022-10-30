@@ -60,7 +60,6 @@
     efibootmgr
     killall
     wget
-    pass
     gparted
     glibc
     gcc

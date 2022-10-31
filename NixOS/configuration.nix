@@ -69,11 +69,5 @@
     git
   ];
 
-  system = {
-    autoUpgrade = {
-      enable = true;
-      channel = "https://nixos.org/channels/nixos-unstable";
-    };
-    stateVersion = "22.11";
-  };
+  system.stateVersion = "22.11";
 }

@@ -106,7 +106,7 @@
       bind=,XF86AudioMute,exec,pamixer -t
       bind=,XF86AudioPlay,exec,playerctl play-pause
 
-      exec-once=swaybg -i $CONFIG_DIR/Wallpapers/cars/RX7/savanna_japan.png
+      exec-once=swaybg -i $CONFIG_DIR/Wallpapers/Cars/RX7/savanna_japan.png
       exec-once=waybar &
       exec-once=himalaya notify &
     '';

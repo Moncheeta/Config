@@ -99,7 +99,7 @@
       bind=SUPER,equal,splitratio,0.25
 
       bind=SUPER,T,exec,alacritty
-      bind=SUPER,W,exec,qutebrowser
+      bind=SUPER,W,exec,firefox
 
       bind=,XF86AudioRaiseVolume,exec,pamixer -i 5
       bind=,XF86AudioLowerVolume,exec,pamixer -d 5

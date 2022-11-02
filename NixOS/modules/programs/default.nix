@@ -10,4 +10,6 @@
     ./browser
     ./gpg
   ];
+
+  programs.exa.enable = true;
 }

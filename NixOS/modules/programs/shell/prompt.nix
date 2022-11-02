@@ -20,7 +20,9 @@
       };
 
       git_metrics = {
-        format = "[+$added](green)/[-$deleted](red) ";
+        added_style = "bold green";
+        deleted_style = "bold red";
+        format = "[+$added]($added_style)/[-$deleted]($deleted_style) ";
       };
 
       format = "$username\$hostname\$directory\$git_branch\$git_metrics\$line_break\$character";

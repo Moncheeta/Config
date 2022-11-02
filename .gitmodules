@@ -1,0 +1,9 @@
+[submodule "Custom/Custom/dmenu-flexipatch"]
+	path = Custom/Custom/dmenu-flexipatch
+	url = https://github.com/bakkeby/dmenu-flexipatch.git
+[submodule "Custom/Custom/st-flexipatch"]
+	path = Custom/Custom/st-flexipatch
+	url = https://github.com/bakkeby/st-flexipatch.git
+[submodule "Custom/Custom/tabbed-flexipatch"]
+	path = Custom/Custom/tabbed-flexipatch
+	url = https://github.com/bakkeby/tabbed-flexipatch.git

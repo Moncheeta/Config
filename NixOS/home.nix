@@ -70,10 +70,10 @@
 
       # System
       pass
+      htop
       btop
       trash-cli
       lfs
-      wl-clipboard
 
       # Other
       pfetch
@@ -137,11 +137,12 @@
       xorg.libxcb
       libappindicator
 
-      ### Window Managers
-      ## Hyprland
+      ### Desktop
+      ## Wayland
       swaybg
       swaylock-effects
       sway-launcher-desktop
+      wl-clipboard
     ];
   };
 

@@ -15,19 +15,11 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # For minecraft over lan to work
-  networking.firewall.enable = false;
+  # Disable for minecraft over LAN to work
+  networking.firewall.enable = true;
 
   # to fix home-manager
   programs.dconf.enable = true;
-
-  # fixes blueman
-  services.gnome.at-spi2-core.enable = true;
-
-  # fixes swaylock
-  security.pam.services.swaylock = {
-    text = "auth include login";
-  };
 
   nix = {
     package = pkgs.nixFlakes;
@@ -40,9 +32,13 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  security.sudo = {
-    enable = true;
-    wheelNeedsPassword = false;
+  security = {
+    sudo.enable = true;
+    doas.enable = true;
+    # fixes swaylock
+    pam.services.swaylock = {
+      text = "auth include login";
+    };
   };
 
   users.users.moncheeta = {

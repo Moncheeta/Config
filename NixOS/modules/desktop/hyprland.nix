@@ -5,9 +5,8 @@
     hyprland.homeManagerModules.default
   ];
 
-  wayland.windowManager.hyprland={
-    enable=true;
-    systemdIntegration=true;
+  wayland.windowManager.hyprland = {
+    enable = true;
     extraConfig=''
       input {
         kb_variant=colemak

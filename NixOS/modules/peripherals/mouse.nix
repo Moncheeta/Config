@@ -2,8 +2,6 @@
 
 {
   services.xserver = {
-    enable = true;
-    layout = "us";
     libinput = {
       enable = true;
       mouse = {

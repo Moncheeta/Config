@@ -15,26 +15,20 @@ riverctl map normal Super Up focus-view next
 riverctl map normal Super Down focus-view previous
 
 ## Move
-riverctl map normal Super+Control Left move left 100
-riverctl map normal Super+Control Down move down 100
-riverctl map normal Super+Control Up move up 100
-riverctl map normal Super+Control Right move right 100
 riverctl map-pointer normal Super BTN_LEFT move-view
+riverctl map normal Super+Alt Left move left 100
+riverctl map normal Super+Alt Down move down 100
+riverctl map normal Super+Alt Up move up 100
+riverctl map normal Super+Alt Right move right 100
 
-## Snap
-riverctl map normal Super+Alt Left snap left
-riverctl map normal Super+Alt Down snap down
-riverctl map normal Super+Alt Up snap up
-riverctl map normal Super+Alt Right snap right
-
-## Ratio
-riverctl map normal Super+Shift Left resize horizontal -100
-riverctl map normal Super+Shift Up resize vertical 100
-riverctl map normal Super+Shift Down resize vertical -100
-riverctl map normal Super+Shift Right resize horizontal 100
+## Size
 riverctl map-pointer normal Super BTN_RIGHT resize-view
 riverctl map normal Super Left send-layout-cmd rivertile "main-ratio -0.05"
 riverctl map normal Super Right send-layout-cmd rivertile "main-ratio +0.05"
+riverctl map normal Super+Control Left resize horizontal -100
+riverctl map normal Super+Control Down resize vertical 100
+riverctl map normal Super+Control Up resize vertical -100
+riverctl map normal Super+Control Right resize horizontal 100
 
 ## Displays
 ### Focus
@@ -77,6 +71,10 @@ done
 
 # Keyboard repeat rate
 riverctl set-repeat 50 300
+
+# Colors
+riverctl border-color-focused 0xb39df3
+riverctl border-color-unfocused 0x27f8490
 
 # Default Layout
 riverctl output-layout rivertile

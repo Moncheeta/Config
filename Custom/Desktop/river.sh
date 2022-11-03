@@ -2,6 +2,7 @@
 
 # Applications
 riverctl map normal Super T spawn alacritty
+riverctl map normal Super W spawn firefox
 
 # Windows
 riverctl map normal Super+Shift C close
@@ -10,22 +11,30 @@ riverctl map normal Super+Shift V toggle-float
 riverctl map normal Super+Shift F toggle-fullscreen
 
 ## Focus
-riverctl map normal Super J focus-view next
-riverctl map normal Super K focus-view previous
+riverctl map normal Super Up focus-view next
+riverctl map normal Super Down focus-view previous
 
-## Swap
-riverctl map normal Super+Shift J swap next
-riverctl map normal Super+Shift K swap previous
+## Move
+riverctl map normal Super+Control Left move left 100
+riverctl map normal Super+Control Down move down 100
+riverctl map normal Super+Control Up move up 100
+riverctl map normal Super+Control Right move right 100
+riverctl map-pointer normal Super BTN_LEFT move-view
 
 ## Snap
-riverctl map normal Super+Alt+Control H snap left
-riverctl map normal Super+Alt+Control J snap down
-riverctl map normal Super+Alt+Control K snap up
-riverctl map normal Super+Alt+Control L snap right
+riverctl map normal Super+Alt Left snap left
+riverctl map normal Super+Alt Down snap down
+riverctl map normal Super+Alt Up snap up
+riverctl map normal Super+Alt Right snap right
 
 ## Ratio
-riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
-riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+riverctl map normal Super+Shift Left resize horizontal -100
+riverctl map normal Super+Shift Up resize vertical 100
+riverctl map normal Super+Shift Down resize vertical -100
+riverctl map normal Super+Shift Right resize horizontal 100
+riverctl map-pointer normal Super BTN_RIGHT resize-view
+riverctl map normal Super Left send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Super Right send-layout-cmd rivertile "main-ratio +0.05"
 
 ## Displays
 ### Focus
@@ -36,39 +45,15 @@ riverctl map normal Super Comma focus-output previous
 riverctl map normal Super+Shift Period send-to-output next
 riverctl map normal Super+Shift Comma send-to-output previous
 
-## Views
-### Move
-riverctl map normal Super+Alt H move left 100
-riverctl map normal Super+Alt J move down 100
-riverctl map normal Super+Alt K move up 100
-riverctl map normal Super+Alt L move right 100
-riverctl map-pointer normal Super BTN_LEFT move-view
-
-### Snap
-riverctl map normal Super+Alt+Control H snap left
-riverctl map normal Super+Alt+Control J snap down
-riverctl map normal Super+Alt+Control K snap up
-riverctl map normal Super+Alt+Control L snap right
-
-### Ratio
-riverctl map normal Super+Alt+Shift H resize horizontal -100
-riverctl map normal Super+Alt+Shift J resize vertical 100
-riverctl map normal Super+Alt+Shift K resize vertical -100
-riverctl map normal Super+Alt+Shift L resize horizontal 100
-riverctl map-pointer normal Super BTN_RIGHT resize-view
-
 # Other
 riverctl map normal Super+Shift E exit
-
-riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
-riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count -1"
 
 # Tags
 for i in $(seq 1 9)
 do
     tags=$((1 << ($i - 1)))
     riverctl map normal Super $i set-focused-tags $tags
-    riverctl map normal Super+Shift $i set-view-tags $tags
+    riverctl map normal Super+Alt $i set-view-tags $tags
     riverctl map normal Super+Control $i toggle-focused-tags $tags
     riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
 done
@@ -76,11 +61,6 @@ done
 all_tags=$(((1 << 32) - 1))
 riverctl map normal Super 0 set-focused-tags $all_tags
 riverctl map normal Super+Shift 0 set-view-tags $all_tags
-
-riverctl map normal Super Up    send-layout-cmd rivertile "main-location top"
-riverctl map normal Super Right send-layout-cmd rivertile "main-location right"
-riverctl map normal Super Down  send-layout-cmd rivertile "main-location bottom"
-riverctl map normal Super Left  send-layout-cmd rivertile "main-location left"
 
 for mode in normal locked
 do
@@ -98,7 +78,8 @@ done
 # Keyboard repeat rate
 riverctl set-repeat 50 300
 
-riverctl default-layout rivertile
+# Default Layout
+riverctl output-layout rivertile
 
 swaybg -i $WALLPAPER &
 waybar &

@@ -15,7 +15,7 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
       TERMINAL = "alacritty";
-      WALLPAPER = "$CONFIG_DIR/Wallpapers/Cars/e30/sketch.png";
+      WALLPAPER = "$CONFIG_DIR/Wallpapers/Cars/RX7/savanna_japan.png";
       CONFIG_DIR = "$HOME/Config";
       NIXOS_CONFIG_DIR = "$HOME/Config/NixOS";
       XKB_DEFAULT_LAYOUT = "us(colemak)";

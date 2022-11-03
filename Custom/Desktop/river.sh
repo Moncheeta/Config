@@ -100,5 +100,5 @@ riverctl set-repeat 50 300
 
 riverctl default-layout rivertile
 
-swaybg -i $WALLPAPER & 
+swaybg -i $WALLPAPER &
 waybar &

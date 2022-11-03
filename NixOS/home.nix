@@ -15,8 +15,10 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
       TERMINAL = "alacritty";
+      WALLPAPER = "$CONFIG_DIR/Wallpapers/Cars/e30/sketch.png";
       CONFIG_DIR = "$HOME/Config";
       NIXOS_CONFIG_DIR = "$HOME/Config/NixOS";
+      XKB_DEFAULT_LAYOUT = "us(colemak)";
 
       ## Below is for stuff to work
       # window manager (wayland)
@@ -138,6 +140,7 @@
       libappindicator
 
       ### Desktop
+      river
       ## Wayland
       swaybg
       swaylock-effects

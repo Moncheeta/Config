@@ -77,6 +77,7 @@ riverctl border-color-focused 0xb39df3
 riverctl border-color-unfocused 0x27f8490
 
 # Default Layout
+riverctl spawn rivertile
 riverctl output-layout rivertile
 
 swaybg -i $WALLPAPER &

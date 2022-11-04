@@ -8,7 +8,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig=''
-      source=${toString ../../../Custom/Desktop/hyprland.conf}
+      source=${toString ../../../../Custom/Desktop/hyprland.conf}
     '';
   };
 }

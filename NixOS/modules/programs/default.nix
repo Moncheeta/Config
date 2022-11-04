@@ -1,13 +1,13 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
     ./github
     ./shell
     ./terminal
-    ./editor
     ./browser
     ./gpg
+    ./desktop
   ];
 
   programs.exa.enable = true;

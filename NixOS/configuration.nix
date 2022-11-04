@@ -10,7 +10,8 @@
     ./modules/services/networking.nix
 
     # Also some specific to configuration.nix
-    ./modules/desktop
+    ./modules/programs/desktop/wayland.nix
+    ./modules/programs/fonts.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

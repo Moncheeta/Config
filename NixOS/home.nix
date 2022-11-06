@@ -49,16 +49,24 @@
       cmus
       spotdl
       spotify
+
+      ## Video
+      kdenlive
       yt-dlp
-      ffmpeg
+
+      ## Images
+      gimp
 
       ## Command Line
       # Formats
       glow
       ouch # for decompressing files
 
-      # Help
+      # Useful
       tldr
+      calc
+      pfetch
+      ffmpeg
 
       # Communication
       element-desktop-wayland
@@ -78,7 +86,6 @@
       lfs
 
       # Other
-      pfetch
       peaclock
       cmatrix
       pingu

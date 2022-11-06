@@ -35,7 +35,6 @@
 
   security = {
     sudo.enable = true;
-    doas.enable = true;
     # fixes swaylock
     pam.services.swaylock = {
       text = "auth include login";

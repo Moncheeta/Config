@@ -12,6 +12,7 @@
     # Also some specific to configuration.nix
     ./modules/programs/desktop/wayland.nix
     ./modules/programs/fonts.nix
+    ./modules/services/desktop.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Applications
-riverctl map normal Super T spawn alacritty
+riverctl map normal Super T spawn urxvtc
 riverctl map normal Super W spawn firefox
 
 # Windows
@@ -82,3 +82,4 @@ riverctl output-layout rivertile
 
 swaybg -i $WALLPAPER &
 waybar &
+urxvtd &

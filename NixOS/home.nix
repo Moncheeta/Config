@@ -40,115 +40,115 @@
     };
 
     packages = with pkgs; [
-      ### Programs
-      ## Audio
-      pamixer
-      pavucontrol
-      playerctl
-      cava
-      cmus
-      spotdl
+      # Programs
+      ## GUI
       spotify
-
-      ## Video
       kdenlive
-      yt-dlp
-
-      ## Images
       gimp
+      element-desktop-wayland
+      pcmanfm
 
       ## Command Line
-      # Formats
+      ### Formats
       glow
       ouch # for decompressing files
 
-      # Useful
+      ### Useful
       tldr
       calc
       pfetch
       ffmpeg
 
-      # Communication
-      element-desktop-wayland
-
-      # Navigation
+      ### Navigation
       xplr
       bat
       ripgrep
       fzf
       fd
 
-      # System
-      pass
+      ### System
+      #### Info
       htop
       btop
-      trash-cli
       lfs
 
-      # Other
+      #### Audio
+      pamixer
+      pavucontrol
+      playerctl
+      cava
+      cmus
+
+      #### Other
+      trash-cli
+      yt-dlp
+      spotdl
+
+      ### Other
       peaclock
       cmatrix
       pingu
       tokei
+      jq
 
-      ## Programming Languages
+      # Programming Languages
       tree-sitter
-      # Shell
+      ## Shell
       shfmt
       nodePackages.bash-language-server
 
-      # Rust
+      ## Rust
       cargo
       rustc
       rustfmt
       rust-analyzer
 
-      # Lua
+      ## Lua
       sumneko-lua-language-server
       stylua
 
-      # Kotlin
+      ## Kotlin
       kotlin-language-server
 
-      # C, C++
+      ## C, C++
       clang
       clang-tools
 
-      # Go
+      ## Go
       go
       gopls
 
-      # Python
+      ## Python
       python3
       black
 
-      # Python-Libs
+      ### Python-Libs
       python310Packages.pip
       python310Packages.pynvim
       python310Packages.jedi-language-server
 
-      # json, yaml, html
+      ## json, yaml, html
       nodePackages.prettier
 
-      # Other
+      ## Other
       dart
       nodejs
 
-      ## Games
+      # Games
       steam
       lunar-client
       retroarchFull
 
-      ### Libs
+      # Libs
       libcxx
       libnotify
       libsecret
       xorg.libxcb
       libappindicator
 
-      ### Desktop
-      river
+      # Desktop
       ## Wayland
+      river
       swaybg
       swaylock-effects
       sway-launcher-desktop

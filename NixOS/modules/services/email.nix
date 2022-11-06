@@ -35,7 +35,9 @@ in
           mailboxes = {
             sent = "[Gmail]/Sent Mail";
             draft = "[Gmail]/Drafts";
+            trash = "[Gmail]/Trash";
           };
+          downloads-dir = "~/Downloads";
         };
       };
       address = "monkey.damianek@gmail.com";

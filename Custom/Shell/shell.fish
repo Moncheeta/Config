@@ -1,6 +1,7 @@
 alias ls="exa -a"
 alias ll="exa -al --git --no-time"
 alias cp="cp -v"
+alias mv="mv -v"
 alias rm="trash"
 alias bat="bat -n"
 alias fm="xplr"

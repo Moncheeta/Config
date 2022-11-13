@@ -46,7 +46,7 @@
         "custom/minicava" = {
           format = "{}";
           max-length = 10;
-          exec = "$NIXOS_CONFIG_DIR/modules/scripts/minicava.sh";
+          exec = "$CONFIG_DIR/Custom/Programs/minicava.sh";
         };
 
         "tray" = {

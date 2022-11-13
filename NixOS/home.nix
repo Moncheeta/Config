@@ -153,6 +153,9 @@
       swaylock-effects
       sway-launcher-desktop
       wl-clipboard
+      # Xorg
+      xorg.xrdb
+      xsel
     ];
   };
 

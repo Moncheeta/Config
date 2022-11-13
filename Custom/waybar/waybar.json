@@ -2,9 +2,9 @@
     "layer": "top",
     "position": "bottom",
     "height": 25,
-    "spacing": 10,
+    "spacing": 8,
 
-    "modules-left": [ "custom/dtname" ],
+    "modules-left": [ "custom/dtname", "custom/cmus" ],
     "modules-right": [ "tray", "custom/sep", "pulseaudio", "custom/sep", "cpu", "custom/sep", "memory", "custom/sep", "disk", "custom/sep", "network", "custom/sep", "battery", "clock" ],
 
     "custom/sep": {
@@ -14,13 +14,24 @@
     },
 
     "custom/dtname": {
-
+        "format": "{}",
+        "exec-once": "$CONFIG_DIR/Custom/dtname.sh"
     },
 
     "custom/minicava": {
         "format": "{}",
         "max-length": 10,
-        "exec": "$CONFIG_DIR/Custom/Programs/minicava.sh"
+        "exec": "$CONFIG_DIR/Custom/minicava.sh"
+    },
+
+    "custom/cmus": {
+        "format": "♪ {}",
+        "max-length": 10,
+        "interval": 10,
+        "exec": "cmus-remote -C \"format_print '%a - %t'\"",
+        "exec-if": "pgrep cmus",
+        "on-click": "cmus-remote -u",
+        "escape": true
     },
 
     "tray": {

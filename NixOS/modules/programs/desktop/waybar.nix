@@ -8,10 +8,11 @@
         layer = "top";
         position = "bottom";
         height = 25;
-        spacing = 10;
+        spacing = 8;
 
         modules-left = [
           "custom/dtname"
+          "custom/cmus"
         ];
         modules-right = [
           "tray"
@@ -47,6 +48,15 @@
           format = "{}";
           max-length = 10;
           exec = "$CONFIG_DIR/Custom/Programs/minicava.sh";
+        };
+
+        "custom/cmus" = {
+          format = "♪ {}";
+          interval = 10;
+          exec = "cmus-remote -C \"format_print '%a - %t'\"";
+          exec-if = "pgrep cmus";
+          on-click = "cmus-remote -u";
+          escape = true;
         };
 
         "tray" = {
@@ -110,6 +120,6 @@
         };
       };
     };
-    style = ../../../../Custom/Desktop/waybar.css;
+    style = ../../../../Custom/waybar/waybar.css;
   };
 }

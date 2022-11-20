@@ -1,7 +1,43 @@
 local g = vim.g
 local o = vim.o
-local cmd = vim.cmd
 local a = vim.api
+local cmd = vim.cmd
+local call = vim.call
+
+call("plug#begin", "~/.config/nvim/plugged")
+
+Plug "echansnoviski/mini.nvim"
+Plug "sheerun/vim-polyglot"
+
+-- LSP
+Plug "neovim/nvim-lspconfig"
+Plug "nvim-treesitter/nvim-treesitter-context"
+Plug "gcmt/wildfire"
+Plug "Shougo/deoplete.nvim"
+Plug "deoplete-plugins/deoplete-lsp"
+Plug "mhartington/formatter.nvim"
+Plug "rhysd/vim-grammarous"
+
+-- UI
+Plug "sainnhe/sonokai"
+Plug "junegunn/goyo.vim"
+Plug "nvim-lualine/lualine.nvim"
+Plug "lewis6991/gitsigns.nvim"
+Plug "norcalli/nvim-colorizer.lua"
+Plug "folke/todo-comments.nvim"
+
+-- Telescope
+Plug "nvim-telescope/telescope.nvim"
+Plug "nvim-telescope/telescope-fzf-native.nvim"
+Plug "nvim-telescope/telescope-ui-select.nvim"
+Plug "nvim-telescope/telescope-file-browser.nvim"
+
+-- Other
+Plug "wakatime/vim-wakatime"
+Plug "t9md/vim-choosewin"
+Plug "benizi/vim-automkdir"
+
+call("plug#end")
 
 -- Opt
 o.tabstop = 4

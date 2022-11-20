@@ -1,20 +1,22 @@
+fish_add_path $HOME/.cargo/bin
+fish_add_path $HOME/.cabal/bin
+
 alias ls="exa -a"
 alias ll="exa -al --git --no-time"
 alias cp="cp -v"
 alias mv="mv -v"
 alias rm="trash"
 alias bat="bat -n"
-alias fm="xplr"
+alias xplr="cls; xplr"
 alias find="fzf"
 alias cls="clear"
-alias ping="pingu"
-alias disk="lfs"
 alias pause="read -n1 -r -p 'Press any key to continue...'"
-alias clock="peaclock"
-alias reboot="systemctl reboot"
-alias shut="poweroff"
+alias clock="peaclock --config-dir ~/.config/peaclock"
+alias rebo="doas reboot"
+alias shut="doas poweroff"
 alias mut="zellij"
 alias mat="cmatrix"
+alias sudo="doas"
 
 # Git
 alias commit="git commit"
@@ -36,6 +38,8 @@ alias spot="spotify"
 alias wttr="curl wttr.in"
 
 # Init
-source $NIXOS_CONFIG_DIR/modules/scripts/himalaya.fish
 zoxide init fish | source
+export CONFIG_DIR="~/Config"
+export TERMINAL="urxvtc"
+
 PF_INFO='ascii title os kernel memory' pfetch

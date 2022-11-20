@@ -3,7 +3,7 @@
 {
   programs.neovim = {
     enable = true;
-    extraConfig = "luafile \$CONFIG_DIR/Custom/nvim/init.lua";
+    extraConfig = "luafile \$CONFIG_DIR/Custom/neovim.lua";
     plugins = with pkgs.vimPlugins; [
       # Language support
       mini-nvim # a bunch of nice plugins
@@ -23,7 +23,6 @@
       wildfire-vim
       vim-choosewin
       nvim-treesitter-context
-      vim-surround
       vim-automkdir
 
       # Github

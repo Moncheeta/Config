@@ -1,0 +1,203 @@
+Version 2.3
+===========
+
+* minor cleanup
+  - removal of obsolete .ssh/identity handling
+  - documentation updates
+  - typo fixes
+
+Version 2.2
+===========
+
+Compatibility
+
+* support openssl 1.1 while trying to stay compatible with 1.0)
+* removed SHA1 and SSH1 support
+
+
+Version 2.1
+===========
+
+General improvements and bugfixes
+
+* session/login/default keys lexical sort order
+* add ED25519 key support
+* updated openssh embedded code to 6.7p1
+
+
+Version 2.01
+============
+
+Minor doc enhancements
+
+* updated man page
+* changelog format cleanup
+* added xz as dist target archive format
+* no code changes
+
+
+Version 2.0
+===========
+
+General improvements and bugfixes
+
+* added support for ECDSA keys
+* ssh-agent is now spawned in a different improved way
+* ssh-agent is not started anymore for users without keys
+* support try_first_password PAM option
+* still ask for passphrase even if user does not exist
+* expect keys used for login in ~/.ssh/login-keys.d directory
+  (see README; this behaviour will cause old setups to fail
+  since the default keys are not used anymore for auth)
+* "keyfiles" option has been removed and all found keys
+  which can be opened using the provided passphrase will be
+  added to the agent
+* alternative keys not used for login purposes and not named
+  like the default keys will be decrypted and saved for the
+  agent when placed in ~/.ssh/session-keys.d directory
+* when there is no controlling tty now use the PID to
+  create the session file
+* return PAM_SESSION_ERR from within the session part
+  instead of PAM_AUTH_ERR
+* honour TMPDIR when starting ssh-agent
+* start ssh-agent with GID of the group given at
+  compile time to the new configure option
+  --with-ssh-agent-group
+
+
+Version 1.98
+============
+
+Fixed some possible crashes and minor issues:
+
+* Under some conditions, there is a double-free bug
+  in pam_ssh. The data of the "ssh_agent_env_agent"
+  pam_handle_t's item may have been free'd without being
+  nullified, which trigger a bug on the cleanup phase.
+  (ticket #13 double-free bug with pam_ssh-1.97)
+* Before executing ssh-agent, pam_ssh restores root
+  privileges with openpam_restore_cred, then uses only setuid
+  to adjust privileges. Thus ssh-agent runs with gid 0.
+  (ticket #12 pam_ssh doesn't set gid/groups before executing ssh-agent)
+* Clear signal mask before executing ssh-agent as
+  pam_ssh code can be called from kdm with blocked TERM signal
+  which would be inherited by ssh-agent
+* fixed crash caused by EOF password
+  (ticket 14 pam_ssh segfaults on abort with empty password)
+
+
+Version 1.97
+============
+
+SECURITY FIX: pam_ssh used a certain prompt if a user found to exist
+to ask for the SSH passphrase explicitely depending on whether the
+username was valid or invalid, which made it easier for remote
+attackers to enumerate usernames. (CVE-2009-1273)
+
+
+**********************************************************************
+* The pam_ssh maintained on Novell's DeveloperNet got merged back    *
+* to SourceForge with Version 1.96 and syncs both up to the same     *
+* level. The DeveloperNet version isn't going to maintained further  *
+* http://developer.novell.com/wiki/index.php/Pam_ssh                 *
+**********************************************************************
+
+Version 1.96 (Novell DeveloperNet)
+============
+
+SECURITY FIX: The allow_blank_passphrase option was defeatable simply
+by entering a random but non-blank passphrase.  Thanks to Rob
+Henderson for the report.
+
+Version 1.95 (Novell DeveloperNet)
+============
+
+Bugfix release to avoid double-free and and a null-pointer dereference
+issues.
+
+Version 1.94 (Novell DeveloperNet)
+============
+
+Improved logging and bugfix release with improved recovery after
+system crashes.
+
+Version 1.93 (Novell DeveloperNet)
+============
+
+The option to allow blank passphrases is now 'nullok' while the old
+option is still available but deprecated.
+The debug option is now really supported as documented.
+We didn't start the ssh-agent if the close_session module wasn't  called
+correctly but the ssh-agent was killed (e.g. system crashes).
+That should be solved in almost all cases now.
+
+Version 1.92 (Novell DeveloperNet)
+============
+
+The module is usable now for session use only if wanted. It starts
+an ssh-agent without adding keys to it in that case.
+
+Version 1.92 (SourceForge)
+============
+
+SECURITY FIX: The allow_blank_passphrase option was defeatable simply
+by entering a random but non-blank passphrase.  Thanks to Rob
+Henderson for the report.
+
+Version 1.91
+============
+
+Don't allow blank passphrases by default.  Add option
+allow_blank_passphrase to re-enable them.  Thanks to red0x for the
+suggestion.
+
+Version 1.9
+===========
+
+Code cleanup release.  Updated OpenSSH compatibility code to 3.7.1p2.
+Updated for newer Autoconf and Automake.  Plus we use Autoheader now.
+
+Version 1.8
+===========
+
+This version is more portable about the way it juggles user IDs when
+starting the agent.  As a result, it works on Linux systems.  Also,
+it tries to run as the user rather than root as much as possible.
+
+Other portability changes were made--pam_ssh should now work on
+Mac OS X systems.
+
+Version 1.7
+===========
+
+Mark R V Murray of the FreeBSD project wrote a manual page, which we
+now include in the distribution.
+
+We now use Automake, Autoconf, and Libtool.  I think a guy named Trey
+donated most of the Autoconf logic, which I probably ended up marring
+beyond recognition.  Trey, if you're out there, drop me another note
+so I can give you proper credit.
+
+In this version we fixed a bunch of bugs and added support for OpenPAM
+and pam_std_option(), all thanks to FreeBSD.  The OpenSSH code has
+been updated to 3.4p1.
+
+Version 1.6
+===========
+
+Only one agent is started per user per host.  Thanks to
+<hmh@debian.org> for this idea.  Each agent has an associated file
+with environment data (.ssh/agent-<hostname>).  When a concurrent
+session is started, the session phase need only pass this environment
+data to the application rather than starting a new agent and adding
+the keys.  A filename (.ssh/agent-<host>-<tty> or
+.ssh/agent-<host>-<display>) is hard linked to this environment file
+for each session to keep a reference count of the number of sessions
+using the agent.  Only when the count drops to zero is the agent
+killed.
+
+Added keyfiles option to specify which key files to use for
+authentication.  Only these keys will be given to the agent in the
+session phase.
+
+Updated OpenSSH code to version 2.9p2.

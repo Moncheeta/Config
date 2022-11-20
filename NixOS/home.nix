@@ -71,6 +71,7 @@
       htop
       btop
       lfs
+      pass
 
       #### Audio
       pamixer

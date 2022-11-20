@@ -1,0 +1,536 @@
+Version 2.3 released
+====================
+2019-01-14  Wolfgang Rosenauer
+
+	* minor cleanup: (contributed by Jerome Benoit)
+	    removal of obsolete .ssh/identity handling
+	    documentation updates
+	    typo fixes
+
+
+Version 2.2 released
+====================
+2019-01-09  Wolfgang Rosenauer
+
+	* compatibility: build now supports openssl 1.1 and should stay compatible for now
+		with version 1.0 (contribution by Phil Sutter)
+	* compatibility: refresh autoconf toolchain
+	* cleanup: drop support for SSH1 and RSA1 protocols (contribution by Phil Sutter)
+
+
+Version 2.1 released
+====================
+2015-05-05  Wolfgang Rosenauer
+
+	* improvement: session/login/default lexical sort order
+		With the ed25519 new key type comes a new private key format (ssh-keygen(1),
+		options -a and -o). Among other things, this new format refines the hierarchy
+		among the keys, while `ssh-agent' provides keys in the order they have been
+		fed. On the other hand, `pam_ssh' seems not to have a clear explicit policy
+		about key ordering; except implicitly for the standard keys between
+		themselves, but they are first ranked. This patch implements a clear policy:
+		first the decrypted session keys in lexical sort order, then the decrypted
+		login keys in lexical sort order, and finally the decrypted standard keys
+		in strength order. The involved lexical order is the expected one used by
+		`run-parts' (run-parts(1)). Since `ssh-agent' keeps for each key its first
+		position (but its last comment), this policy allows to place standard keys
+		wherever wanted by setting up an appropriate link. Nonetheless, it must kept
+		in mind that `ssh-agent' places SSH1 keys before SSH2 keys. Anyway, who does
+		still use SSH1 keys nowadays ?
+	* improvement: key_load_private
+		Equivalent rearangement of key_load_private calls but
+		with at most one call and at least no call instead of
+		at most two calls and at least one call.
+		This patch is not meant to (and does not) change the
+		current nullok policy as explained in the manpage
+		pam_ssh(8) which states:
+		``Allow SSH keys with no passphrase''.
+		Having said that, the original code may not implement
+		the statement properly: the statement may suggest that
+		that SSH keys with no passphrase are accepted (or not),
+		but the code implicitly adds `provided that the passphrase
+		is the num passphrase'
+	* (slightly) refine login_keys_selector:
+		Implement better grained log messages for the file selector
+		login_keys_selector.
+	* improvement: name as comment
+		At the time of writing, aka at the OpenSSH 6.7p1-3 glorious time,
+		the OpenSSH embedded code does not provide as comment the effective key
+		comment for rsa, dsa and ecdsa keys, but a generic comment instead in the
+		form ``(r|d|ecd)rs w/o comment''. What is rather useless. It appears that
+		`ssh-add' overwrites for each key its comment with its full path. For each
+		key, it is chosen here to overwrite its comment with its basename; a kind
+		of keywork might be added later as hint.
+	* update manpage
+	* add ED25519 key support
+	* fix session key management: mislocation bug
+	* updated openssh embedded code to 6.7p1
+
+
+Version 2.01 released
+=====================
+
+2014-05-24  Wolfgang Rosenauer
+
+	* changelog format cleanup
+	* pam_ssh.1: updated man page to reflect the current implementation
+
+
+Version 2.0 released
+====================
+
+2013-11-17  Wolfgang Rosenauer
+
+	* pam_ssh.c: search additional keys in directory session-keys.d
+	  Users having alternative keys (non-default names) and want them
+	  unlocked at login with the passphrase and added to the agent
+	  can now put or link them into .ssh/session-keys.d directory
+
+2013-11-10  Wolfgang Rosenauer
+
+	* imported Debian patches:
+		- openssh embedded code: update
+	  	The upstream source embeds code from OpenSSH,
+	  	this embedded code is updated against OpenSSH-6.0p1
+	  	code; then ECDSA keys can be supported.
+	  	Basically files containing the used code are
+	  	brought in from the OpenSSH-6.0p1 and then
+	  	the unused code is commented out by hand.
+	  	Ideally the involved code may be invoked through
+	  	a share library, but unfortunately such a library
+	  	does not exist.
+
+		- pam_ssh.c: fix missing syslog include
+
+		- pam_ssh.c: safe spawn of the ssh-agent
+
+		- pam_ssh.c: inexistent configuration directory handling
+	  	Short cut the session phase if no configuration directory exists:
+	  	it is meant to prevent meangningless ssh-agent launches for users
+	  	that obviously never use ssh.
+
+		- pam_ssh.c: let ssh-agent to determine the appropriate shell style
+
+		- pam_get_pass.c, pam_get_pass.h, pam_ssh.c:
+	  		try_first_password implementation and specific login keys
+	  	Implement the intended semantics of try_first_password as described in
+	  	in the manual page (and PAM).
+	  	Ask for SSH passphrase even if user does not exist.
+	  	Look for SSH keys in  $HOME/.ssh/login-keys.d/, given that SSH keys
+	  	with .disabled or .frozen as suffix are ignored.
+	  	"keyfiles" option has been removed
+
+		- pam_ssh.c: handle session with no controlling tty
+	  	Let the PAM session handle situations where there is no controlling tty
+	  	by using the PID to construct the sessoin file name.
+
+		- pam_ssh.c: fix faulty return in pam_sm_{open,close}_session()
+	  	Returns PAM_SESSION_ERR instead of PAM_AUTH_ERR in pam_sm_{open,close}_session()
+
+		- pam_ssh.c: consider TMPDIR for ssh-agent if set in environment
+
+		- pam_ssh.c: configure option for specifying the SSH agent gid
+
+2013-06-11  Wolfgang Rosenauer
+
+	* pam_ssh.c: fix credential restore if there is no TTY or the
+	  agent file cannot be stat()ted.
+	  Patch by James Carter.
+	  (https://bugzilla.novell.com/show_bug.cgi?id=823484)
+
+Version 1.98 released
+=====================
+2013-04-29  Wolfgang Rosenauer
+
+	* pam_ssh.c: Under some conditions, there is a double-free bug
+	  in pam_ssh. The data of the "ssh_agent_env_agent"
+	  pam_handle_t's item may have been free'd without being
+	  nullified, which trigger a bug on the cleanup phase.
+	  (ticket #13 double-free bug with pam_ssh-1.97)
+
+	* pam_ssh.c: Before executing ssh-agent, pam_ssh restores root
+	  privileges with openpam_restore_cred, then uses only setuid
+	  to adjust privileges. Thus ssh-agent runs with gid 0.
+	  (ticket #12 pam_ssh doesn't set gid/groups before executing ssh-agent)
+
+	* pam_ssh.c: Clear signal mask before executing ssh-agent as
+	  pam_ssh code can be called from kdm with blocked TERM signal
+	  which would be inherited by ssh-agent
+
+	* pam_get_pass.c: fixed crash caused by EOF password
+	  (ticket 14 pam_ssh segfaults on abort with empty password)
+
+
+Version 1.97 released
+=====================
+2009-04-11  Wolfgang Rosenauer
+
+	* pam_get_pass.c: CVE-2009-1273
+	  pam_ssh used a certain prompt if a user found to exist to ask
+	  for the SSH passphrase explicitely depending on whether the
+	  username was valid or invalid, which made it easier for remote
+	  attackers to enumerate usernames.
+
+**********************************************************************
+* The pam_ssh maintained on Novell's DeveloperNet got merged back    *
+* to SourceForge with Version 1.96 and syncs both up to the same     *
+* level. The DeveloperNet version isn't going to maintained further  *
+* http://developer.novell.com/wiki/index.php/Pam_ssh                 *
+**********************************************************************
+
+Version 1.96 released (Novell DeveloperNet)
+=====================
+2007-08-03  Wolfgang Rosenauer (merged from SF.net Andrew J. Korty <ajk@iu.edu>)
+
+	* pam_ssh.c (key_load_private_maybe): New wrapper for
+ 	  key_load_private() that checks whether the private key's
+	  passphrase is blank.  If so and if allow_blank_passphrase isn't set
+	  or the user supplied passphrase isn't empty, this function returns
+	  NULL.  This approach is necessary because key_load_private() will
+	  load a key with a blank passphrase regardless of the passphrase
+	  entered.  Thanks to Rob Henderson for the report.
+
+Version 1.95 released (Novell DeveloperNet)
+=====================
+
+2007-04-02  Wolfgang Rosenauer
+
+	* pam_ssh.c: if PAM returns tty_raw = NULL we shouldn't fiddle
+	  with a per-session file. That seems to happen if the session
+	  module is used for background system services (like cron).
+	  https://bugzilla.novell.com/show_bug.cgi?id=251053
+
+2006-11-24  Wolfgang Rosenauer
+
+	* pam_ssh.c: fixed double-free issue with file closing
+	  https://bugzilla.novell.com/show_bug.cgi?id=223488
+	  (patch by Reinhard Max)
+
+Version 1.94 released (Novell DeveloperNet)
+=====================
+
+2006-08-03  Wolfgang Rosenauer
+
+	* pam_ssh.c: fixed some debug output, create the agent file
+	  writable for the user to be able to recover from a system crash
+	  and fixed a missing credential restore which caused pam to fail
+	  for following modules in error case
+
+Version 1.93 released (Novell DeveloperNet)
+=====================
+
+2006-06-24  Wolfgang Rosenauer
+
+	* pam_ssh.c, pam_ssh.8: nullok option to allow blank passphrases
+	  replaces allow_blank_passphrases (which is still available for
+	  compat reasons)
+
+	* pam_ssh.c, pam_std_option.c, pam_ssh_log.c, pam_ssh_log.h:
+	  fixed logging and separated into a logging module
+	  PAM option 'debug' is supported now
+	  added more syslog output in debug mode
+
+	* pam_ssh.c: we should be able to recover now correctly after system
+	  crashes where we are not able to run the close_session using
+	  the machine's uptime
+
+Version 1.92 released (Novell DeveloperNet)
+=====================
+
+2006-05-31  Wolfgang Rosenauer
+
+	* cipher.c, openpam_borrow_cred.c, openpam_restore_cred.c, pam_ssh.c:
+	  added some needed includes
+	* pam_ssh.c: don't rely on authentication for the session functions
+	  and don't save the passwd entry for them
+
+Version 1.92 released (SourceForge)
+=====================
+
+2007-02-06  Andrew J. Korty  <ajk@iu.edu>
+
+	* pam_ssh.c (key_load_private_maybe): New wrapper for
+	key_load_private() that checks whether the private key's
+	passphrase is blank.  If so and if allow_blank_passphrase is set,
+	this function returns NULL.  This approach is necessary because
+	key_load_private() will load a key with a blank passphrase
+	regardless of the passphrase entered.  Thanks to Rob Henderson for
+	the report.
+
+Version 1.91 released
+=====================
+
+2004-04-12  Andrew J. Korty  <ajk@iu.edu>
+
+	* pam_ssh.spec: Updated for use with Fedora Core 2 Test.  Thanks
+	to Patrice Dumas.
+
+	* pam_ssh.c (pam_sm_authenticate): We probably shouldn't allow
+	blank passphrases by default.  Add option allow_blank_passphrase
+	to re-enable them.  Thanks to red0x for the suggestion.
+
+Version 1.9 released
+====================
+
+2004-02-20  Andrew J. Korty  <ajk@iu.edu>
+
+	* cipher-3des.c, cipher-bf1.c, cipher-ctr.c, strnvis.c: Include
+	<sys/types.h> and <limits.h> in various places to appease FreeBSD.
+
+	* pam_ssh.spec (Version): Bump.
+
+	* acinclude.m4: Use AC_REPLACE_FUNCS to provide OpenPAM cred
+	functions.
+
+	* strnvis.c, strnvis.h, vis.c, vis.h: Rename vis -> strnvis so
+	AC_REPLACE_FUNCS will pick it up.
+
+	* pam_ssh.c (pam_sm_authenticate): Simplify conditional
+	complication for code that gets passphrase.
+
+	* Makefile.am (pam_ssh_la_SOURCES): Move header files for
+	replacement functions to EXTRA_pam_ssh_la_SOURCES.
+
+	* configure.ac: Use AC_REPLACE_FUNCS to provide strnvis if needed.
+
+	* log.c: Include the right header for strnvis().
+
+	* Makefile.am (EXTRA_DIST): Add bootstrap.sh and pam_test.c.
+
+2004-02-19  Andrew J. Korty  <ajk@iu.edu>
+
+	* pam_test.c: Test dlopening pam_ssh.so and print any resulting
+	error messages.
+
+	* pam.conf.example: Example PAM configuration.
+
+	* pam_ssh.c (add_keys, auth_via_key, pam_sm_authenticate): Improve
+	integer handling.
+
+	* ltconfig: Deleted this file because -avoid-version is all we
+	need.
+
+	* atomicio.c, authfd.c, authfile.c, bufaux.c, buffer.c, cipher.c,
+	cipher-3des1.c, cipher-bf1.c, cipher-ctr.c, key.c, log.c,
+	openpam_borrow_cred.c, openpam_restore_cred.c, pam_get_pass.c,
+	pam_ssh.c, pam_std_option.c, vis.c, xmalloc.c: Use autoheader.
+
+	* atomicio.c, atomicio.h, authfd.c, authfd.h, authfile.c,
+	authfile.h, bufaux.c, buffer.c, buffer.h, cipher.c,
+	cipher-3des1.c, cipher-bf1.c, cipher-ctr.c, kex.h, key.c, key.h,
+	log.c, log.h, rijndael.c rijndael.h, vis.c, vis.h, xmalloc.c,
+	xmalloc.h: Updated to OpenSSH 3.7.1p2.
+
+	* Makefile.am: Use -avoid-version flag to suppress version numbers
+	on installed module.  Add more source files from OpenSSH.
+
+	* openpam_restore_cred.c (openpam_restore_cred), pam_ssh.c: Use
+	some voodoo to suppress strict aliasing warnings.
+
+	* acinclude.m4: Link against pam_misc if necessary.  Square
+	brackets in AC_CHECK_LIB clauses avoid syntax error when running
+	configure.  Use full options to AC_DEFINE to make autoheader
+	happy.
+
+	* configure.ac: Use autoheader.  Update with autoupdate.  Bump
+	version number.  Check for strnvis() and vis.h.
+
+	* bootstrap.sh: Script to bootstrap configure.ac and friends.
+
+Version 1.8 released
+====================
+
+2002-12-04  Andrew J. Korty  <ajk@iu.edu>
+
+	* pam_ssh.c: Add NAI copyright message, which was always there in
+	the manual page but omitted from this source file.  When the
+	OpenPAM support code was introduced, we credited the FreeBSD
+	project in general.  Specifically, Dag-Erling Smorgrav developed
+	this code with funding from NAI and DARPA.
+
+2002-11-05  Michael Kiernan
+
+	* pam_ssh.c, configure.ac: Use fork() instead of vfork(), which
+	doesn't like us to call anything before execve() on some systems.
+
+2002-11-04  Patrice Dumas
+
+	* Makefile.am: Add new files to SOURCES.
+
+2002-11-04  Andrew J. Korty  <ajk@iu.edu>
+
+	* log.h: Define function name macros for systems that don't have them.
+
+2002-11-04  Michael Kiernan
+
+	* pam_ssh.c: System V won't let us use setuid() unless euid == 0,
+	so we temporarily regain root privileges first with
+	openpam_restore_cred() (which calls seteuid()).
+
+2002-10-30  Andrew J. Korty  <ajk@iu.edu>
+
+	* pam_ssh.c: Change real user ID to that of user before executing
+	ssh-agent.  ssh-agent in OpenSSH 3.5 doesn't like the real and
+	effective user IDs to be different but doesn't treat the error as
+	fatal and keeps on running in a weird state.
+
+2002-09-23  Andrew J. Korty  <ajk@iu.edu>
+
+	* pam_ssh.c: Prepare options parsing code for when we have more
+	than one custom option.
+
+	* authfd.c, strlcpy.h, xmalloc.c: Include strlcpy() declaration on
+	platforms that don't have it.
+
+	* acinclude.m4, openpam_cred.h, pam_ssh.c: Portability changes.
+
+	* pam_ssh.h: Obsoleted--moved into pam_ssh.c.
+
+2002-09-23  Patrice DUMAS
+
+	* pam_ssh.spec: Adjust to work with new install target (which uses
+	libtool).
+
+2002-09-23  Andrew J. Korty  <ajk@iu.edu>
+
+	* Makefile.am, acinclude.m4, configure.ac, openpam_borrow_cred.c,
+	openpam_cred.h, openpam_restore_cred.c, pam_get_pass.c,
+	pam_get_pass.h, pam_option.h, pam_opttab.h, pam_ssh.c,
+	pam_std_option.c: Now builds and seems to work on Mac OS X.
+
+2002-09-13  Andrew J. Korty  <ajk@iu.edu>
+
+	* Makefile.am, configure.ac, ltconfig: Let libtool install the PAM
+	module.
+
+2002-09-12  Andrew J. Korty  <ajk@iu.edu>
+
+	* Makefile.am, acinclude.m4, openpam_borrow_cred.c,
+	openpam_restore_cred.c, pam_get_pass.c, pam_ssh.c,
+	pam_std_option.c, pam_test_option.c: Minor changes for Mac OS X
+	compatibility (support for Mac OS X still doesn't quite work).
+
+2002-09-09  Andrew J. Korty  <ajk@iu.edu>
+
+	* pam_ssh.c: Try to stay on borrowed creds as long as possible.
+
+2002-09-01  Andrew J. Korty  <ajk@iu.edu>
+
+	* pam_ssh.c: Make the agent only produce Bourne-style shell
+	commands.  Unfortunately that makes the environment file useless
+	for users of other csh-style shells, but since we're parsing the
+	file now, we need it to be consistent.  Maybe we should learn how
+	to parse either file, or to translate the commands into those
+	appropriate for the user's shell.
+
+2002-08-22  Patrice DUMAS
+
+	* Makefile.am, pam_ssh.spec: RPM specfile.
+
+2002-08-14  Patrice DUMAS
+
+	* pam_ssh.c: Do the fork/exec ourselves instead of calling
+	popen().
+
+2002-08-11  Roderick Schertler
+
+	* pam_ssh.8: Document the "keyfiles" option.
+
+	* pam_ssh.c: Check strdup() return values and avoid errno when it
+	can't be trusted).  Also, don't use openpam_log() even if its
+	available.
+
+2002-08-10  Roderick Schertler
+
+	* pam_ssh.c: Two bug fixes: handle asprintf error values correctly
+	and substitute for slashes in tty names when creating the agent
+	environment file.
+
+Version 1.7 released
+====================
+
+2002-08-09  Andrew J. Korty  <ajk@iu.edu>
+
+	* authfd.c, authfd.h, authfile.c, authfile.h bufaux.c, bufaux.h,
+	buffer.c, buffer.h, cipher.c, cipher.h, getput.h, kex.h, key.c,
+	key.h, log.c, log.h, pam_ssh.c, rijndael.c, rijndael.h: Import
+	changes from OpenSSH 3.4p1.
+
+	* pam_ssh.c: Import changes from FreeBSD: remove extraneous
+	free()s, add __unused qualifiers, add support for OpenPAM, add
+	support for pam_std_option().  Retire old options mechanism.
+
+	* pam_std_option.c: Import from FreeBSD for platforms that need
+	it.
+
+	* pam_get_pass.c, pam_mod_misc.h: Imported changes from FreeBSD.
+
+	* openpam_borrow_cred.c, openpam_restore_cred.c: Imported from
+	FreeBSD--use these functions for dropping and restoring
+	privileges.
+
+	* acinclude.m4: Provide pam_std_option() if needed.
+
+	* Makefile.am, acinclude.m4: Support modern versions of automake
+	and autoconf.
+
+2002-04-09  Andrew J. Korty  <ajk@iu.edu>
+
+	* pam_ssh.h: FreeBSD changed the keyfile separator to ",".  I
+	don't know why they did this, but I don't really care, so I'll
+	change it too to remain consistent.
+
+	* pam_ssh.8: Import of manual page from FreeBSD.
+
+	* pam_ssh.c: Import changes from FreeBSD--mostly bugfixes.  Define
+	null PAM methods for phases we don't support.  Also, avoid freeing
+	data referenced by PAM--thanks to Michael Tokarev and Thomas
+	Moestl for pointing out this bug.
+
+2002-04-07  Andrew J. Korty  <ajk@iu.edu>
+
+	* Makefile: Makefile is no longer needed--we use Autoconf and
+	Automake.
+
+	* pam_get_pass.c, pam_mod_misc.h, strlcpy.c: Provided for systems
+	which lack these facilities.
+
+	* acinclude.m4: Our own M4 macros for Autoconf.  Just one macro
+	for checking PAM, actually.
+
+	* Makefile.am, configure.in: Input files for Automake and
+	Autoconf.
+
+	* AUTHORS, COPYING, INSTALL, README: Documentation files required
+	by GNU Coding Standards.
+
+	* pam_ssh.h: Add copyright notice.
+
+	* pam_ssh.c: For portability, check for existence of certain
+	header files and macros before trying to use them.
+
+Version 1.6 released
+====================
+
+2001-08-19  Andrew J. Korty  <ajk@iu.edu>
+
+	* authfd.c: Remove code that dealt with environment variables
+	(obsoleted by argument passing) which had previously been ifdeffed
+	out.
+
+	* pam_ssh.c, pam_ssh.h: Added keyfiles option to specify which key
+	files to use for authentication.  Only these keys will be given to
+	the agent in the session phase.
+
+	* log-client.c, log-client.h: Removed--moved functionality into
+	log.c and log.h.
+
+	* authfd.c, authfd.h, authfile.c, authfile.h, cipher.c, key.c,
+	key.h, log.c, log.h, rijndael.c, rijndael.h, xmalloc.c: Updated
+	OpenSSH files to version 2.9p2.
+
+2001-08-19  Andrew J. Korty  <ajk@iu.edu>
+
+	* pam_ssh.c: Only start one agent per user per host.  Thanks to
+	hmh@debian.org for the idea.  Keep a reference count by hard
+	linking files to the env file.

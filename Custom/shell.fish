@@ -17,6 +17,7 @@ alias shut="doas poweroff"
 alias mut="zellij"
 alias mat="cmatrix"
 alias sudo="doas"
+alias sx="sx sh ~/.xinitrc"
 
 # Git
 alias commit="git commit"
@@ -41,5 +42,6 @@ alias wttr="curl wttr.in"
 zoxide init fish | source
 export CONFIG_DIR="~/Config"
 export TERMINAL="urxvtc"
+export BROWSER="firefox"
 
 PF_INFO='ascii title os kernel memory' pfetch

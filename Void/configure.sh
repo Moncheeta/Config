@@ -22,6 +22,7 @@ cp $CONFIG_DIR/Custom/herbstluftwm.sh ~/.config/herbstluftwm/autostart
 mkdir ~/.config/htop
 cp $CONFIG_DIR/Custom/htoprc ~/.config/htop
 cp $CONFIG_DIR/Custom/xinitrc ~/.xinitrc
+cp $CONFIG_DIR/Custom/.Xresources ~
 
 # Other
 sudo xbps-reconfigure -fav

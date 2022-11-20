@@ -17,7 +17,8 @@ Mod=Mod4   # Use the super key as the main modifier
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
-hc keybind $Mod-Return spawn "$TERMINAL"
+hc keybind $Mod-t spawn "$TERMINAL"
+hc keybind $Mod-w spawn "$BROWSER"
 
 # basic movement in tiling and floating mode
 # focusing clients
@@ -110,14 +111,12 @@ hc set frame_bg_transparent on
 hc set frame_transparent_width 5
 hc set frame_gap 4
 
-hc attr theme.title_height 15
-hc attr theme.title_when always
-hc attr theme.title_font 'JetBrains Mono Nerd Font:pixelsize=12'
-hc attr theme.title_depth 3  # space below the title's baseline
+hc attr theme.title_when never
 hc attr theme.active.color '#345F0Cef'
 hc attr theme.title_color '#ffffff'
 hc attr theme.normal.color '#323232dd'
 hc attr theme.urgent.color '#7811A1dd'
+hc attr theme.title_font 'JetBrains Mono Nerd Font:pixelsize=12'
 hc attr theme.tab_color '#1F1F1Fdd'
 hc attr theme.active.tab_color '#2B4F0Add'
 hc attr theme.active.tab_outer_color '#6C8257dd'

@@ -2,6 +2,8 @@
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.cabal/bin
 
+set fish_greeting
+
 # aliases
 alias ls="exa -a"
 alias ll="exa -al --git --no-time"

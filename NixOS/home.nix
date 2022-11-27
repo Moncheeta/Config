@@ -66,6 +66,7 @@
       doas
       lfs
       pass
+      progress
 
       #### Audio
       pamixer

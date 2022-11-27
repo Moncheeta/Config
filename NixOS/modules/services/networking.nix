@@ -2,7 +2,7 @@
 
 {
   networking = {
-    hostName = "moncheeta";
+    hostName = "nixos";
     networkmanager.enable = true;
     useDHCP = lib.mkDefault true;
   };

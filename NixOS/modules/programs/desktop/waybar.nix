@@ -66,8 +66,8 @@
         };
 
         "pulseaudio" = {
-          format = "{icon} {volume}%";
-          format-bluetooth = " {icon} {volume}%";
+          format = "{icon}{volume}%";
+          format-bluetooth = " {icon}{volume}%";
           format-muted = " ";
           format-icons = {
             headphone = " ";
@@ -120,6 +120,6 @@
         };
       };
     };
-    style = ../../../../Custom/waybar/waybar.css;
+    style = ../../../../Custom/wm/waybar/waybar.css;
   };
 }

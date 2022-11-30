@@ -25,11 +25,15 @@
       LIBSEAT_BACKEND = "logind";
       _JAVA_AWT_WM_NONREPARENTING = "1";
       XCURSOR_SIZE = "24";
+      # nvidia
+      NVreg_RegistryDwords = "PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerLevel=0x3; PowerMizerDefault=0x3; PowerMizerDefaultAC=0x3";
       LIBVA_DRIVER_NAME = "nvidia";
       XDG_SESSION_TYPE = "wayland";
       GBM_BACKEND = "nvidia-drm";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       WLR_NO_HARDWARE_CURSORS = "1";
+
+      # other
       PATH = "$XDG_BIN_HOME:$PATH";
     };
 
@@ -88,7 +92,6 @@
       jq
 
       # Programming Languages
-      tree-sitter
       ## Shell
       shfmt
       nodePackages.bash-language-server
@@ -145,6 +148,7 @@
       wl-clipboard
       # Xorg
       xorg.xrdb
+      xorg.xhost
       xsel
     ];
   };

@@ -1,4 +1,0 @@
-xrdb -load ~/.Xresources
-urxvtd &
-
-herbstluftwm

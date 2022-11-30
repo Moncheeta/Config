@@ -8,9 +8,9 @@
       # Language support
       mini-nvim # a bunch of nice plugins
       vim-polyglot # language support
-      nvim-treesitter
       nvim-lspconfig
       nvim-yarp
+      nvim-treesitter # nvim won't work without this for some reason?
       deoplete-nvim
       deoplete-lsp
       vim-grammarous
@@ -36,7 +36,6 @@
       goyo-vim
 
       # Other
-      orgmode
       vim-wakatime
     ];
   };

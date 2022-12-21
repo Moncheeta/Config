@@ -8,11 +8,15 @@
       canTouchEfiVariables = true;
     };
     grub = {
-      enable = true;
+      enable = false;
       efiSupport = true;
       devices = [ "nodev" ];
       configurationLimit = 3;
       useOSProber = true;
+    };
+    systemd-boot = {
+      enable = true; # Gentoo is using Grub
+      configurationLimit = 3;
     };
   };
 }

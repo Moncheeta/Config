@@ -70,10 +70,6 @@
           format-bluetooth = " {icon}{volume}%";
           format-muted = " ";
           format-icons = {
-            headphone = " ";
-            headset = " ";
-            phone = " ";
-            portable = " ";
             default = [" " " "];
           };
           scroll-step = 1;

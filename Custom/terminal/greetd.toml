@@ -1,0 +1,6 @@
+[terminal]
+vt = 8
+
+[default_session]
+command = "tuigreet --cmd fish"
+user = "greetd"

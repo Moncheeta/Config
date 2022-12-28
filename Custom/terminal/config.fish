@@ -40,13 +40,20 @@ alias issue="gh issue"
 alias pr="gh pr"
 alias release="gh release"
 
+alias e="doas emerge --verbose"
 alias emerge="doas emerge --jobs=6 --load-average=6"
 
 # init
 zoxide init fish | source
-export CONFIG_DIR="~/Config"
+export CONFIG_DIR="$HOME/Config"
 export TERMINAL="urxvtc"
 export BROWSER="firefox"
 export EDITOR="nvim"
+export WALLPAPER="$CONFIG_DIR/Wallpapers/Gentoo/blue_logo.png"
+export STARSHIP_CONFIG = "$CONFIG_DIR/Custom/terminal/starship.toml"
+
+export RXVT_SOCKET="/tmp/urxvt-socket"
 
 PF_INFO='ascii title os kernel memory pkgs' pfetch
+
+starship init fish | source

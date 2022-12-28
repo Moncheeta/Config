@@ -1,3 +1,1 @@
-urxvtd &
-gentoo-pipewire-launcher &
-exec dbus-launch --exit-with-session herbstluftwm
+exec dbus-launch --exit-with-session ~/Config/Custom/wm/startx.sh

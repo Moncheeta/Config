@@ -6,6 +6,12 @@ hc() {
 
 hc emit_hook reload
 
+# autostart
+xrdb ~/.Xresources
+urxvtd --quiet --opendisplay --fork
+gentoo-pipewire-launcher &
+feh --bg-scale $WALLPAPER
+
 xsetroot -solid '#5A8E3A'
 
 # remove all existing keybindings
@@ -17,8 +23,8 @@ Mod=Mod4   # Use the super key as the main modifier
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
-hc keybind $Mod-t spawn "$TERMINAL"
-hc keybind $Mod-w spawn "$BROWSER"
+hc keybind $Mod-t spawn $TERMINAL
+hc keybind $Mod-w spawn $BROWSER
 
 # basic movement in tiling and floating mode
 # focusing clients
@@ -32,15 +38,12 @@ hc keybind $Mod-Shift-Left  shift left
 hc keybind $Mod-Shift-Down  shift down
 hc keybind $Mod-Shift-Up    shift up
 hc keybind $Mod-Shift-Right shift right
-hc keybind $Mod-Shift-h     shift left
-hc keybind $Mod-Shift-j     shift down
-hc keybind $Mod-Shift-k     shift up
-hc keybind $Mod-Shift-l     shift right
 
 # splitting frames
 # create an empty frame at the specified direction
 hc keybind $Mod-u       split   bottom  0.5
 hc keybind $Mod-o       split   right   0.5
+
 # let the current frame explode into subframes
 hc keybind $Mod-Control-space split explode
 
@@ -77,7 +80,6 @@ hc keybind $Mod-Shift-f set_attr clients.focus.floating toggle
 hc keybind $Mod-Shift-d set_attr clients.focus.decorated toggle
 hc keybind $Mod-Shift-m set_attr clients.focus.minimized true
 hc keybind $Mod-Control-m jumpto last-minimized
-hc keybind $Mod-p pseudotile toggle
 # The following cycles through the available layouts within a frame, but skips
 # layouts, if the layout change wouldn't affect the actual window positions.
 # I.e. if there are two windows within a frame, the grid layout is skipped.
@@ -96,7 +98,6 @@ hc mousebind $Mod-Button3 resize
 hc keybind $Mod-BackSpace   cycle_monitor
 hc keybind $Mod-Tab         cycle_all +1
 hc keybind $Mod-Shift-Tab   cycle_all -1
-hc keybind $Mod-c cycle
 
 # theme
 hc attr theme.tiling.reset 1

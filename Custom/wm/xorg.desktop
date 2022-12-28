@@ -1,0 +1,6 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=xorg
+Comment=Manual tiling window manager
+Exec=startx
+Type=Application

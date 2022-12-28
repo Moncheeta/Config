@@ -1,0 +1,6 @@
+# required by gnome-base/gnome-keyring-42.1-r1::gentoo
+# required by virtual/secret-service-0::gentoo
+# required by app-crypt/libsecret-0.20.5-r3::gentoo
+# required by games-action/minecraft-launcher-1.0.1221::gentoo
+# required by minecraft-launcher (argument)
+>=app-crypt/gcr-3.41.1-r1:0 gtk

@@ -1,6 +1,5 @@
 # path
 fish_add_path $HOME/.cargo/bin
-fish_add_path $HOME/.cabal/bin
 fish_add_path $HOME/.local/bin
 
 set fish_greeting
@@ -50,10 +49,10 @@ export TERMINAL="urxvtc"
 export BROWSER="firefox"
 export EDITOR="nvim"
 export WALLPAPER="$CONFIG_DIR/Wallpapers/Gentoo/blue_logo.png"
-export STARSHIP_CONFIG = "$CONFIG_DIR/Custom/terminal/starship.toml"
+export STARSHIP_CONFIG="$CONFIG_DIR/Custom/terminal/starship.toml"
 
 export RXVT_SOCKET="/tmp/urxvt-socket"
 
 PF_INFO='ascii title os kernel memory pkgs' pfetch
 
-starship init fish | source
+export PS1="$USER@$HOSTNAME \$PWD ➜ "

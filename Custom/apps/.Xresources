@@ -1,47 +1,5 @@
-!! Colorscheme
-
-! special
-*.foreground: #c4c5b5
-*.background: #1a1a1a
-*.cursorColor: #f6f6f6
-
-! black
-*.color0: #1a1a1a
-*.color8: #1a1a1a
-
-! red
-*.color1: #f4005f
-*.color9: #f4005f
-
-! green
-*.color2: #98e024
-*.color10: #98e024
-
-! yellow
-*.color3: #fa8419
-*.color11: #fa8419
-
-! blue
-*.color4: #9d65ff
-*.color12: #9d65ff
-
-! magenta
-*.color5: #f4005f
-*.color13: #f4005f
-
-! cyan
-*.color6: #58d1eb
-*.color14: #58d1eb
-
-! white
-*.color7: #c3c5b5
-*.color15: #c3c5b5
-
 !! URxvt Appearance
 URxvt.font: xft:JetBrainsMono Nerd Font:size=10
-URxvt.boldFont: xft:JetBrainsMono Nerd Font:size=10
-URxvt.italicFont: xft:JetBrainsMono Nerd Font:size=10
-URxvt.boldItalicfont: xft:JetBrainsMono Nerd Font:size=10
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.internalBorder: 0
@@ -74,3 +32,31 @@ URxvt.keysym.C-n: perl:url-select:select_next
 URxvt.urlLauncher: firefox
 URxvt.underlineURLs: true
 URxvt.urlButton: 1
+
+!! Theme: im not gentoo
+urxvt*background:       #212629
+urxvt*foreground:       #737c80
+!black
+URxvt*color0:           #111313
+URxvt*color8:           #424446
+!red
+URxvt*color1:           #9e6b71
+URxvt*color9:           #b69094
+!green
+URxvt*color2:           #719e6b
+URxvt*color10:          #94b690
+!yellow
+URxvt*color3:           #9e986c
+URxvt*color11:          #b5b18f
+!blue
+URxvt*color4:           #6c8b9e
+URxvt*color12:          #90a7b6
+!magenta
+URxvt*color5:           #986b9e
+URxvt*color13:          #b290b6
+!cyan
+URxvt*color6:           #6b9e98
+URxvt*color14:          #90b6b3
+!white
+URxvt*color7:           #b8baba
+URxvt*color15:          #cdcfce

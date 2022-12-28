@@ -1,5 +1,5 @@
 add_newline = false
-format = "$username$hostname$directory$git_branch$git_state$git_status$git_metrics$line_break$character"
+format = "$hostname$directory$git_branch$git_state$git_status$git_metrics$line_break$character"
 
 [character]
 error_symbol = "[➜](bold red)"
@@ -18,18 +18,13 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
 style = "cyan"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
+renamed = ""
+deleted = ""
 stashed = "≡"
 
 [git_metrics]
+format = "([+$added]($added_style)/[-$deleted]($deleted_style))"
 added_style = "bold green"
 deleted_style = "bold red"
-format = "[+$added]($added_style)/[-$deleted]($deleted_style) "
 

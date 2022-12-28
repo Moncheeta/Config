@@ -1,5 +1,6 @@
 !! URxvt Appearance
-URxvt.font: xft:JetBrainsMono Nerd Font:size=10
+URxvt.font: xft:JetBrainsMono Nerd Font:bold:size=11
+URxvt.boldFont: xft:JetBrainsMono Nerd Font:bold:size=11
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.internalBorder: 0

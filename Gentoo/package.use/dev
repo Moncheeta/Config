@@ -1,3 +1,4 @@
+dev-lang/rust rust-analyzer rustfmt clippy
 # required by net-print/cups-filters-1.28.16-r1::gentoo[postscript]
 # required by net-print/cups-2.4.2-r6::gentoo
 # required by dev-java/openjdk-17.0.5_p8::gentoo

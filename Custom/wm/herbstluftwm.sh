@@ -49,14 +49,14 @@ hc keybind $Mod-Control-space split explode
 
 # resizing frames and floating clients
 resizestep=0.02
-hc keybind $Mod-Control-Left    resize left +$resizestep
-hc keybind $Mod-Control-Down    resize down +$resizestep
-hc keybind $Mod-Control-Up      resize up +$resizestep
+hc keybind $Mod-Control-Left    resize left  +$resizestep
+hc keybind $Mod-Control-Down    resize down  +$resizestep
+hc keybind $Mod-Control-Up      resize up    +$resizestep
 hc keybind $Mod-Control-Right   resize right +$resizestep
 
 # tags
 tag_names=( {1..9} )
-tag_keys=( {1..9} 0 )
+tag_keys=(  {1..9} 0 )
 
 hc rename default "${tag_names[0]}" || true
 for i in "${!tag_names[@]}" ; do
@@ -76,7 +76,7 @@ hc keybind $Mod-comma  use_index -1 --skip-visible
 hc keybind $Mod-r remove
 hc keybind $Mod-s floating toggle
 hc keybind $Mod-f fullscreen toggle
-hc keybind $Mod-Shift-f set_attr clients.focus.floating toggle
+hc keybind $Mod-Shift-f set_attr clients.focus.floating  toggle
 hc keybind $Mod-Shift-d set_attr clients.focus.decorated toggle
 hc keybind $Mod-Shift-m set_attr clients.focus.minimized true
 hc keybind $Mod-Control-m jumpto last-minimized

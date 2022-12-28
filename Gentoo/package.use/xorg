@@ -1,7 +1,0 @@
-# required by x11-base/xorg-server-21.1.4-r1::gentoo[elogind]
-# required by x11-drivers/xf86-input-evdev-2.10.6::gentoo
-# required by x11-base/xorg-drivers-21.1-r1::gentoo[input_devices_evdev]
->=sys-auth/pambase-20220214 elogind
-# required by x11-misc/urxvt-perls-2.3-r1::gentoo
-# required by urxvt-perls (argument)
->=x11-terms/rxvt-unicode-9.30 perl

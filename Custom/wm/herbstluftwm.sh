@@ -12,8 +12,6 @@ urxvtd --quiet --opendisplay --fork
 gentoo-pipewire-launcher &
 feh --bg-scale $WALLPAPER
 
-xsetroot -solid '#5A8E3A'
-
 # remove all existing keybindings
 hc keyunbind --all
 
@@ -99,51 +97,45 @@ hc keybind $Mod-BackSpace   cycle_monitor
 hc keybind $Mod-Tab         cycle_all +1
 hc keybind $Mod-Shift-Tab   cycle_all -1
 
+# volume
+hc keybind XF86AudioRaiseVolume spawn $CONFIG_DIR/Custom/scripts/volume.sh increase
+hc keybind XF86AudioLowerVolume spawn $CONFIG_DIR/Custom/scripts/volume.sh decrease
+
+# brightness
+hc keybind XF86MonBrightnessUp spawn $CONFIG_DIR/Custom/scripts/brightness.sh increase
+hc keybind XF86MonBrightnessDown spawn $CONFIG_DIR/Custom/scripts/brightness.sh decrease
+
 # theme
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
-hc set frame_border_active_color '#222222cc'
-hc set frame_border_normal_color '#101010cc'
-hc set frame_bg_normal_color '#565656aa'
-hc set frame_bg_active_color '#345F0Caa'
-hc set frame_border_width 1
-hc set show_frame_decorations 'focused_if_multiple'
+
+background='#111313'
+foreground='#6c8b9e'
+
+hc attr theme.active.color $foreground
+hc attr theme.normal.color $background
+hc attr theme.background_color $background
+
+hc set frame_bg_active_color $foreground
 hc set frame_bg_transparent on
 hc set frame_transparent_width 5
-hc set frame_gap 4
 
+## decorations
+hc set show_frame_decorations 'focused_if_multiple'
 hc attr theme.title_when never
-hc attr theme.active.color '#345F0Cef'
-hc attr theme.title_color '#ffffff'
-hc attr theme.normal.color '#323232dd'
-hc attr theme.urgent.color '#7811A1dd'
-hc attr theme.title_font 'JetBrains Mono Nerd Font:pixelsize=12'
-hc attr theme.tab_color '#1F1F1Fdd'
-hc attr theme.active.tab_color '#2B4F0Add'
-hc attr theme.active.tab_outer_color '#6C8257dd'
-hc attr theme.active.tab_title_color '#ababab'
-hc attr theme.normal.title_color '#898989'
-hc attr theme.inner_width 1
-hc attr theme.inner_color black
+hc set frame_border_width 0
 hc attr theme.border_width 3
-hc attr theme.floating.border_width 4
-hc attr theme.floating.outer_width 1
-hc attr theme.floating.outer_color black
-hc attr theme.active.inner_color '#789161'
-hc attr theme.urgent.inner_color '#9A65B0'
-hc attr theme.normal.inner_color '#606060'
-# copy inner color to outer_color
-for state in active urgent normal ; do
-    hc substitute C theme.${state}.inner_color \
-        attr theme.${state}.outer_color C
-done
-hc attr theme.tiling.outer_width 1
-hc attr theme.background_color '#141414'
 
+## floating
+hc attr theme.floating.border_width 5
+hc attr theme.floating.outer_width 0
+
+# gaps
+hc set frame_gap 0
 hc set window_gap 0
 hc set frame_padding 0
 hc set smart_window_surroundings off
-hc set smart_frame_surroundings on
+hc set smart_frame_surroundings off
 hc set mouse_recenter_gap 0
 
 # rules

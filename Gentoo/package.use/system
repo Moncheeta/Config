@@ -7,7 +7,7 @@
 # required by urxvt-perls (argument)
 >=x11-terms/rxvt-unicode-9.30 perl
 media-fonts/nerd-fonts jetbrainsmono
-x11-terms/rxvt-unicode xft perls
+x11-terms/rxvt-unicode xft perl 256-color 24-bit-color font-styles blink
 # required by net-misc/networkmanager-1.40.6::gentoo[wifi,-iwd]
 # required by networkmanager (argument)
 >=net-wireless/wpa_supplicant-2.10-r1 dbus

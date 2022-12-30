@@ -8,6 +8,7 @@ set fish_greeting
 alias ls="exa -a"
 alias ll="exa -al --git --no-time"
 alias cp="cp -v"
+alias cd="z"
 alias mv="mv -v"
 alias rm="trash -vf"
 alias bat="bat -n"
@@ -49,7 +50,6 @@ export TERMINAL="urxvtc"
 export BROWSER="firefox"
 export EDITOR="nvim"
 export WALLPAPER="$CONFIG_DIR/Wallpapers/Gentoo/purple_logo.png"
-export STARSHIP_CONFIG="$CONFIG_DIR/Custom/terminal/starship.toml"
 
 export RXVT_SOCKET="/tmp/urxvt-socket"
 

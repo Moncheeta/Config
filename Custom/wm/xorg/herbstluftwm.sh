@@ -41,6 +41,7 @@ hc keybind $Mod-Shift-Right shift right
 # create an empty frame at the specified direction
 hc keybind $Mod-u       split   bottom  0.5
 hc keybind $Mod-o       split   right   0.5
+hc set default_frame_layout horizontal
 
 # let the current frame explode into subframes
 hc keybind $Mod-Control-space split explode

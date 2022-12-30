@@ -116,6 +116,6 @@
         };
       };
     };
-    style = ../../../../Custom/wm/waybar/waybar.css;
+    style = ../../../../Custom/wm/wayland/waybar.css;
   };
 }

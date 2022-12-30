@@ -48,7 +48,7 @@ export CONFIG_DIR="$HOME/Config"
 export TERMINAL="urxvtc"
 export BROWSER="firefox"
 export EDITOR="nvim"
-export WALLPAPER="$CONFIG_DIR/Wallpapers/Gentoo/blue_logo.png"
+export WALLPAPER="$CONFIG_DIR/Wallpapers/Gentoo/purple_logo.png"
 export STARSHIP_CONFIG="$CONFIG_DIR/Custom/terminal/starship.toml"
 
 export RXVT_SOCKET="/tmp/urxvt-socket"

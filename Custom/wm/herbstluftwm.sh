@@ -110,7 +110,7 @@ hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 
 background='#111313'
-foreground='#6c8b9e'
+foreground='#986b9e'
 
 hc attr theme.active.color $foreground
 hc attr theme.normal.color $background

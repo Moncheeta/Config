@@ -12,6 +12,13 @@ urxvtd --quiet --opendisplay --fork
 gentoo-pipewire-launcher &
 feh --bg-scale $WALLPAPER
 
+## polybar
+killall -q polybar
+while pgrep -u $UID -x polybar >/dev/null; do : ; done
+for m in $(polybar --list-monitors | cut -d":" -f1); do
+    MONITOR=$m polybar --config=$CONFIG_DIR/Custom/wm/xorg/polybar.conf --reload mainbar-herb &
+done
+
 # remove all existing keybindings
 hc keyunbind --all
 

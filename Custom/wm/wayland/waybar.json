@@ -14,14 +14,9 @@
     },
 
     "custom/dtname": {
-        "format": "{}",
-        "exec-once": "$CONFIG_DIR/Custom/dtname.sh"
-    },
-
-    "custom/minicava": {
-        "format": "{}",
-        "max-length": 10,
-        "exec": "$CONFIG_DIR/Custom/minicava.sh"
+        "format": " ",
+        "interval": "once",
+        "tooltip": false
     },
 
     "custom/cmus": {

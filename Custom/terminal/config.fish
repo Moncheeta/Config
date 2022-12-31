@@ -17,7 +17,6 @@ alias pause="read -n1 -r -p 'Press any key to continue...'"
 alias reboot="doas reboot"
 alias shut="doas poweroff"
 
-alias sx="startx"
 alias ss="gh screensaver -s starfield"
 alias clock="peaclock --config='$HOME/Config/Custom/terminal/peaclock.conf'"
 alias mat="cmatrix"

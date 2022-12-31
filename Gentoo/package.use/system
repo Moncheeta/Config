@@ -1,16 +1,17 @@
 */* CPU_FLAGS_X86: aes avx avx2 f16c fma3 mmx mmxext pclmul popcnt rdrand sse sse2 sse3 sse4_1 sse4_2 ssse3
+sys-apps/openrc -netifrc -ncurses
+net-misc/connman wifi
+net-firewall/ufw
 # required by x11-base/xorg-server-21.1.4-r1::gentoo[elogind]
 # required by x11-drivers/xf86-input-evdev-2.10.6::gentoo
 # required by x11-base/xorg-drivers-21.1-r1::gentoo[input_devices_evdev]
 >=sys-auth/pambase-20220214 elogind
-media-fonts/nerd-fonts jetbrainsmono
 # required by net-misc/networkmanager-1.40.6::gentoo[wifi,-iwd]
 # required by networkmanager (argument)
 >=net-wireless/wpa_supplicant-2.10-r1 dbus
 # required by app-shells/fish-3.5.1::gentoo
 # required by fish (argument)
 >=dev-libs/libpcre2-10.41-r1 pcre32
-media-sound/pulseaudio -daemon
 # required by sys-boot/os-prober-1.81::gentoo
 # required by os-prober (argument)
 >=sys-boot/grub-2.06-r4 mount

@@ -9,7 +9,7 @@ hc emit_hook reload
 # autostart
 xrdb ~/.Xresources
 urxvtd --quiet --opendisplay --fork
-gentoo-pipewire-launcher &
+himalaya notify &
 feh --bg-scale $WALLPAPER
 
 ## polybar

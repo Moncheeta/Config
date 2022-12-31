@@ -1,4 +1,5 @@
-x11-terms/rxvt-unicode 24-bit-color 256-color blink font-styles mousewheel perl unicode3 xft
+x11-terms/rxvt-unicode 24-bit-color 256-color perl unicode3 xft font-styles 
+x11-misc/polybar ipc network
 # required by www-client/firefox-108.0.1::gentoo[system-libvpx]
 # required by firefox (argument)
 >=media-libs/libvpx-1.12.0-r1 postproc

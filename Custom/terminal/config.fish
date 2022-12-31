@@ -39,8 +39,12 @@ alias issue="gh issue"
 alias pr="gh pr"
 alias release="gh release"
 
-alias e="doas emerge --verbose"
-alias emerge="doas emerge --jobs=6 --load-average=6"
+alias e="doas emerge --verbose --ask"
+alias emerge="doas emerge --jobs=6 --load-average=6 --ask"
+alias update="emerge --sync; doas emerge --jobs=6 --load-average=6 --ask --update --newuse --deep @world"
+alias cleanup="doas emerge --deep --depclean; doas eclean -d distfiles"
+
+alias conn="doas connmanctl"
 
 # init
 zoxide init fish | source

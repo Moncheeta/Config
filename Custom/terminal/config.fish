@@ -53,6 +53,8 @@ export BROWSER="firefox"
 export EDITOR="nvim"
 export WALLPAPER="$CONFIG_DIR/Wallpapers/Gentoo/purple_logo.png"
 export WIRELESS="wlp8s0"
+alias herb="sx $CONFIG_DIR/Custom/wm/xorg/X/herbstluftwm"
+alias dwm="sx $CONFIG_DIR/Custom/wm/xorg/X/dwm"
 
 PF_INFO='ascii title os kernel memory pkgs' pfetch
 

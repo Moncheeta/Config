@@ -7,17 +7,14 @@ hc() {
 hc emit_hook reload
 
 # autostart
-xrdb ~/.Xresources
+xrdb $CONFIG_DIR/Custom/apps/.Xresources
 urxvtd --quiet --opendisplay --fork
 himalaya notify &
 feh --bg-scale $WALLPAPER
 
 ## polybar
 killall -q polybar
-while pgrep -u $UID -x polybar >/dev/null; do : ; done
-for m in $(polybar --list-monitors | cut -d":" -f1); do
-    MONITOR=$m polybar --config=$CONFIG_DIR/Custom/wm/xorg/polybar.conf --reload mainbar-herb &
-done
+polybar --config=$CONFIG_DIR/Custom/wm/xorg/polybar.conf mainbar-herb &
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -93,12 +90,6 @@ hc keybind $Mod-space                                                           
             or , and . compare tags.focus.curframe_wcount = 2                   \
                      . cycle_layout +1 vertical horizontal max vertical grid    \
                , cycle_layout +1
-
-# mouse
-hc mouseunbind --all
-hc mousebind $Mod-Button1 move
-hc mousebind $Mod-Button2 zoom
-hc mousebind $Mod-Button3 resize
 
 # focus
 hc keybind $Mod-BackSpace   cycle_monitor

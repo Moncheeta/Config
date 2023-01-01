@@ -24,6 +24,7 @@ alias mail="himalaya"
 alias wttr="curl wttr.in"
 alias mark="glow"
 alias present="lookatme"
+alias iv="sxiv"
 
 alias repo="gh repo"
 alias add="git add"

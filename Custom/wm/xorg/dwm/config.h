@@ -910,14 +910,11 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_b,          tabmode,                {-1} },
 	#endif // TAB_PATCH
 	#if FOCUSMASTER_PATCH
-	{ MODKEY|ControlMask,           XK_space,      focusmaster,            {0} },
+	{ MODKEY,						XK_space,      focusmaster,            {0} },
 	#endif // FOCUSMASTER_PATCH
 	#if STACKER_PATCH
 	STACKKEYS(MODKEY,                              focus)
 	STACKKEYS(MODKEY|ShiftMask,                    push)
-	#else
-	{ MODKEY,                       XK_j,          focusstack,             {.i = +1 } },
-	{ MODKEY,                       XK_k,          focusstack,             {.i = -1 } },
 	#endif // STACKER_PATCH
 	#if FOCUSDIR_PATCH
 	{ MODKEY,                       XK_Left,       focusdir,               {.i = 0 } }, // left
@@ -959,22 +956,22 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_o,          setcfact,               {0} },
 	#endif // CFACTS_PATCH
 	#if ASPECTRESIZE_PATCH
-	{ MODKEY|ControlMask|ShiftMask, XK_e,          aspectresize,           {.i = +24} },
-	{ MODKEY|ControlMask|ShiftMask, XK_r,          aspectresize,           {.i = -24} },
+	{ MODKEY|ShiftMask, 			XK_Right,      aspectresize,           {.i = +24} },
+	{ MODKEY|ShiftMask,				XK_Left,       aspectresize,           {.i = -24} },
 	#endif // ASPECTRESIZE_PATCH
 	#if MOVERESIZE_PATCH
-	{ MODKEY|Mod4Mask,              XK_Down,       moveresize,             {.v = "0x 25y 0w 0h" } },
-	{ MODKEY|Mod4Mask,              XK_Up,         moveresize,             {.v = "0x -25y 0w 0h" } },
-	{ MODKEY|Mod4Mask,              XK_Right,      moveresize,             {.v = "25x 0y 0w 0h" } },
-	{ MODKEY|Mod4Mask,              XK_Left,       moveresize,             {.v = "-25x 0y 0w 0h" } },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_Down,       moveresize,             {.v = "0x 0y 0w 25h" } },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_Up,         moveresize,             {.v = "0x 0y 0w -25h" } },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_Right,      moveresize,             {.v = "0x 0y 25w 0h" } },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_Left,       moveresize,             {.v = "0x 0y -25w 0h" } },
+	{ MODKEY|ControlMask,           XK_Down,       moveresize,             {.v = "0x 25y 0w 0h" } },
+	{ MODKEY|ControlMask,           XK_Up,         moveresize,             {.v = "0x -25y 0w 0h" } },
+	{ MODKEY|ControlMask,           XK_Right,      moveresize,             {.v = "25x 0y 0w 0h" } },
+	{ MODKEY|ControlMask,           XK_Left,       moveresize,             {.v = "-25x 0y 0w 0h" } },
+	{ MODKEY|ControlMask|ShiftMask,	XK_Down,       moveresize,             {.v = "0x 0y 0w 25h" } },
+	{ MODKEY|ControlMask|ShiftMask,	XK_Up,         moveresize,             {.v = "0x 0y 0w -25h" } },
+	{ MODKEY|ControlMask|ShiftMask,	XK_Right,      moveresize,             {.v = "0x 0y 25w 0h" } },
+	{ MODKEY|ControlMask|ShiftMask, XK_Left,       moveresize,             {.v = "0x 0y -25w 0h" } },
 	#endif // MOVERESIZE_PATCH
 	#if MOVESTACK_PATCH
-	{ MODKEY|ShiftMask,             XK_j,          movestack,              {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_k,          movestack,              {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_n,          movestack,              {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_t,          movestack,              {.i = -1 } },
 	#endif // MOVESTACK_PATCH
 	#if TRANSFER_PATCH
 	{ MODKEY,                       XK_x,          transfer,               {0} },

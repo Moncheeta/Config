@@ -7,10 +7,7 @@ hc() {
 hc emit_hook reload
 
 # autostart
-xrdb $CONFIG_DIR/Custom/apps/.Xresources
-urxvtd --quiet --opendisplay --fork
-himalaya notify &
-feh --bg-scale $WALLPAPER
+source $CONFIG_DIR/Custom/wm/xorg/autostart.sh
 
 ## polybar
 killall -q polybar

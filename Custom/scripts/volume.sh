@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CURRENT="$(pamixer --get-volume)"
 STEPS="5"

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-xrdb $CONFIG_DIR/Custom/wm/xorg/resources
+xrdb $CONFIG_DIR/Custom/wm/xorg/Xresources
 urxvtd --quiet --opendisplay --fork
 himalaya notify &
 slstatus &

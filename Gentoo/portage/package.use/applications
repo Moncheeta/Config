@@ -1,12 +1,35 @@
-x11-terms/rxvt-unicode 24-bit-color 256-color perl unicode3 xft font-styles 
+# required by www-client/qutebrowser-2.5.2-r1::gentoo
+# required by qutebrowser (argument)
+>=dev-qt/qtcore-5.15.7 icu
+# required by dev-python/PyQtWebEngine-5.15.6::gentoo
+# required by www-client/qutebrowser-2.5.2-r1::gentoo[python_single_target_python3_10]
+# required by qutebrowser (argument)
+>=dev-python/PyQt5-5.15.7 printsupport gui network declarative opengl sql multimedia widgets webchannel
+# required by dev-python/PyQtWebEngine-5.15.6::gentoo
+# required by www-client/qutebrowser-2.5.2-r1::gentoo[python_single_target_python3_10]
+# required by qutebrowser (argument)
+>=dev-qt/qtwebengine-5.15.7_p20221122 widgets
+# required by dev-qt/qtwebengine-5.15.7_p20221122::gentoo
+# required by dev-python/PyQtWebEngine-5.15.6::gentoo
+# required by www-client/qutebrowser-2.5.2-r1::gentoo[python_single_target_python3_10]
+# required by qutebrowser (argument)
+>=dev-libs/libxml2-2.10.3-r1 icu
+# required by dev-qt/qtwebengine-5.15.7_p20221122::gentoo
+# required by dev-python/PyQtWebEngine-5.15.6::gentoo
+# required by www-client/qutebrowser-2.5.2-r1::gentoo[python_single_target_python3_10]
+# required by qutebrowser (argument)
+>=dev-qt/qtwebchannel-5.15.7 qml
+# required by dev-qt/qtwebengine-5.15.7_p20221122::gentoo
+# required by dev-python/PyQtWebEngine-5.15.6::gentoo
+# required by www-client/qutebrowser-2.5.2-r1::gentoo[python_single_target_python3_10]
+# required by qutebrowser (argument)
+>=sys-libs/zlib-1.2.13-r1 minizip
+# required by dev-python/PyQt5-5.15.7::gentoo[multimedia]
+# required by dev-python/PyQtWebEngine-5.15.6::gentoo
+# required by www-client/qutebrowser-2.5.2-r1::gentoo[python_single_target_python3_10]
+# required by qutebrowser (argument)
+>=dev-qt/qtmultimedia-5.15.7 widgets
+x11-terms/rxvt-unicode 24-bit-color 256-color perl unicode3 xft font-styles
 x11-misc/polybar ipc network
-# required by www-client/firefox-108.0.1::gentoo[system-libvpx]
-# required by firefox (argument)
->=media-libs/libvpx-1.12.0-r1 postproc
-# required by gnome-base/gnome-keyring-42.1-r1::gentoo
-# required by virtual/secret-service-0::gentoo
-# required by app-crypt/libsecret-0.20.5-r3::gentoo
-# required by games-action/minecraft-launcher-1.0.1221::gentoo
-# required by minecraft-launcher (argument)
->=app-crypt/gcr-3.41.1-r1:0 gtk
+media-gfx/sxiv gif webp
 net-misc/ddgr python_targets_python3_8

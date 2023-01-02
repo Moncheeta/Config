@@ -1,0 +1,56 @@
+path+=("$HOME/.cargo/bin") # rust Programs
+path+=("$HOME/.local/bin") # other + python Programs
+
+# aliases
+alias ls="exa -a"
+alias l="exa -al --git --no-time"
+alias cp="cp -v"
+alias mv="mv -v"
+alias rm="trash -vf"
+alias bat="bat -n"
+alias find="fzf"
+alias cls="clear; PF_INFO='ascii title os kernel memory pkgs' pfetch"
+alias pause="read -n1 -r -p 'Press any key to continue...'"
+alias reboot="doas reboot"
+alias shut="doas poweroff"
+
+alias ss="gh screensaver -s starfield"
+alias clock="peaclock --config='$HOME/Config/Custom/terminal/peaclock.conf'"
+alias mat="cmatrix"
+alias mail="himalaya"
+alias wttr="curl wttr.in"
+alias mark="glow"
+alias present="lookatme"
+alias iv="sxiv"
+
+alias repo="gh repo"
+alias add="git add"
+alias commit="git commit"
+alias push="git push"
+alias rebase="git rebase"
+alias merge="git merge"
+alias status="git status"
+alias notis="gh notify -arpw"
+alias dash="gh status"
+alias issue="gh issue"
+alias pr="gh pr"
+alias release="gh release"
+
+alias e="doas emerge --verbose --ask"
+alias emerge="doas emerge --jobs=6 --load-average=6 --ask"
+alias update="emerge --sync; doas emerge --jobs=6 --load-average=6 --ask --update --newuse --deep @world"
+alias cleanup="doas emerge --deep --depclean; doas eclean -d distfiles"
+
+alias conn="doas connmanctl"
+
+# env variables
+export TERMINAL="urxvtc"
+export BROWSER="firefox"
+export EDITOR="nvim"
+export WALLPAPER="$CONFIG_DIR/Wallpapers/Gentoo/purple_logo.png"
+export RXVT_SOCKET="/tmp/urxvt-socket"
+
+# init
+eval "$(zoxide init zsh)"
+PF_INFO='ascii title os kernel memory pkgs' pfetch
+export PS1="%F{13}%n %F{10}%~ %F{normal}➜ "

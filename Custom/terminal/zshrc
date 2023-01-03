@@ -4,6 +4,7 @@ path+=("$HOME/.local/bin") # other + python Programs
 # aliases
 alias ls="exa -a"
 alias l="exa -al --git --no-time"
+alias ..="cd .."
 alias cp="cp -v"
 alias mv="mv -v"
 alias rm="trash -vf"
@@ -44,10 +45,14 @@ alias cleanup="doas emerge --deep --depclean; doas eclean -d distfiles"
 alias conn="doas connmanctl"
 
 # env variables
+export CONFIG_DIR="$HOME/Config"
+export SCRIPTS="$CONFIG_DIR/Custom/scripts"
+export WALLPAPER="$CONFIG_DIR/Wallpapers/Gentoo/purple_logo.png"
+
 export TERMINAL="urxvtc"
 export BROWSER="firefox"
 export EDITOR="nvim"
-export WALLPAPER="$CONFIG_DIR/Wallpapers/Gentoo/purple_logo.png"
+
 export RXVT_SOCKET="/tmp/urxvt-socket"
 
 # init

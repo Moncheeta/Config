@@ -196,7 +196,7 @@ static const char *dmenucmd[] = {
 	NULL
 };
 static const char *termcmd[]  = { "urxvtc", NULL };
-static const char *webcmd[] = { "firefox", NULL };
+static const char *webcmd[] = { "qutebrowser", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key            function                argument */

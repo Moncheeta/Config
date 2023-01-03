@@ -98,6 +98,7 @@ export EDITOR="nvim"
 export RXVT_SOCKET="/tmp/urxvt-socket"
 
 # init
+path+=("$CONFIG_DIR/Custom/scripts")
 eval "$(zoxide init zsh)"
 PF_INFO='ascii title os kernel memory pkgs' pfetch
 export PS1="%F{13}%n %F{10}%~ %F{normal}➜ "

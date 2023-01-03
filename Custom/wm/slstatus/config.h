@@ -68,8 +68,7 @@ static const struct arg args[] = {
 	{ wifi_essid,  "wifi=%s | ", "wlp8s0" },
 	{ cpu_perc,	   "cpu=%s%% | ",NULL },
 	{ ram_used,    "mem=%s | ",  NULL },
-	{ run_command, "vol=%s | ",   "$SCRIPTS/volume.sh get human"},
-	/* { vol_perc,    "vol=%s%% | ","/dev/mixer" }, */
+	{ run_command, "vol=%s | ",  "volume get human"},
 	/* { battery_perc,"bat=%s",	 "BAT0" } */
 	{ datetime,	   "%s",         "%a, %b %d | %H:%M:%S" },
 };

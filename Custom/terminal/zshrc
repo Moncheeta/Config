@@ -88,7 +88,6 @@ SAVEHIST=10000
 
 # env variables
 export CONFIG_DIR="$HOME/Config"
-export SCRIPTS="$CONFIG_DIR/Custom/scripts"
 export WALLPAPER="$CONFIG_DIR/Wallpapers/Gentoo/purple_logo.png"
 
 export TERMINAL="urxvtc"
@@ -96,6 +95,8 @@ export BROWSER="qutebrowser"
 export EDITOR="nvim"
 
 export RXVT_SOCKET="/tmp/urxvt-socket"
+
+alias dwm="sx dwm"
 
 # init
 path+=("$CONFIG_DIR/Custom/scripts")

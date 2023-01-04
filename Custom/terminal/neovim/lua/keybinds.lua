@@ -12,11 +12,11 @@ a.nvim_set_keymap("n", "<f3>", ":lua vim.lsp.buf.rename()<cr>", { silent = true 
 a.nvim_set_keymap("n", "<f4>", ":lua vim.lsp.buf.code_action()<cr>", { silent = true })
 
 a.nvim_set_keymap("n", "<f5>", ":Telescope find_files<cr>", { silent = true })
-a.nvim_set_keymap("n", "<f6>", ":Telescope live_grep<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f6>", ":Telescope lsp_workspace_symbols<cr>", { silent = true })
 a.nvim_set_keymap("n", "<f7>", ":Telescope git_commits<cr>", { silent = true })
 a.nvim_set_keymap("n", "<f8>", ":Telescope git_status<cr>", { silent = true })
 
-a.nvim_set_keymap("n", "<f9>", ":GrammarousCheck<cr>", { silent = true })
--- a.nvim_set_keymap("n", "<f10>", "<cr>", { silent = true })
--- a.nvim_set_keymap("n", "<f11>", "<cr>", { silent = true })
-a.nvim_set_keymap("n", "<f12>", ":Goyo<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f9>", ":Goyo<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f10>", ":GrammarousCheck<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f11>", ":Telescope spell_suggest<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f12>", ":Telescope diagnostics<cr>", { silent = true })

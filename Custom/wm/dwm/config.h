@@ -26,7 +26,7 @@ static char normbgcolor[]                = "#0e1019";
 static char normbordercolor[]            = "#444444";
 static char normfloatcolor[]             = "#444444";
 
-static char selfgcolor[]                 = "#0e1019";
+static char selfgcolor[]                 = "#fffaf4";
 static char selbgcolor[]                 = "#6d43a6";
 static char selbordercolor[]             = "#6d43a6";
 static char selfloatcolor[]              = "#6d43a6";
@@ -46,7 +46,7 @@ static char tagsnormbgcolor[]            = "#0e1019";
 static char tagsnormbordercolor[]        = "#0e1019";
 static char tagsnormfloatcolor[]         = "#0e1019";
 
-static char tagsselfgcolor[]             = "#0e1019";
+static char tagsselfgcolor[]             = "#fffaf4";
 static char tagsselbgcolor[]             = "#6d43a6";
 static char tagsselbordercolor[]         = "#0e1019";
 static char tagsselfloatcolor[]          = "#0e1019";

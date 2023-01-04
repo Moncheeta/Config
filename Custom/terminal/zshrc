@@ -96,7 +96,11 @@ export TERMINAL="urxvtc"
 export BROWSER="qutebrowser"
 export EDITOR="nvim"
 
+# to fix urxvt
 export RXVT_SOCKET="/tmp/urxvt-socket"
+
+# to fix programs that use gpg
+export GPG_TTY=$(tty)
 
 alias dwm="sx dwm"
 

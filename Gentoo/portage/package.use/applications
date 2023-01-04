@@ -1,3 +1,112 @@
+x11-terms/rxvt-unicode 24-bit-color 256-color perl unicode3 xft font-styles
+media-gfx/sxiv gif webp
+net-libs/webkit-gtk X
+dev-qt/qtgui X
+dev-qt/qtwidgets X
+media-video/ffmpeg X
+media-video/mpv X
+app-text/ghostscript-gpl X
+# required by net-libs/webkit-gtk-2.38.3::gentoo
+# required by www-client/surf-2.1-r2::gentoo
+# required by www-client/surf (argument)
+>=media-libs/harfbuzz-6.0.0 icu
+# required by dev-lang/ruby-3.1.3::gentoo
+# required by virtual/rubygems-17::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-2.7.7::gentoo
+# required by virtual/ruby-ssl-12::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/racc-1.6.2::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/rdoc-6.4.0::gentoo[ruby_targets_ruby27]
+>=dev-ruby/minitest-5.17.0 ruby_targets_ruby31
+# required by dev-lang/ruby-3.1.3::gentoo
+# required by virtual/rubygems-17::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-2.7.7::gentoo
+# required by virtual/ruby-ssl-12::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/racc-1.6.2::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/rdoc-6.4.0::gentoo[ruby_targets_ruby27]
+>=dev-ruby/power_assert-2.0.3 ruby_targets_ruby31
+# required by dev-lang/ruby-3.1.3::gentoo
+# required by virtual/rubygems-17::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-2.7.7::gentoo
+# required by virtual/ruby-ssl-12::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/racc-1.6.2::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/rdoc-6.4.0::gentoo[ruby_targets_ruby27]
+>=dev-ruby/rake-13.0.6-r1 ruby_targets_ruby31
+# required by dev-lang/ruby-3.1.3::gentoo
+# required by virtual/rubygems-17::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-2.7.7::gentoo
+# required by virtual/ruby-ssl-12::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/racc-1.6.2::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/rdoc-6.4.0::gentoo[ruby_targets_ruby27]
+>=dev-ruby/rbs-2.8.2 ruby_targets_ruby31
+# required by dev-lang/ruby-3.1.3::gentoo
+# required by virtual/rubygems-17::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-2.7.7::gentoo
+# required by virtual/ruby-ssl-12::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/racc-1.6.2::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/rdoc-6.4.0::gentoo[ruby_targets_ruby27]
+>=dev-ruby/rexml-3.2.5-r1 ruby_targets_ruby31
+# required by dev-lang/ruby-3.1.3::gentoo
+# required by virtual/rubygems-17::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-2.7.7::gentoo
+# required by virtual/ruby-ssl-12::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/racc-1.6.2::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/rdoc-6.4.0::gentoo[ruby_targets_ruby27]
+>=dev-ruby/rss-0.2.9-r1 ruby_targets_ruby31
+# required by dev-lang/ruby-3.1.3::gentoo
+# required by virtual/rubygems-17::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-2.7.7::gentoo
+# required by virtual/ruby-ssl-12::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/racc-1.6.2::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/rdoc-6.4.0::gentoo[ruby_targets_ruby27]
+>=dev-ruby/test-unit-3.5.7 ruby_targets_ruby31
+# required by dev-lang/ruby-3.1.3::gentoo
+# required by virtual/rubygems-17::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-2.7.7::gentoo
+# required by virtual/ruby-ssl-12::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/racc-1.6.2::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/rdoc-6.4.0::gentoo[ruby_targets_ruby27]
+>=dev-ruby/typeprof-0.21.3 ruby_targets_ruby31
+# required by dev-lang/ruby-3.1.3::gentoo
+# required by virtual/rubygems-17::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-2.7.7::gentoo
+# required by virtual/ruby-ssl-12::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/racc-1.6.2::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/rdoc-6.4.0::gentoo[ruby_targets_ruby27]
+>=dev-ruby/bundler-2.4.1 ruby_targets_ruby31
+# required by dev-lang/ruby-3.1.3::gentoo
+# required by virtual/rubygems-17::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-2.7.7::gentoo
+# required by virtual/ruby-ssl-12::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/racc-1.6.2::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/rdoc-6.4.0::gentoo[ruby_targets_ruby27]
+>=dev-ruby/did_you_mean-1.6.3 ruby_targets_ruby31
+# required by dev-lang/ruby-3.1.3::gentoo
+# required by virtual/rubygems-17::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-2.7.7::gentoo
+# required by virtual/ruby-ssl-12::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/racc-1.6.2::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/rdoc-6.4.0::gentoo[ruby_targets_ruby27]
+>=dev-ruby/json-2.6.3 ruby_targets_ruby31
+# required by dev-lang/ruby-3.1.3::gentoo[rdoc]
+# required by virtual/rubygems-17::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-2.7.7::gentoo
+# required by virtual/ruby-ssl-12::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/racc-1.6.2::gentoo[ruby_targets_ruby27]
+>=dev-ruby/rdoc-6.4.0 ruby_targets_ruby31
+# required by dev-ruby/rss-0.2.9-r1::gentoo[ruby_targets_ruby31,-test]
+# required by dev-lang/ruby-3.1.3::gentoo
+# required by dev-ruby/rbs-2.8.2::gentoo[ruby_targets_ruby31]
+# required by dev-ruby/typeprof-0.21.3::gentoo[ruby_targets_ruby27]
+>=virtual/rubygems-17 ruby_targets_ruby31
+# required by virtual/rubygems-17::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-2.7.7::gentoo
+# required by virtual/ruby-ssl-12::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/racc-1.6.2::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/rdoc-6.4.0::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-3.1.3::gentoo[rdoc]
+# required by dev-ruby/rbs-2.8.2::gentoo[ruby_targets_ruby31]
+# required by dev-ruby/typeprof-0.21.3::gentoo[ruby_targets_ruby27]
+>=dev-ruby/rubygems-3.4.1 ruby_targets_ruby31
 # required by www-client/qutebrowser-2.5.2-r1::gentoo
 # required by qutebrowser (argument)
 >=dev-qt/qtcore-5.15.7 icu
@@ -29,7 +138,37 @@
 # required by www-client/qutebrowser-2.5.2-r1::gentoo[python_single_target_python3_10]
 # required by qutebrowser (argument)
 >=dev-qt/qtmultimedia-5.15.7 widgets
-x11-terms/rxvt-unicode 24-bit-color 256-color perl unicode3 xft font-styles
-x11-misc/polybar ipc network
-media-gfx/sxiv gif webp
-net-misc/ddgr python_targets_python3_8
+# required by dev-ruby/rdoc-6.4.0::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-3.1.3::gentoo[rdoc]
+# required by virtual/ruby-ssl-12::gentoo[ruby_targets_ruby31]
+# required by dev-ruby/racc-1.6.2::gentoo
+>=dev-ruby/psych-5.0.1 ruby_targets_ruby31
+# required by dev-ruby/rdoc-6.4.0::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-3.1.3::gentoo[rdoc]
+# required by virtual/ruby-ssl-12::gentoo[ruby_targets_ruby31]
+# required by dev-ruby/racc-1.6.2::gentoo
+>=dev-ruby/kpeg-1.3.2 ruby_targets_ruby31
+# required by dev-ruby/rdoc-6.4.0::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-3.1.3::gentoo[rdoc]
+# required by virtual/ruby-ssl-12::gentoo[ruby_targets_ruby31]
+# required by dev-ruby/rubygems-3.4.1::gentoo
+# required by virtual/rubygems-17::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-2.7.7::gentoo
+# required by dev-ruby/rbs-2.8.2::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/typeprof-0.21.3::gentoo[ruby_targets_ruby27]
+>=dev-ruby/racc-1.6.2 ruby_targets_ruby31
+# required by dev-ruby/psych-5.0.1::gentoo[ruby_targets_ruby31]
+# required by dev-ruby/rdoc-6.4.0::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-3.1.3::gentoo[rdoc]
+# required by virtual/ruby-ssl-12::gentoo[ruby_targets_ruby31]
+# required by dev-ruby/racc-1.6.2::gentoo
+>=dev-ruby/stringio-3.0.4 ruby_targets_ruby31
+# required by dev-ruby/rubygems-3.4.1::gentoo[ruby_targets_ruby31]
+# required by virtual/rubygems-17::gentoo[ruby_targets_ruby31]
+# required by dev-lang/ruby-2.7.7::gentoo
+# required by dev-ruby/rbs-2.8.2::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/typeprof-0.21.3::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-3.1.3::gentoo
+# required by dev-ruby/rexml-3.2.5-r1::gentoo[ruby_targets_ruby31]
+# required by dev-ruby/rss-0.2.9-r1::gentoo[ruby_targets_ruby27]
+>=virtual/ruby-ssl-12 ruby_targets_ruby31

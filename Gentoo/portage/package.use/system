@@ -1,5 +1,14 @@
 */* CPU_FLAGS_X86: aes avx avx2 f16c fma3 mmx mmxext pclmul popcnt rdrand sse sse2 sse3 sse4_1 sse4_2 ssse3
 sys-apps/openrc -netifrc -ncurses
 net-misc/connman wifi
->=sys-auth/pambase-20220214 elogind
 >=sys-boot/grub-2.06-r4 mount
+x11-drivers/nvidia-drivers X
+x11-libs/pango X
+media-libs/mesa X
+x11-apps/mesa-progs X
+media-libs/freetype X
+media-fonts/urw-fonts X
+# required by net-misc/connman-1.42_pre20221103::gentoo[wifi]
+# required by @selected
+# required by @world (argument)
+>=net-wireless/wpa_supplicant-2.10-r1 dbus

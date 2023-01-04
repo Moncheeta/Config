@@ -24,6 +24,7 @@ alias mark="glow"
 alias present="lookatme"
 alias iv="sxiv"
 alias wat="mpv"
+alias fm="rover"
 
 alias repo="gh repo"
 alias add="git add"

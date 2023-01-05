@@ -1,4 +1,3 @@
-path+=("$HOME/.cargo/bin") # rust Programs
 path+=("$HOME/.local/bin") # other + python Programs
 
 # aliases
@@ -85,8 +84,6 @@ autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
-HISTFILE=$HOME/.zsh_history
-SAVEHIST=10000
 
 # env variables
 export CONFIG_DIR="$HOME/Config"
@@ -101,6 +98,16 @@ export RXVT_SOCKET="/tmp/urxvt-socket"
 
 # to fix programs that use gpg
 export GPG_TTY=$(tty)
+
+# garbage
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+HISTFILE=$ZDOTDIR/.zsh_history
+SAVEHIST=10000
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+export LESSHISTFILE="-"
 
 alias dwm="sx dwm"
 

@@ -6,34 +6,33 @@ plug "echasnovski/mini.nvim"
 plug "sheerun/vim-polyglot"
 
 -- LSP
-plug "neovim/nvim-lspconfig"
-plug "nvim-treesitter/nvim-treesitter"
-plug "nvim-treesitter/nvim-treesitter-context"
-plug "gcmt/wildfire.vim"
-plug "Shougo/deoplete.nvim"
-plug "deoplete-plugins/deoplete-lsp"
-plug "mhartington/formatter.nvim"
-plug "rhysd/vim-grammarous"
+plug("neovim/nvim-lspconfig")
+plug("nvim-treesitter/nvim-treesitter")
+plug("nvim-treesitter/nvim-treesitter-context")
+plug("gcmt/wildfire.vim")
+plug("Shougo/deoplete.nvim")
+plug("deoplete-plugins/deoplete-lsp")
+plug("mhartington/formatter.nvim")
 
 -- UI
-plug "sainnhe/sonokai"
-plug "junegunn/goyo.vim"
-plug "nvim-lualine/lualine.nvim"
-plug "lewis6991/gitsigns.nvim"
-plug "norcalli/nvim-colorizer.lua"
-plug "folke/todo-comments.nvim"
+plug("sainnhe/sonokai")
+plug("junegunn/goyo.vim")
+plug("nvim-lualine/lualine.nvim")
+plug("lewis6991/gitsigns.nvim")
+plug("norcalli/nvim-colorizer.lua")
+plug("folke/todo-comments.nvim")
 
 -- Telescope
-plug "nvim-lua/plenary.nvim"
-plug "nvim-telescope/telescope.nvim"
-plug "nvim-telescope/telescope-fzf-native.nvim"
-plug "nvim-telescope/telescope-ui-select.nvim"
-plug "nvim-telescope/telescope-file-browser.nvim"
+plug("nvim-lua/plenary.nvim")
+plug("nvim-telescope/telescope.nvim")
+plug("nvim-telescope/telescope-fzy-native.nvim")
+plug("nvim-telescope/telescope-ui-select.nvim")
+plug("nvim-telescope/telescope-file-browser.nvim")
 
 -- Other
-plug "wakatime/vim-wakatime"
-plug "t9md/vim-choosewin"
-plug "benizi/vim-automkdir"
+plug("wakatime/vim-wakatime")
+plug("benizi/vim-automkdir")
+plug("rhysd/vim-grammarous")
 
 vim.call("plug#end")
 
@@ -47,8 +46,7 @@ require("mini.starter").setup() -- a menu screen
 require("mini.comment").setup() -- use gcc to toggle comment
 require('mini.jump2d').setup() -- use enter to jump
 require("mini.indentscope").setup() -- shows a line at the current indent
-require("mini.surround").setup() -- used to highlight certain objects
-require("mini.cursorword").setup() -- underlines current word
+require("mini.surround").setup() -- used to highlight matching symbols
 require('mini.trailspace').setup() -- gets rid of whitespace
 require("mini.pairs").setup() -- auto pairs
 
@@ -74,6 +72,7 @@ require("telescope").setup {
     }
   }
 }
+require('telescope').load_extension('fzy_native')
 require("telescope").load_extension("file_browser")
 require("telescope").load_extension("ui-select")
 

@@ -2,7 +2,7 @@
 
 xrdb $CONFIG_DIR/Custom/wm/xorg/Xresources
 urxvtd --quiet --opendisplay --fork
-clipmenud &
 slstatus &
-# dunst &
+dunst &
+himalaya notify &
 feh --bg-scale $WALLPAPER

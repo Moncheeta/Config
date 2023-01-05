@@ -1,4 +1,5 @@
 path+=("$HOME/.local/bin") # other + python Programs
+path+=("$HOME/.cargo/bin") # rust programs
 
 # aliases
 alias ls="exa -a"
@@ -17,7 +18,7 @@ alias shut="doas poweroff"
 alias ss="gh screensaver -s starfield"
 alias clock="peaclock --config='$HOME/Config/Custom/terminal/peaclock.conf'"
 alias mat="cmatrix"
-alias mail="aerc"
+alias mail="himalaya"
 alias wttr="curl wttr.in/60056"
 alias mark="glow"
 alias present="lookatme"

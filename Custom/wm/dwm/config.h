@@ -203,7 +203,6 @@ static const Key keys[] = {
 	{ MODKEY,						XK_p,		   spawn,                  {.v = dmenucmd } },
 	{ MODKEY,						XK_t,		   spawn,                  {.v = termcmd } },
 	{ MODKEY,						XK_w,		   spawn,				   {.v = webcmd } },
-	{ MODKEY,						XK_c,		   spawn,				   {.v = "clipmenu" } },
 	{ MODKEY,						XK_space,	   zoom,		    	   {0} },
 	{ MODKEY,                       XK_b,          togglebar,              {0} },
 	{ MODKEY,                       XK_Left,       focusdir,               {.i = 0 } }, // left

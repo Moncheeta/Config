@@ -1,0 +1,25 @@
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = moncheeta@duck.com
+	name = Moncheeta
+	signingkey = 39D75B79AEA31FDF
+[commit]
+	gpgsign = true
+[gpg]
+	format = openpgp
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+	light = false
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default

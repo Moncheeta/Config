@@ -94,9 +94,6 @@ export TERMINAL="urxvtc"
 export BROWSER="qutebrowser"
 export EDITOR="nvim"
 
-# to fix urxvt
-export RXVT_SOCKET="/tmp/urxvt-socket"
-
 # to fix programs that use gpg
 export GPG_TTY=$(tty)
 
@@ -111,6 +108,9 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export LESSHISTFILE="-"
 
 alias dwm="sx dwm"
+
+# to fix urxvt
+export RXVT_SOCKET="/tmp/urxvt-socket"
 
 # init
 path+=("$CONFIG_DIR/Custom/scripts")

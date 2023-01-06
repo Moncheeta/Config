@@ -11,7 +11,7 @@ export EDITOR="nvim"
 
 # aliases
 alias ls="exa -a"
-alias l="exa -al --git --no-time"
+alias ll="exa -al --git --no-time"
 alias ..="cd .."
 alias cp="cp -v"
 alias mv="mv -v"
@@ -22,6 +22,7 @@ alias cls="clear; PF_INFO='ascii title os kernel memory pkgs' pfetch"
 alias pause="read -n1 -r -p 'Press any key to continue...'"
 alias reboot="doas reboot"
 alias shut="doas poweroff"
+alias sudo="doas"
 eval $(thefuck --alias)
 
 alias ss="gh screensaver -s starfield"

@@ -10,6 +10,7 @@ imap-host = "imap.gmail.com"
 imap-port = 993
 imap-login = "monkey.damianek@gmail.com"
 imap-passwd-cmd = "pass show gmail"
+imap-notify-query = "not seen"
 
 sender = "smtp"
 smtp-host = "smtp.gmail.com"

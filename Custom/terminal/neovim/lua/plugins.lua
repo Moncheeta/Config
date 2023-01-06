@@ -25,7 +25,7 @@ plug("folke/todo-comments.nvim")
 -- Telescope
 plug("nvim-lua/plenary.nvim")
 plug("nvim-telescope/telescope.nvim")
-plug("nvim-telescope/telescope-fzy-native.nvim")
+plug("nvim-telescope/telescope-fzf-native.nvim", {["do"] = "make"})
 plug("nvim-telescope/telescope-ui-select.nvim")
 plug("nvim-telescope/telescope-file-browser.nvim")
 
@@ -69,10 +69,16 @@ require("telescope").setup {
     },
     ["ui-select"] = {
       require("telescope.themes").get_dropdown()
+    },
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case",
     }
   }
 }
-require('telescope').load_extension('fzy_native')
+require("telescope").load_extension("fzf")
 require("telescope").load_extension("file_browser")
 require("telescope").load_extension("ui-select")
 

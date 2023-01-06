@@ -1,6 +1,14 @@
 path+=("$HOME/.local/bin") # other + python Programs
 path+=("$HOME/.cargo/bin") # rust programs
 
+# env variables
+export CONFIG_DIR="$HOME/Config"
+export WALLPAPER="$CONFIG_DIR/Wallpapers/Gentoo/purple_logo.png"
+
+export TERMINAL="urxvtc"
+export BROWSER="qutebrowser"
+export EDITOR="nvim"
+
 # aliases
 alias ls="exa -a"
 alias l="exa -al --git --no-time"
@@ -14,17 +22,18 @@ alias cls="clear; PF_INFO='ascii title os kernel memory pkgs' pfetch"
 alias pause="read -n1 -r -p 'Press any key to continue...'"
 alias reboot="doas reboot"
 alias shut="doas poweroff"
+eval $(thefuck --alias)
 
 alias ss="gh screensaver -s starfield"
-alias clock="peaclock --config='$HOME/Config/Custom/terminal/peaclock.conf'"
-alias mat="cmatrix"
-alias mail="himalaya"
+alias clock="peaclock --config='$CONFIG_DIR/Custom/terminal/peaclock.conf'"
+alias mail="himalaya --config $CONFIG_DIR/Custom/terminal/himalaya.toml"
 alias wttr="curl wttr.in/60056"
 alias mark="glow"
 alias present="lookatme"
-alias iv="sxiv"
+alias iv="qutebrowser"
 alias wat="mpv"
 alias fm="rover"
+alias mat="$CONFIG_DIR/Custom/terminal/gomuks/gomuks"
 
 alias repo="gh repo"
 alias add="git add"
@@ -86,17 +95,6 @@ compinit
 zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
 
-# env variables
-export CONFIG_DIR="$HOME/Config"
-export WALLPAPER="$CONFIG_DIR/Wallpapers/Gentoo/purple_logo.png"
-
-export TERMINAL="urxvtc"
-export BROWSER="qutebrowser"
-export EDITOR="nvim"
-
-# to fix programs that use gpg
-export GPG_TTY=$(tty)
-
 # garbage
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -106,11 +104,10 @@ SAVEHIST=10000
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export LESSHISTFILE="-"
+export GPG_TTY=$(tty)
+export RXVT_SOCKET="/tmp/urxvt-socket"
 
 alias dwm="sx dwm"
-
-# to fix urxvt
-export RXVT_SOCKET="/tmp/urxvt-socket"
 
 # init
 path+=("$CONFIG_DIR/Custom/scripts")

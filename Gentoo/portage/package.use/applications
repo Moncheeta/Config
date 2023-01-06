@@ -1,17 +1,16 @@
 x11-terms/rxvt-unicode 256-color unicode3 xft font-styles
 
 # xorg
-net-libs/webkit-gtk X
-dev-qt/qtgui X
-dev-qt/qtwidgets X
 media-video/ffmpeg X
 media-video/mpv X
 
 # below for qutebrowser
->=dev-qt/qtcore-5.15.7 icu
->=dev-python/PyQt5-5.15.7 printsupport gui network declarative opengl sql multimedia widgets webchannel
->=dev-qt/qtwebengine-5.15.7_p20221122 widgets
->=dev-libs/libxml2-2.10.3-r1 icu
->=dev-qt/qtwebchannel-5.15.7 qml
->=sys-libs/zlib-1.2.13-r1 minizip
->=dev-qt/qtmultimedia-5.15.7 widgets
+dev-qt/qtgui X
+dev-qt/qtwidgets X
+dev-qt/qtcore icu
+dev-python/PyQt5 printsupport gui network declarative opengl sql multimedia widgets webchannel
+dev-qt/qtwebengine widgets
+dev-libs/libxml2 icu
+dev-qt/qtwebchannel qml
+sys-libs/zlib minizip
+dev-qt/qtmultimedia widgets

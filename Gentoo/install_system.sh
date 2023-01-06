@@ -33,10 +33,11 @@ eselect locale set $locale
 env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
 
 # System
-emerge sys-kernel/linux-firmware
-emerge sys-kernel/gentoo-kernel-bin # Just so that the system gets running
+emerge sys-kernel/linux-firmware emerge sys-kernel/gentoo-kernel-bin # Just so that the system gets running
 eselect kernel list
 eselect kernel set 1
+emerge sys-kernel/gentoo-sources
+# emerge x11-drivers/nvidia-drivers # if using a nvidia gpu
 cp $HOME/Config/Gentoo/rc.conf /etc/rc.conf
 cp $HOME/Config/Gentoo/conf.d/* /etc/conf.d
 emerge @module-rebuild
@@ -57,7 +58,7 @@ emerge net-misc/chrony
 rc-update add chronyd default
 
 # Other
-emerge sys-apps/mlocate
+emerge sys-apps/mlocate doas
 
 # Users
 echo "ROOT PASSWORD"

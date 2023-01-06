@@ -1,7 +1,7 @@
 # main system
 app-alternatives/sh dash
 sys-apps/openrc -netifrc -ncurses
->=sys-boot/grub-2.06-r4 mount
+>=sys-boot/grub mount
 
 # xorg
 sys-apps/dbus X
@@ -13,4 +13,4 @@ media-fonts/urw-fonts X
 
 # nvidia
 x11-drivers/nvidia-drivers X
->=x11-libs/gtk+-3.24.35 X
+x11-libs/gtk+ X

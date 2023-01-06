@@ -26,7 +26,7 @@ alias sudo="doas"
 eval $(thefuck --alias)
 
 alias ss="gh screensaver -s starfield"
-alias clock="peaclock --config='$CONFIG_DIR/Custom/terminal/peaclock.conf'"
+alias clock="tty-clock -SscC 7"
 alias mail="himalaya --config $CONFIG_DIR/Custom/terminal/himalaya.toml"
 alias wttr="curl wttr.in/60056"
 alias mark="glow"
@@ -34,7 +34,7 @@ alias present="lookatme"
 alias iv="qutebrowser"
 alias wat="mpv"
 alias fm="rover"
-alias mat="$CONFIG_DIR/Custom/terminal/gomuks/gomuks"
+alias mat="gomuks"
 
 alias repo="gh repo"
 alias add="git add"
@@ -53,8 +53,6 @@ alias e="doas emerge --verbose --ask"
 alias emerge="doas emerge --jobs=6 --load-average=6 --ask"
 alias update="emerge --sync; doas emerge --jobs=6 --load-average=6 --ask --update --newuse --deep @world"
 alias cleanup="doas emerge --deep --depclean; doas eclean -d distfiles"
-
-alias conn="doas connmanctl"
 
 # keybinds
 typeset -g -A key

@@ -12,22 +12,22 @@ STAGE3="https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/2023
 
 # Mount Root
 mount "/dev/disk/by-label/$ROOT_LABEL" /mnt/gentoo
-cp -r $HOME/Config /mnt/gentoo # Config Directory Expected to be in $HOME
+cp -r $HOME/config /mnt/gentoo
 cd /mnt/gentoo
 
 # Install Tarball
 wget $STAGE3
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
-# Install Portage Configurations
-cp -r $HOME/Config/Gentoo/portage/* /mnt/gentoo/etc/portage
+# Configure Portage
+echo "MAKEOPTS='-j6'" > /mnt/gentoo/etc/portage/make.conf # temp
 mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
 mkdir --parents /mnt/gentoo/etc/portage/repos.conf
 cp /mnt/gentoo/usr/share/portage/config/repos.conf /mnt/gentoo/etc/portage/repos.conf/gentoo.conf
 
 # Networking
 cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
-cp $HOME/wpa_supplicant.conf /mnt/gentoo/etc/wpa_supplicant/wpa_supplicant.conf
+cp $HOME/config/gentoo/system/wpa_supplicant.conf /mnt/gentoo/etc/wpa_supplicant/wpa_supplicant.conf
 
 # Mount System
 mount --types proc /proc /mnt/gentoo/proc

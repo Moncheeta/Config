@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-CONFIG_DIR="$HOME/Config"
+CONFIG_DIR="$HOME/config"
 
 # Programs
 doas emerge exa zsh dash xorg-server alsa-utils htop procs layman pass # system
@@ -12,31 +12,31 @@ doas layman -a robertgzr # shfmt
 doas layman -a ambasta # stylua
 doas emerge pfetch zoxide bash-language-server lua-language-server gomuks stylua
 cargo install himalaya
-cd $CONFIG_DIR/Custom/applications/dmenu && doas make install &&
-    \ cd ../../terminal/rover && doas make install &&
-    \ cd ../../wm/dwm && doas make install &&
+cd $CONFIG_DIR/xorg/wm/dmenu && doas make install &&
+    \ cd ../dwm && doas make install &&
     \ cd ../slstatus && doas make install &&
-    \ cd ../xorg/sx && doas make install && cd
-cd $CONFIG_DIR/Other/nerd-fonts && ./install.sh
+    \ cd ../../sx && doas make install &&
+    \ cd ../../terminal/rover && doas make install &&
+cd $CONFIG_DIR/other/nerd-fonts && ./install.sh
 
 # Configs
-cp $CONFIG_DIR/Other/asoundrc $HOME/.asoundrc
+cp $CONFIG_DIR/gentoo/system/asoundrc $HOME/.asoundrc
 
 mkdir $HOME/.config/qutebrowser
-cp -r $CONFIG_DIR/Custom/applications/qutebrowser/* $HOME/.config/qutebrowser
+cp -r $CONFIG_DIR/other/qutebrowser/* $HOME/.config/qutebrowser
 
 mkdir $HOME/.config/zsh
-echo "source $CONFIG_DIR/Custom/terminal/zshrc" > $HOME/.config/zsh/.zshrc
-doas cp $CONFIG_DIR/Custom/terminal/zshenv /etc/zsh/zshenv
+echo "source $CONFIG_DIR/terminal/zshrc" > $HOME/.config/zsh/.zshrc
+doas cp $CONFIG_DIR/terminal/zshenv /etc/zsh/zshenv
 
 mkdir $HOME/.config/htop
-cp $CONFIG_DIR/Custom/terminal/htoprc $HOME/.config/htop/htoprc
+cp $CONFIG_DIR/terminal/htoprc $HOME/.config/htop/htoprc
 
 mkdir $HOME/.config/nvim
-cp -r $CONFIG_DIR/Custom/terminal/neovim/* $HOME/.config/nvim
+cp -r $CONFIG_DIR/terminal/neovim/* $HOME/.config/nvim
 
 doas mkdir /etc/X11/xorg.conf.d
-doas cp -r $CONFIG_DIR/Custom/wm/xorg/xorg.conf.d/* /etc/X11/xorg.conf.d/
+doas cp -r $CONFIG_DIR/xorg/xorg.conf.d/* /etc/X11/xorg.conf.d/
 
 doas chsh -s /bin/zsh $USER
 

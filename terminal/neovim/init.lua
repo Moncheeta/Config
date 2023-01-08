@@ -46,6 +46,11 @@ o.relativenumber = true
 o.cursorline = true
 a.nvim_set_hl(0, "ColorLineNr", { ctermfg = White })
 
+g.automkdir_silent = 1
+
 require("plugins")
-require("lsp")
+require("interface")
+require("language")
+require("completion")
+
 require("keybinds")

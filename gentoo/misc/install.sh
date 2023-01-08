@@ -60,6 +60,7 @@ cp $CONFIG_DIR/terminal/zshenv /etc/zsh/zshenv
 mkdir /home/$USER/.config/htop
 cp $CONFIG_DIR/terminal/htoprc /home/$USER/.config/htop/htoprc
 
+git clone --depth 1 https://github.com/wbthomason/packer.nvim /home/$USER/.local/share/nvim/site/pack/packer/start/packer.nvim
 mkdir /home/$USER/.config/nvim
 cp -r $CONFIG_DIR/terminal/neovim/* /home/$USER/.config/nvim
 

@@ -1,3 +1,15 @@
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local servers = { "clangd", "rust_analyzer", "sumneko_lua", "bashls", "jedi_language_server" }
+for _, lsp in pairs(servers) do
+	require("lspconfig")[lsp].setup({
+		on_attach = on_attach,
+        capabilities = capabilities,
+		flags = {
+			debounce_text_changes = 150,
+		},
+	})
+end
+
 -- require("orgmode").setup_ts_grammar()
 require("nvim-treesitter.configs").setup({
 	highlight = {
@@ -12,17 +24,6 @@ require("treesitter-context").setup({ enable = true })
 --   org_agenda_files = { "~/Documents/Notes/*" },
 --   default_agenda_file = { "~/Documents/agenda.org" },
 -- })
-
--- Lang Server Conf
-local servers = { "clangd", "rust_analyzer", "sumneko_lua", "bashls", "jedi_language_server" }
-for _, lsp in pairs(servers) do
-	require("lspconfig")[lsp].setup({
-		on_attach = on_attach,
-		flags = {
-			debounce_text_changes = 150,
-		},
-	})
-end
 
 require("formatter").setup({
 	filetype = {

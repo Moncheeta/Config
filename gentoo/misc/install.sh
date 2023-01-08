@@ -25,7 +25,7 @@ echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Programs
-emerge exa zsh app-shells/dash xorg-server alsa-utils htop layman pass doas
+emerge exa zsh app-shells/dash xorg-server alsa-utils htop layman pass doas ufw
 \ fzf rxvt-unicode neovim rust clangd black github-cli mcfly
 \ mpv qutebrowser cmus tty-clock # system, dev, and applications
 layman -a guru # many programs(zoxide)
@@ -41,6 +41,9 @@ cd $CONFIG_DIR/xorg/wm/dmenu && make install &&
     \ cd ../../sx && make install &&
     \ cd ../../terminal/rover && make install &&
 cd $CONFIG_DIR/other/nerd-fonts && ./install.sh
+
+# Services
+rc-update add ufw default
 
 # Configs
 cp $CONFIG_DIR/gentoo/asoundrc /home/$USER/.asoundrc

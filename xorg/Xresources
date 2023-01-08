@@ -37,9 +37,8 @@
 
 !! urxvt Appearance
 urxvt.font: xft:JetBrainsMono Nerd Font Mono:bold:size=12
-urxvt.lineSpace: -1
 urxvt.internalBorder: 1
-urxvt.cursorBlink: true
+urxvt.cursorBlink: false
 urxvt.cursorUnderline: false
 urxvt.saveline: 10000
 urxvt.scrollBar: false

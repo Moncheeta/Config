@@ -1,1 +1,22 @@
+export CONFIG_DIR="$HOME/config"
+export TERMINAL="urxvtc"
+export BROWSER="qutebrowser"
+export EDITOR="nvim"
 export ZDOTDIR="$HOME/.config/zsh"
+
+# for some programs to work
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+HISTFILE=$ZDOTDIR/.zsh_history
+SAVEHIST=10000
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+export LESSHISTFILE="-"
+export GPG_TTY=$(tty)
+export RXVT_SOCKET="/tmp/urxvt-socket"
+
+# path
+path+=("$HOME/.local/bin") # other + python Programs
+path+=("$HOME/.cargo/bin") # rust programs
+path+=("$CONFIG_DIR/scripts")

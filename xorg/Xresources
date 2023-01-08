@@ -53,10 +53,6 @@ urxvt.keysym.C-A-Down: command:\033[1;5B
 urxvt.keysym.C-A-Right: command:\033[1;5C
 urxvt.keysym.C-A-Left: command:\033[1;5D
 
-!! Copy Paste & Other Extensions
-urxvt.perl-ext-common: default,keyboard-select
-urxvt.keysym.A-s: perl:keyboard-select:search
-
 !! Theme: im not gentoo
 !! urxvt*background:       #212629
 !! urxvt*foreground:       #737c80

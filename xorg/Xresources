@@ -36,7 +36,7 @@
 *.color15:     #ffffff
 
 !! urxvt Appearance
-urxvt.font: xft:JetBrainsMono Nerd Font Mono:bold:size=12
+urxvt.font: xft:JetBrainsMono Nerd Font Mono:bold:size=11
 urxvt.internalBorder: 1
 urxvt.cursorBlink: false
 urxvt.cursorUnderline: false

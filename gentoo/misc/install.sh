@@ -6,9 +6,9 @@ CONFIG_DIR="/home/$USER/config"
 KERNEL_CONFIG="$CONFIG_DIR/gentoo/desktop-linux-6.1.2.config" # MUST SET!!!
 
 # Portage
+cp -r $CONFIG_DIR/gentoo/portage/* /etc/portage
 emerge app-portage/cpuid2cpuflags
 echo "*/* $(cpuid2cpuflags)" > /etc/portage/package.use/cpu
-cp -r /home/$USER/config/gentoo/portage/* /etc/portage
 mirrorselect -4Dos 5 -c USA >> /etc/portage/make.conf
 echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf
 emerge --verbose --update --deep --newuse @world
@@ -17,15 +17,15 @@ emerge --verbose --update --deep --newuse @world
 eselect kernel set 1 # select gentoo-sources
 cp $KERNEL_CONFIG /usr/src/linux/.config
 cd /usr/src/linux &&
-\ doas make -j6 &&
-\ doas modules_install &&
-\ doas make install && cd
+\ make -j6 &&
+\ modules_install &&
+\ make install && cd
 emerge osprober
 echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Programs
-emerge exa zsh dash xorg-server alsa-utils htop layman pass doas
+emerge exa zsh app-shells/dash xorg-server alsa-utils htop layman pass doas
 \ fzf rxvt-unicode neovim rust clangd black github-cli mcfly
 \ mpv qutebrowser cmus tty-clock # system, dev, and applications
 layman -a guru # many programs(zoxide)

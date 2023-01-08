@@ -1,7 +1,7 @@
 # main system
 app-alternatives/sh dash
 sys-apps/openrc -netifrc -ncurses
->=sys-boot/grub mount
+sys-boot/grub mount
 
 # xorg
 sys-apps/dbus X

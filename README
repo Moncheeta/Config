@@ -6,7 +6,7 @@
  \____|\___|_| |_|\__\___/ \___/   \____\___/|_| |_|_| |_|\__, |___/
                                                           |___/
 
-This is my Linux Configuration. Feel free to dig through them and use some configurations if you wish.
+This is my Linux Configuration. Feel free to dig through them and use them if you wish.
 Terminal Programs:
 ZDOTDIR=~/.config/zsh <- to move all the zsh files
 Shell: zsh
@@ -14,11 +14,10 @@ Editor: neovim
 File Manager: rover
 
 Graphical Setup(xorg):
-NOTE: dwm has patches and one of them is to autostart ~/.dwm/autostart.sh.
-Window Manager: dwm + slstatus
+Window Manager: dwm(autostart patch) + slstatus
 Application Launcher: dmenu
 Terminal Emulator: urxvt (using urxvtd and urxvtc)
 Fonts: JetBrains Mono (Nerd Fonts)
 Browser: qutebrowser
 
-I'm not using wayland yet but will probably soon.
+I'm not using wayland yet but will probably soon. Hyprland looks cool!

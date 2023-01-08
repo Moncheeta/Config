@@ -28,7 +28,7 @@ o.clipboard = "unnamedplus"
 
 -- UI
 o.mouse = "a"
-o.guicursor="n-v-c:block"
+o.guicursor = "n-v-c:block"
 
 o.guifont = "JetBrainsMono Nerd Font:h12"
 
@@ -44,13 +44,7 @@ o.number = true
 o.relativenumber = true
 
 o.cursorline = true
-a.nvim_set_hl(0, "ColorLineNr", { ctermfg=White })
-
-a.nvim_create_augroup("files", { clear = true })
-a.nvim_create_autocmd("bufwritepre", {
-  group = "files",
-  command = "lua MiniTrailspace.trim()",
-})
+a.nvim_set_hl(0, "ColorLineNr", { ctermfg = White })
 
 require("plugins")
 require("lsp")

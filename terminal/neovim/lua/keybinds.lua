@@ -15,21 +15,7 @@ a.nvim_set_keymap("n", "<f6>", ":Telescope lsp_workspace_symbols<cr>", { silent 
 a.nvim_set_keymap("n", "<f7>", ":Telescope git_commits<cr>", { silent = true })
 a.nvim_set_keymap("n", "<f8>", ":Telescope git_status<cr>", { silent = true })
 
-a.nvim_set_keymap("n", "<f9>", ":Goyo<cr>", { silent = true })
-a.nvim_set_keymap("n", "<f10>", ":GrammarousCheck<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f9>", ":FormatWrite<cr>", { silent = true })
+a.nvim_set_keymap("n", "<f10>", ":Goyo<cr>", { silent = true })
 a.nvim_set_keymap("n", "<f11>", ":Telescope spell_suggest<cr>", { silent = true })
 a.nvim_set_keymap("n", "<f12>", ":Telescope diagnostics<cr>", { silent = true })
-
--- other
-vim.cmd[[
-let g:grammarous#hooks = {}
-function! g:grammarous#hooks.on_check(errs) abort
-    nmap <buffer><C-n> <Plug>(grammarous-move-to-next-error)
-    nmap <buffer><C-p> <Plug>(grammarous-move-to-previous-error)
-endfunction
-
-function! g:grammarous#hooks.on_reset(errs) abort
-    nunmap <buffer><C-n>
-    nunmap <buffer><C-p>
-endfunction
-]]

@@ -85,5 +85,5 @@ zstyle ':completion::complete:*' gain-privileges 1
 # init
 eval "$(zoxide init zsh)"
 eval "$(mcfly init zsh)"
-echo "\e[95m" && figlet "Gentoo"
+echo "\e[95m$(figlet Gentoo)"
 export PS1="%F{13}%n %F{10}%~ %F{normal}➜ "

@@ -8,16 +8,15 @@
 
 This is my Linux Configuration. Feel free to dig through them and use them if you wish.
 Terminal Programs:
-ZDOTDIR=~/.config/zsh <- to move all the zsh files
-Shell: zsh
+Shell: zsh(configs are at ~/.config/zsh)
 Editor: neovim
 File Manager: rover
+Email: Himalaya
+Matrix Client: gomuks
 
 Graphical Setup(xorg):
-Window Manager: dwm(autostart patch) + slstatus
+Window Manager: dwm(with patches) + slstatus
 Application Launcher: dmenu
-Terminal Emulator: urxvt (using urxvtd and urxvtc)
+Terminal Emulator: urxvt
 Fonts: JetBrains Mono (Nerd Fonts)
 Browser: qutebrowser
-
-I'm not using wayland yet but will probably soon. Hyprland looks cool!

@@ -12,19 +12,17 @@ echo "*/* $(cpuid2cpuflags)" > /etc/portage/package.use/cpu
 emerge --verbose --update --deep --newuse @world
 
 # Kernel
-eselect kernel set 1 # select gentoo-sources
-cp $KERNEL_CONFIG /usr/src/linux/.config
 emerge os-prober
 echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # Programs
 emerge exa zsh xorg-server alsa-utils htop layman pass doas ufw dhcpcd wpa_supplicant
-\ fzf rxvt-unicode neovim rust ccls github-cli mcfly
+\ fzf ripgrep rxvt-unicode neovim rust ccls github-cli mcfly
 \ mpv sxiv qutebrowser cmus tty-clock # system, dev programs, and programs
-layman -a guru # many programs(zoxide, glow, pfetch, tokei)
+layman -a guru # many programs(zoxide, glow, pfetch)
 layman -a jjakob # gomuks
-emerge pfetch zoxide gomuks glow tokei
+emerge pfetch zoxide gomuks glow
 cd $CONFIG_DIR/xorg/wm/dmenu && make install
 cd ../dwm && make install
 cd ../slstatus && make install

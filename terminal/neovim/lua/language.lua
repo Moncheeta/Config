@@ -10,20 +10,13 @@ for _, lsp in pairs(servers) do
 	})
 end
 
-require("orgmode").setup_ts_grammar()
 require("nvim-treesitter.configs").setup({
 	highlight = {
 		enable = true,
-		additional_vim_regex_highlighting = { "org" },
 	},
 	ensure_installed = "all",
 })
 require("treesitter-context").setup({ enable = true })
-
-require("orgmode").setup({
-  org_agenda_files = { "~/documents/notes/agenda/*" },
-  default_agenda_file = { "~/documents/notes/agenda/agenda.org" },
-})
 
 require("formatter").setup({
 	filetype = {

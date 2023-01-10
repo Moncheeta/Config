@@ -2,9 +2,7 @@ vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
-	-- Main
 	use("echasnovski/mini.nvim")
-	use("sainnhe/sonokai")
 	-- Programming
 	use("neovim/nvim-lspconfig")
 	use("nvim-treesitter/nvim-treesitter")
@@ -20,6 +18,7 @@ return require("packer").startup(function(use)
 	use("gcmt/wildfire.vim")
 	use("nvim-orgmode/orgmode")
 	-- UI
+    use("EdenEast/nightfox.nvim")
 	use("nvim-lualine/lualine.nvim")
 	use("lewis6991/gitsigns.nvim")
 	use("norcalli/nvim-colorizer.lua")

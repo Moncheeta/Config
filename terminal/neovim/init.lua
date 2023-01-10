@@ -33,6 +33,7 @@ o.guicursor = "n-v-c:block"
 o.guifont = "JetBrainsMono Nerd Font:h12"
 
 cmd("set scrolloff=999")
+cmd("set cmdheight=0")
 
 o.hidden = true
 o.showmode = false

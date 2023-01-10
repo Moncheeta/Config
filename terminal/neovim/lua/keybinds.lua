@@ -1,4 +1,5 @@
 -- keybindings
+-- TODO: Try to use leader key more
 vim.g.mapleader = " "
 vim.api.nvim_set_keymap("n", "<C-n>", ":noh<cr>", { silent = true })
 vim.api.nvim_set_keymap("n", "<C-space>", "<plug>(wildfire-fuel)", { silent = true })
@@ -13,7 +14,9 @@ vim.api.nvim_set_keymap("n", "<f6>", ":Telescope lsp_workspace_symbols<cr>", { s
 vim.api.nvim_set_keymap("n", "<f7>", ":Telescope git_commits<cr>", { silent = true })
 vim.api.nvim_set_keymap("n", "<f8>", ":Telescope git_status<cr>", { silent = true })
 
-vim.api.nvim_set_keymap("n", "<f9>", ":FormatWrite | :TableFormat<cr>", { silent = true })
+vim.api.nvim_set_keymap("n", "<f9>", ":TodoTelescope<cr>", { silent = true })
 vim.api.nvim_set_keymap("n", "<f10>", ":Goyo<cr>", { silent = true })
 vim.api.nvim_set_keymap("n", "<f11>", ":Telescope spell_suggest<cr>", { silent = true })
 vim.api.nvim_set_keymap("n", "<f12>", ":Telescope diagnostics<cr>", { silent = true })
+
+-- TODO: Write a mapping for vim-grammarous

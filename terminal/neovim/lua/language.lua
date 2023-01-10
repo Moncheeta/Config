@@ -1,5 +1,5 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local servers = { "clangd", "rust_analyzer", "sumneko_lua", "bashls", "jedi_language_server" }
+local servers = { "ccls", "rust_analyzer" }
 for _, lsp in pairs(servers) do
 	require("lspconfig")[lsp].setup({
 		on_attach = on_attach,
@@ -17,69 +17,6 @@ require("nvim-treesitter.configs").setup({
 	ensure_installed = "all",
 })
 require("treesitter-context").setup({ enable = true })
-
-require("formatter").setup({
-	filetype = {
-		rust = {
-			function()
-				return {
-					exe = "rustfmt",
-					args = { "--emit=stdout" },
-					stdin = true,
-				}
-			end,
-		},
-		sh = {
-			function()
-				return {
-					exe = "shfmt",
-					args = { "-i", 2 },
-					stdin = true,
-				}
-			end,
-		},
-		lua = {
-			function()
-				return {
-					exe = "stylua",
-					args = {
-						"-",
-					},
-					stdin = true,
-				}
-			end,
-		},
-		c = {
-			function()
-				return {
-					exe = "clang-format",
-					args = { "--assume-filename", vim.api.nvim_buf_get_name(0) },
-					stdin = true,
-					cwd = vim.fn.expand("%:p:h"),
-				}
-			end,
-		},
-		cpp = {
-			function()
-				return {
-					exe = "clang-format",
-					args = { "--assume-filename", vim.api.nvim_buf_get_name(0) },
-					stdin = true,
-					cwd = vim.fn.expand("%:p:h"),
-				}
-			end,
-		},
-		python = {
-			function()
-				return {
-					exe = "black",
-					args = { "-" },
-					stdin = true,
-				}
-			end,
-		},
-	},
-})
 
 vim.api.nvim_create_augroup("files", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {

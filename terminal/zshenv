@@ -6,6 +6,7 @@ export ZDOTDIR="$HOME/.config/zsh"
 
 # for some programs to work
 export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DOWNLOAD_DIR="$HOME/downloads"
 export XDG_DATA_HOME="$HOME/.local/share"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 HISTFILE=$ZDOTDIR/.zsh_history
